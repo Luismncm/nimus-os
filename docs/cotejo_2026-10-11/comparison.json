@@ -1,0 +1,6060 @@
+{
+  "summary": [
+    {
+      "account": "Cuenta bancaria NIMUS",
+      "sheet_income": 2057714,
+      "db_income": 1976514,
+      "income_difference": -81200,
+      "sheet_outflow": 25133698,
+      "db_outflow": 25133698,
+      "outflow_difference": 0,
+      "sheet_capital": 23300000,
+      "db_capital": 23300000,
+      "sheet_net": 224016,
+      "db_net": 142816,
+      "difference": -81200
+    },
+    {
+      "account": "Efectivo / caja",
+      "sheet_income": 4343400,
+      "db_income": 4176300,
+      "income_difference": -167100,
+      "sheet_outflow": 3798900,
+      "db_outflow": 4013900,
+      "outflow_difference": 215000,
+      "sheet_capital": 0,
+      "db_capital": 0,
+      "sheet_net": 544500,
+      "db_net": 162400,
+      "difference": -382100
+    },
+    {
+      "account": "Tarjeta / pasarela",
+      "sheet_income": 0,
+      "db_income": 0,
+      "income_difference": 0,
+      "sheet_outflow": 0,
+      "db_outflow": 0,
+      "outflow_difference": 0,
+      "sheet_capital": 0,
+      "db_capital": 0,
+      "sheet_net": 0,
+      "db_net": 0,
+      "difference": 0
+    }
+  ],
+  "expense_checks": [
+    {
+      "sheet": {
+        "row": 2,
+        "date": "2026-05-04",
+        "concept": "NOMINAS MARIO Y LUIS",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 1800000,
+        "category": "Nómina / honorarios",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 1,
+        "code": "GAS-0001",
+        "date": "2026-05-04",
+        "concept": "NOMINAS MARIO Y LUIS",
+        "amount": 1800000,
+        "paid": 1800000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-05-04"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 3,
+        "date": "2026-05-07",
+        "concept": "SERV BANCA INTERNET",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 45000,
+        "category": "Impuestos / comisiones",
+        "receipt": "Sin comprobante"
+      },
+      "database": {
+        "id": 2,
+        "code": "GAS-0002",
+        "date": "2026-05-07",
+        "concept": "SERV BANCA INTERNET",
+        "amount": 45000,
+        "paid": 45000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-05-07"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 4,
+        "date": "2026-05-07",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 7200,
+        "category": "Impuestos / comisiones",
+        "receipt": "Sin comprobante"
+      },
+      "database": {
+        "id": 3,
+        "code": "GAS-0003",
+        "date": "2026-05-07",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "amount": 7200,
+        "paid": 7200,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-05-07"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 5,
+        "date": "2026-05-12",
+        "concept": "FILAMENTO",
+        "supplier": "MEXICO MAKERS",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 222500,
+        "category": "Insumos / producción",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 4,
+        "code": "GAS-0004",
+        "date": "2026-05-12",
+        "concept": "FILAMENTO",
+        "amount": 222500,
+        "paid": 222500,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-05-12"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 7,
+        "date": "2026-06-05",
+        "concept": "SERV BANCA INTERNET",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 45000,
+        "category": "Impuestos / comisiones",
+        "receipt": "Sin comprobante"
+      },
+      "database": {
+        "id": 5,
+        "code": "GAS-0005",
+        "date": "2026-06-05",
+        "concept": "SERV BANCA INTERNET",
+        "amount": 45000,
+        "paid": 45000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-06-05"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 8,
+        "date": "2026-06-05",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 7200,
+        "category": "Impuestos / comisiones",
+        "receipt": "Sin comprobante"
+      },
+      "database": {
+        "id": 6,
+        "code": "GAS-0006",
+        "date": "2026-06-05",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "amount": 7200,
+        "paid": 7200,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-06-05"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 9,
+        "date": "2026-06-05",
+        "concept": "HONORARIOS MAYO",
+        "supplier": "DIGIMARK",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 2679600,
+        "category": "Nómina / honorarios",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 7,
+        "code": "GAS-0007",
+        "date": "2026-06-05",
+        "concept": "HONORARIOS MAYO",
+        "amount": 2679600,
+        "paid": 2679600,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-06-05"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 10,
+        "date": "2026-06-24",
+        "concept": "ADELANTO JUNIO MARIO",
+        "supplier": "DIGIMARK",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 429200,
+        "category": "Nómina / honorarios",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 8,
+        "code": "GAS-0008",
+        "date": "2026-06-24",
+        "concept": "ADELANTO JUNIO MARIO",
+        "amount": 429200,
+        "paid": 429200,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-06-24"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 11,
+        "date": "2026-06-24",
+        "concept": "STAND ACRILICO",
+        "supplier": "AMAZON",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 29800,
+        "category": "Insumos / producción",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 9,
+        "code": "GAS-0009",
+        "date": "2026-06-24",
+        "concept": "STAND ACRILICO",
+        "amount": 29800,
+        "paid": 29800,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-06-24"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 12,
+        "date": "2026-06-30",
+        "concept": "CONTABILIDAD ABRIL",
+        "supplier": "CONTADOR",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 278400,
+        "category": "Nómina / honorarios",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 10,
+        "code": "GAS-0010",
+        "date": "2026-06-30",
+        "concept": "CONTABILIDAD ABRIL",
+        "amount": 278400,
+        "paid": 278400,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-06-30"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 13,
+        "date": "2026-06-30",
+        "concept": "CONTABILIDAD MAYO",
+        "supplier": "CONTADOR",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 278400,
+        "category": "Nómina / honorarios",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 11,
+        "code": "GAS-0011",
+        "date": "2026-06-30",
+        "concept": "CONTABILIDAD MAYO",
+        "amount": 278400,
+        "paid": 278400,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-06-30"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 14,
+        "date": "2026-07-06",
+        "concept": "SERV BANCA INTERNET",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 45000,
+        "category": "Impuestos / comisiones",
+        "receipt": "Sin comprobante"
+      },
+      "database": {
+        "id": 12,
+        "code": "GAS-0012",
+        "date": "2026-07-06",
+        "concept": "SERV BANCA INTERNET",
+        "amount": 45000,
+        "paid": 45000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-06"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 15,
+        "date": "2026-07-06",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 7408,
+        "category": "Impuestos / comisiones",
+        "receipt": "Sin comprobante"
+      },
+      "database": {
+        "id": 13,
+        "code": "GAS-0013",
+        "date": "2026-07-06",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "amount": 7408,
+        "paid": 7408,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-06"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 16,
+        "date": "2026-07-06",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 1300,
+        "category": "Impuestos / comisiones",
+        "receipt": "Sin comprobante"
+      },
+      "database": {
+        "id": 14,
+        "code": "GAS-0014",
+        "date": "2026-07-06",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "amount": 1300,
+        "paid": 1300,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-06"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 17,
+        "date": "2026-07-06",
+        "concept": "CHIPS NFC",
+        "supplier": "AMAZON",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 59400,
+        "category": "Insumos / producción",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 15,
+        "code": "GAS-0015",
+        "date": "2026-07-06",
+        "concept": "CHIPS NFC",
+        "amount": 59400,
+        "paid": 59400,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-06"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 18,
+        "date": "2026-07-06",
+        "concept": "CANVA",
+        "supplier": "CANVA",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 15000,
+        "category": "Software / servicios digitales",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 16,
+        "code": "GAS-0016",
+        "date": "2026-07-06",
+        "concept": "CANVA",
+        "amount": 15000,
+        "paid": 15000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-06"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 19,
+        "date": "2026-07-07",
+        "concept": "INSTALACION AIRE",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 237800,
+        "category": "Nómina / honorarios",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 17,
+        "code": "GAS-0017",
+        "date": "2026-07-07",
+        "concept": "INSTALACION AIRE",
+        "amount": 237800,
+        "paid": 237800,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-07"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 20,
+        "date": "2026-07-07",
+        "concept": "MAYO",
+        "supplier": "DIGIMARK",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 1839760,
+        "category": "Nómina / honorarios",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 18,
+        "code": "GAS-0018",
+        "date": "2026-07-07",
+        "concept": "MAYO",
+        "amount": 1839760,
+        "paid": 1839760,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-07"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 21,
+        "date": "2026-07-08",
+        "concept": "INSUMOS PARA INSTALACION",
+        "supplier": "VAQUEIROS",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 48086,
+        "category": "Insumos / producción",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 19,
+        "code": "GAS-0019",
+        "date": "2026-07-08",
+        "concept": "INSUMOS PARA INSTALACION",
+        "amount": 48086,
+        "paid": 48086,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-08"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 22,
+        "date": "2026-07-09",
+        "concept": "MOUSE",
+        "supplier": "AMAZON",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 23427,
+        "category": "Equipo / mantenimiento",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 20,
+        "code": "GAS-0020",
+        "date": "2026-07-09",
+        "concept": "MOUSE",
+        "amount": 23427,
+        "paid": 23427,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-09"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 23,
+        "date": "2026-07-09",
+        "concept": "AMAZON BOOK",
+        "supplier": "AMAZON",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 25935,
+        "category": "Equipo / mantenimiento",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 21,
+        "code": "GAS-0021",
+        "date": "2026-07-09",
+        "concept": "AMAZON BOOK",
+        "amount": 25935,
+        "paid": 25935,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-09"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 24,
+        "date": "2026-07-09",
+        "concept": "SERVICIO SOFTWARE NIMUS LINK",
+        "supplier": "JOSE GONZALEZ",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 1181722,
+        "category": "Nómina / honorarios",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 22,
+        "code": "GAS-0022",
+        "date": "2026-07-09",
+        "concept": "SERVICIO SOFTWARE NIMUS LINK",
+        "amount": 1181722,
+        "paid": 1181722,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-09"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 25,
+        "date": "2026-07-09",
+        "concept": "DOMINIO NIMUS LINK",
+        "supplier": "SPACESHIP",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 45792,
+        "category": "Software / servicios digitales",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 23,
+        "code": "GAS-0023",
+        "date": "2026-07-09",
+        "concept": "DOMINIO NIMUS LINK",
+        "amount": 45792,
+        "paid": 45792,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-09"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 26,
+        "date": "2026-07-17",
+        "concept": "ARRENDAMIENTO",
+        "supplier": "NOTARIO",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 746000,
+        "category": "Nómina / honorarios",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 24,
+        "code": "GAS-0024",
+        "date": "2026-07-17",
+        "concept": "ARRENDAMIENTO",
+        "amount": 746000,
+        "paid": 746000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-17"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 27,
+        "date": "2026-07-20",
+        "concept": "CHATGPT PRO",
+        "supplier": "OPEN AI",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 39900,
+        "category": "Software / servicios digitales",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 25,
+        "code": "GAS-0025",
+        "date": "2026-07-20",
+        "concept": "CHATGPT PRO",
+        "amount": 39900,
+        "paid": 39900,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-20"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 28,
+        "date": "2026-07-22",
+        "concept": "PAUTAS INSTAGRAM",
+        "supplier": "META",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 120000,
+        "category": "Marketing / ventas",
+        "receipt": "Recibo / nota"
+      },
+      "database": {
+        "id": 26,
+        "code": "GAS-0026",
+        "date": "2026-07-22",
+        "concept": "PAUTAS INSTAGRAM",
+        "amount": 120000,
+        "paid": 120000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-22"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 29,
+        "date": "2026-07-24",
+        "concept": "SWITCH CLICKER",
+        "supplier": "AMAZON",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 53800,
+        "category": "Insumos / producción",
+        "receipt": ""
+      },
+      "database": {
+        "id": 27,
+        "code": "GAS-0027",
+        "date": "2026-07-24",
+        "concept": "SWITCH CLICKER",
+        "amount": 53800,
+        "paid": 53800,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-07-24"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 30,
+        "date": "2026-08-01",
+        "concept": "VERCEL INC",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 34686,
+        "category": "Software / servicios digitales",
+        "receipt": ""
+      },
+      "database": {
+        "id": 28,
+        "code": "GAS-0028",
+        "date": "2026-08-01",
+        "concept": "VERCEL INC",
+        "amount": 34686,
+        "paid": 34686,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-01"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 31,
+        "date": "2026-08-05",
+        "concept": "GASOLINA OPS",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 20000,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 29,
+        "code": "GAS-0029",
+        "date": "2026-08-05",
+        "concept": "GASOLINA OPS",
+        "amount": 20000,
+        "paid": 20000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-05"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 32,
+        "date": "2026-08-05",
+        "concept": "OPS JULIO",
+        "supplier": "DIGIMARK",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 986000,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 30,
+        "code": "GAS-0030",
+        "date": "2026-08-05",
+        "concept": "OPS JULIO",
+        "amount": 986000,
+        "paid": 986000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-05"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 33,
+        "date": "2026-08-05",
+        "concept": "FILAMENTO RECARGA",
+        "supplier": "MEXICO MAKERS",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 340500,
+        "category": "Insumos / producción",
+        "receipt": ""
+      },
+      "database": {
+        "id": 31,
+        "code": "GAS-0031",
+        "date": "2026-08-05",
+        "concept": "FILAMENTO RECARGA",
+        "amount": 340500,
+        "paid": 340500,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-05"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 34,
+        "date": "2026-08-05",
+        "concept": "COMISION PAGINA WEB",
+        "supplier": "JOSE GONZALEZ",
+        "account": "Efectivo / caja",
+        "amount": 600000,
+        "category": "Impuestos / comisiones",
+        "receipt": ""
+      },
+      "database": {
+        "id": 32,
+        "code": "GAS-0032",
+        "date": "2026-08-05",
+        "concept": "COMISION PAGINA WEB",
+        "amount": 600000,
+        "paid": 600000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          "2026-08-05"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 35,
+        "date": "2026-08-05",
+        "concept": "MARIO NOMINA JULIO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 700000,
+        "category": "Nómina / honorarios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 33,
+        "code": "GAS-0033",
+        "date": "2026-08-05",
+        "concept": "MARIO NOMINA JULIO",
+        "amount": 700000,
+        "paid": 700000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          "2026-08-05"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 36,
+        "date": "2026-08-05",
+        "concept": "NOMINA LUIS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 200000,
+        "category": "Nómina / honorarios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 34,
+        "code": "GAS-0034",
+        "date": "2026-08-05",
+        "concept": "NOMINA LUIS",
+        "amount": 200000,
+        "paid": 200000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          "2026-08-05"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 37,
+        "date": "2026-08-16",
+        "concept": "SERV BANCA INTERNET",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 45000,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 35,
+        "code": "GAS-0035",
+        "date": "2026-08-16",
+        "concept": "SERV BANCA INTERNET",
+        "amount": 45000,
+        "paid": 45000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-16"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 38,
+        "date": "2026-08-16",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 2600,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 36,
+        "code": "GAS-0036",
+        "date": "2026-08-16",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "amount": 2600,
+        "paid": 2600,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-16"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 39,
+        "date": "2026-08-16",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 7616,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 37,
+        "code": "GAS-0037",
+        "date": "2026-08-16",
+        "concept": "IVA COM SERV BCA INTERNET",
+        "amount": 7616,
+        "paid": 7616,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-16"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 40,
+        "date": "2026-08-16",
+        "concept": "JAPAY",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 10700,
+        "category": "Instalaciones / servicios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 38,
+        "code": "GAS-0038",
+        "date": "2026-08-16",
+        "concept": "JAPAY",
+        "amount": 10700,
+        "paid": 10700,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-16"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 41,
+        "date": "2026-08-16",
+        "concept": "JAPAY",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 32100,
+        "category": "Instalaciones / servicios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 39,
+        "code": "GAS-0039",
+        "date": "2026-08-16",
+        "concept": "JAPAY",
+        "amount": 32100,
+        "paid": 32100,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-16"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 42,
+        "date": "2026-08-16",
+        "concept": "CANVA",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 15200,
+        "category": "Marketing / ventas",
+        "receipt": ""
+      },
+      "database": {
+        "id": 40,
+        "code": "GAS-0040",
+        "date": "2026-08-16",
+        "concept": "CANVA",
+        "amount": 15200,
+        "paid": 15200,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-16"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 43,
+        "date": "2026-08-16",
+        "concept": "DEVOLUCION CLIMA",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 724884,
+        "category": "Equipo / mantenimiento",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 41,
+        "code": "GAS-0041",
+        "date": "2026-08-16",
+        "concept": "DEVOLUCION CLIMA",
+        "amount": 724884,
+        "paid": 724884,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-16"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 44,
+        "date": "2026-08-16",
+        "concept": "VAQUEIROS",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 12849,
+        "category": "Insumos / producción",
+        "receipt": ""
+      },
+      "database": {
+        "id": 42,
+        "code": "GAS-0042",
+        "date": "2026-08-16",
+        "concept": "VAQUEIROS",
+        "amount": 12849,
+        "paid": 12849,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-16"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 45,
+        "date": "2026-08-16",
+        "concept": "CAC",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 9100,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 43,
+        "code": "GAS-0043",
+        "date": "2026-08-16",
+        "concept": "CAC",
+        "amount": 9100,
+        "paid": 9100,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-16"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 46,
+        "date": "2026-08-18",
+        "concept": "SPOTIFY OFICINA",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 6900,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 44,
+        "code": "GAS-0044",
+        "date": "2026-08-18",
+        "concept": "SPOTIFY OFICINA",
+        "amount": 6900,
+        "paid": 6900,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-18"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 47,
+        "date": "",
+        "concept": "ARGOLLAS",
+        "supplier": "AMAZON",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 27000,
+        "category": "Insumos / producción",
+        "receipt": ""
+      },
+      "database": {
+        "id": 45,
+        "code": "GAS-0045",
+        "date": "",
+        "concept": "ARGOLLAS",
+        "amount": 27000,
+        "paid": 27000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 48,
+        "date": "",
+        "concept": "DIGITAL GOOD",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 10647,
+        "category": "Software / servicios digitales",
+        "receipt": ""
+      },
+      "database": {
+        "id": 46,
+        "code": "GAS-0046",
+        "date": "",
+        "concept": "DIGITAL GOOD",
+        "amount": 10647,
+        "paid": 10647,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 49,
+        "date": "",
+        "concept": "FILAMENTO RECARGA",
+        "supplier": "ESTADO SOLIDO",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 61900,
+        "category": "Insumos / producción",
+        "receipt": ""
+      },
+      "database": {
+        "id": 47,
+        "code": "GAS-0047",
+        "date": "",
+        "concept": "FILAMENTO RECARGA",
+        "amount": 61900,
+        "paid": 61900,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 50,
+        "date": "",
+        "concept": "CFE",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 72300,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 48,
+        "code": "GAS-0048",
+        "date": "",
+        "concept": "CFE",
+        "amount": 72300,
+        "paid": 72300,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 51,
+        "date": "",
+        "concept": "MARBLISM AI",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 59943,
+        "category": "Software / servicios digitales",
+        "receipt": ""
+      },
+      "database": {
+        "id": 49,
+        "code": "GAS-0049",
+        "date": "",
+        "concept": "MARBLISM AI",
+        "amount": 59943,
+        "paid": 59943,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 52,
+        "date": "",
+        "concept": "CONTABLE JUNIO",
+        "supplier": "CONTADOR",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 278400,
+        "category": "Nómina / honorarios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 50,
+        "code": "GAS-0050",
+        "date": "2026-07-10",
+        "concept": "CONTABLE JUNIO",
+        "amount": 278400,
+        "paid": 278400,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [
+        "date"
+      ],
+      "candidates": [],
+      "status": "Diferencias"
+    },
+    {
+      "sheet": {
+        "row": 53,
+        "date": "",
+        "concept": "RENTA 1",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 866600,
+        "category": "Instalaciones / servicios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 51,
+        "code": "GAS-0051",
+        "date": "",
+        "concept": "RENTA 1",
+        "amount": 866600,
+        "paid": 866600,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 54,
+        "date": "",
+        "concept": "RENTA 2",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 866600,
+        "category": "Instalaciones / servicios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 52,
+        "code": "GAS-0052",
+        "date": "",
+        "concept": "RENTA 2",
+        "amount": 866600,
+        "paid": 866600,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 55,
+        "date": "",
+        "concept": "RENTA 3",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 866600,
+        "category": "Instalaciones / servicios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 53,
+        "code": "GAS-0053",
+        "date": "",
+        "concept": "RENTA 3",
+        "amount": 866600,
+        "paid": 866600,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 56,
+        "date": "",
+        "concept": "RENTA 4",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 866600,
+        "category": "Instalaciones / servicios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 54,
+        "code": "GAS-0054",
+        "date": "",
+        "concept": "RENTA 4",
+        "amount": 866600,
+        "paid": 866600,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 57,
+        "date": "",
+        "concept": "RENTA 5",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 866600,
+        "category": "Instalaciones / servicios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 55,
+        "code": "GAS-0055",
+        "date": "",
+        "concept": "RENTA 5",
+        "amount": 866600,
+        "paid": 866600,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 58,
+        "date": "",
+        "concept": "RENTA 6",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 866600,
+        "category": "Instalaciones / servicios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 56,
+        "code": "GAS-0056",
+        "date": "",
+        "concept": "RENTA 6",
+        "amount": 866600,
+        "paid": 866600,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 59,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 50000,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 57,
+        "code": "GAS-0057",
+        "date": "",
+        "concept": "Concepto pendiente · fila 59",
+        "amount": 50000,
+        "paid": 50000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 60,
+        "date": "",
+        "concept": "OP MAYO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 223100,
+        "category": "Operación general",
+        "receipt": "Sin comprobante"
+      },
+      "database": {
+        "id": 58,
+        "code": "GAS-0058",
+        "date": "",
+        "concept": "OP MAYO",
+        "amount": 223100,
+        "paid": 223100,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 61,
+        "date": "",
+        "concept": "MANTENIMIENTO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 93000,
+        "category": "Equipo / mantenimiento",
+        "receipt": ""
+      },
+      "database": {
+        "id": 59,
+        "code": "GAS-0059",
+        "date": "",
+        "concept": "MANTENIMIENTO",
+        "amount": 93000,
+        "paid": 93000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 62,
+        "date": "",
+        "concept": "SERVICIO INTERNET ABRIL",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 44900,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 60,
+        "code": "GAS-0060",
+        "date": "",
+        "concept": "SERVICIO INTERNET ABRIL",
+        "amount": 44900,
+        "paid": 44900,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 63,
+        "date": "",
+        "concept": "GASOLINA DE VENTAS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 15000,
+        "category": "Marketing / ventas",
+        "receipt": ""
+      },
+      "database": {
+        "id": 61,
+        "code": "GAS-0061",
+        "date": "",
+        "concept": "GASOLINA DE VENTAS",
+        "amount": 15000,
+        "paid": 15000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 64,
+        "date": "",
+        "concept": "RECARGA CELULAR VENTAS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 10000,
+        "category": "Marketing / ventas",
+        "receipt": ""
+      },
+      "database": {
+        "id": 62,
+        "code": "GAS-0062",
+        "date": "",
+        "concept": "RECARGA CELULAR VENTAS",
+        "amount": 10000,
+        "paid": 10000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 65,
+        "date": "",
+        "concept": "VAQUEIROS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 12000,
+        "category": "Equipo / mantenimiento",
+        "receipt": ""
+      },
+      "database": {
+        "id": 63,
+        "code": "GAS-0063",
+        "date": "",
+        "concept": "VAQUEIROS",
+        "amount": 12000,
+        "paid": 12000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 66,
+        "date": "",
+        "concept": "FILAMENTO MORADO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 40000,
+        "category": "Insumos / producción",
+        "receipt": ""
+      },
+      "database": {
+        "id": 64,
+        "code": "GAS-0064",
+        "date": "",
+        "concept": "FILAMENTO MORADO",
+        "amount": 40000,
+        "paid": 40000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 67,
+        "date": "",
+        "concept": "BOQUILLAS ",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 25000,
+        "category": "Equipo / mantenimiento",
+        "receipt": ""
+      },
+      "database": {
+        "id": 65,
+        "code": "GAS-0065",
+        "date": "",
+        "concept": "BOQUILLAS",
+        "amount": 25000,
+        "paid": 25000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 68,
+        "date": "",
+        "concept": "CFE MARZO - MAYO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 38000,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 66,
+        "code": "GAS-0066",
+        "date": "",
+        "concept": "CFE MARZO - MAYO",
+        "amount": 38000,
+        "paid": 38000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 69,
+        "date": "",
+        "concept": "GASOLINA DE VENTAS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 20000,
+        "category": "Marketing / ventas",
+        "receipt": ""
+      },
+      "database": {
+        "id": 67,
+        "code": "GAS-0067",
+        "date": "",
+        "concept": "GASOLINA DE VENTAS",
+        "amount": 20000,
+        "paid": 20000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 70,
+        "date": "",
+        "concept": "MAYO ALDENATO MARIO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 100000,
+        "category": "Nómina / honorarios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 68,
+        "code": "GAS-0068",
+        "date": "",
+        "concept": "MAYO ALDENATO MARIO",
+        "amount": 100000,
+        "paid": 100000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 71,
+        "date": "",
+        "concept": "MAYO ADELANTO LUIS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 100000,
+        "category": "Nómina / honorarios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 69,
+        "code": "GAS-0069",
+        "date": "",
+        "concept": "MAYO ADELANTO LUIS",
+        "amount": 100000,
+        "paid": 100000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 72,
+        "date": "",
+        "concept": "EDITOR",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 120000,
+        "category": "Marketing / ventas",
+        "receipt": ""
+      },
+      "database": {
+        "id": 70,
+        "code": "GAS-0070",
+        "date": "",
+        "concept": "EDITOR",
+        "amount": 120000,
+        "paid": 120000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 73,
+        "date": "",
+        "concept": "ADELANTO MARIO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 10000,
+        "category": "Nómina / honorarios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 71,
+        "code": "GAS-0071",
+        "date": "",
+        "concept": "ADELANTO MARIO",
+        "amount": 10000,
+        "paid": 10000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 74,
+        "date": "",
+        "concept": "GASOLINA VENTAS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 50000,
+        "category": "Marketing / ventas",
+        "receipt": ""
+      },
+      "database": {
+        "id": 72,
+        "code": "GAS-0072",
+        "date": "",
+        "concept": "GASOLINA VENTAS",
+        "amount": 50000,
+        "paid": 50000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 75,
+        "date": "",
+        "concept": "RECARGA CELULAR VENTAS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 10000,
+        "category": "Marketing / ventas",
+        "receipt": ""
+      },
+      "database": {
+        "id": 73,
+        "code": "GAS-0073",
+        "date": "",
+        "concept": "RECARGA CELULAR VENTAS",
+        "amount": 10000,
+        "paid": 10000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 76,
+        "date": "",
+        "concept": "NETWORKING",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 12000,
+        "category": "Marketing / ventas",
+        "receipt": ""
+      },
+      "database": {
+        "id": 74,
+        "code": "GAS-0074",
+        "date": "",
+        "concept": "NETWORKING",
+        "amount": 12000,
+        "paid": 12000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 77,
+        "date": "",
+        "concept": "COMPRAS OFICINA",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 25000,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 75,
+        "code": "GAS-0075",
+        "date": "",
+        "concept": "COMPRAS OFICINA",
+        "amount": 25000,
+        "paid": 25000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 78,
+        "date": "",
+        "concept": "LIMPIEZA OFICINA ",
+        "supplier": "DESHIERBE",
+        "account": "Efectivo / caja",
+        "amount": 115000,
+        "category": "Equipo / mantenimiento",
+        "receipt": ""
+      },
+      "database": {
+        "id": 76,
+        "code": "GAS-0076",
+        "date": "",
+        "concept": "LIMPIEZA OFICINA",
+        "amount": 115000,
+        "paid": 115000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 79,
+        "date": "",
+        "concept": "MARIO NOMINA ADELANTO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 114000,
+        "category": "Nómina / honorarios",
+        "receipt": ""
+      },
+      "database": {
+        "id": 77,
+        "code": "GAS-0077",
+        "date": "",
+        "concept": "MARIO NOMINA ADELANTO",
+        "amount": 114000,
+        "paid": 114000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 80,
+        "date": "",
+        "concept": "CLAUDE",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 35000,
+        "category": "Software / servicios digitales",
+        "receipt": ""
+      },
+      "database": {
+        "id": 78,
+        "code": "GAS-0078",
+        "date": "",
+        "concept": "CLAUDE",
+        "amount": 35000,
+        "paid": 35000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 81,
+        "date": "",
+        "concept": "SERVICIO INTERNET JUL",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 44900,
+        "category": "Operación general",
+        "receipt": ""
+      },
+      "database": {
+        "id": 79,
+        "code": "GAS-0079",
+        "date": "",
+        "concept": "SERVICIO INTERNET JUL",
+        "amount": 44900,
+        "paid": 44900,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 82,
+        "date": "",
+        "concept": "EDITOR",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 100000,
+        "category": "Marketing / contenido",
+        "receipt": ""
+      },
+      "database": {
+        "id": 80,
+        "code": "GAS-0080",
+        "date": "",
+        "concept": "EDITOR",
+        "amount": 100000,
+        "paid": 100000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 83,
+        "date": "",
+        "concept": "ARTICULOS DE LIMPIEZA",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 55000,
+        "category": "Mantenimiento / reparaciones",
+        "receipt": ""
+      },
+      "database": {
+        "id": 81,
+        "code": "GAS-0081",
+        "date": "",
+        "concept": "ARTICULOS DE LIMPIEZA",
+        "amount": 55000,
+        "paid": 55000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 84,
+        "date": "",
+        "concept": "JUNTAS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 15000,
+        "category": "Ventas / prospección",
+        "receipt": ""
+      },
+      "database": {
+        "id": 82,
+        "code": "GAS-0082",
+        "date": "",
+        "concept": "JUNTAS",
+        "amount": 15000,
+        "paid": 15000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 85,
+        "date": "",
+        "concept": "INSUMOS DE LIMPIEZA",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 44800,
+        "category": "Mantenimiento / reparaciones",
+        "receipt": ""
+      },
+      "database": {
+        "id": 83,
+        "code": "GAS-0083",
+        "date": "",
+        "concept": "INSUMOS DE LIMPIEZA",
+        "amount": 44800,
+        "paid": 44800,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 86,
+        "date": "",
+        "concept": "JUNTAS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 24000,
+        "category": "Ventas / prospección",
+        "receipt": ""
+      },
+      "database": {
+        "id": 84,
+        "code": "GAS-0084",
+        "date": "",
+        "concept": "JUNTAS",
+        "amount": 24000,
+        "paid": 24000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 87,
+        "date": "",
+        "concept": "GASOLINA VENTAS",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 20000,
+        "category": "Ventas / prospección",
+        "receipt": ""
+      },
+      "database": {
+        "id": 85,
+        "code": "GAS-0085",
+        "date": "",
+        "concept": "GASOLINA VENTAS",
+        "amount": 20000,
+        "paid": 20000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 88,
+        "date": "",
+        "concept": "GASOLINA OPERATIVA",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 20000,
+        "category": "Logística / traslados / envíos",
+        "receipt": ""
+      },
+      "database": {
+        "id": 86,
+        "code": "GAS-0086",
+        "date": "",
+        "concept": "GASOLINA OPERATIVA",
+        "amount": 20000,
+        "paid": 20000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 89,
+        "date": "",
+        "concept": "RODAJE",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 25000,
+        "category": "Marketing / contenido",
+        "receipt": ""
+      },
+      "database": {
+        "id": 87,
+        "code": "GAS-0087",
+        "date": "",
+        "concept": "RODAJE",
+        "amount": 25000,
+        "paid": 25000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 90,
+        "date": "",
+        "concept": "AMAZON",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 20000,
+        "category": "Software / servicios digitales",
+        "receipt": ""
+      },
+      "database": {
+        "id": 88,
+        "code": "GAS-0088",
+        "date": "",
+        "concept": "AMAZON",
+        "amount": 20000,
+        "paid": 20000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 91,
+        "date": "",
+        "concept": "MANIFESTO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 25600,
+        "category": "Ventas / prospección",
+        "receipt": ""
+      },
+      "database": {
+        "id": 89,
+        "code": "GAS-0089",
+        "date": "",
+        "concept": "MANIFESTO",
+        "amount": 25600,
+        "paid": 25600,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 92,
+        "date": "",
+        "concept": "EMPAQUE",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 37600,
+        "category": "Logística / traslados / envíos",
+        "receipt": ""
+      },
+      "database": {
+        "id": 90,
+        "code": "GAS-0090",
+        "date": "",
+        "concept": "EMPAQUE",
+        "amount": 37600,
+        "paid": 37600,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 93,
+        "date": "",
+        "concept": "RECOLECION BASURA",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 20000,
+        "category": "Mantenimiento / reparaciones",
+        "receipt": ""
+      },
+      "database": {
+        "id": 91,
+        "code": "GAS-0091",
+        "date": "",
+        "concept": "RECOLECION BASURA",
+        "amount": 20000,
+        "paid": 20000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 94,
+        "date": "2026-08-17",
+        "concept": "DIFERENCIA IVA ARRENDAMIENTO",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 30461,
+        "category": "Impuestos / comisiones",
+        "receipt": ""
+      },
+      "database": {
+        "id": 92,
+        "code": "GAS-0092",
+        "date": "2026-08-17",
+        "concept": "DIFERENCIA IVA ARRENDAMIENTO",
+        "amount": 30461,
+        "paid": 30461,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-17"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 95,
+        "date": "",
+        "concept": "DIFERENCIA CUENTA EMPRESARIAL",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 93694,
+        "category": "Otros egresos",
+        "receipt": ""
+      },
+      "database": {
+        "id": 93,
+        "code": "GAS-0093",
+        "date": "",
+        "concept": "DIFERENCIA CUENTA EMPRESARIAL",
+        "amount": 93694,
+        "paid": 93694,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 96,
+        "date": "2026-08-18",
+        "concept": "MESHY",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 5235,
+        "category": "Software / servicios digitales",
+        "receipt": "Recibo / nota"
+      },
+      "database": {
+        "id": 94,
+        "code": "GAS-0094",
+        "date": "2026-08-18",
+        "concept": "MESHY",
+        "amount": 5235,
+        "paid": 5235,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-18"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 97,
+        "date": "2026-08-22",
+        "concept": "MANTENIMIENTO PRVENTIVO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 100000,
+        "category": "Mantenimiento / reparaciones",
+        "receipt": "Sin comprobante"
+      },
+      "database": {
+        "id": 95,
+        "code": "GAS-0095",
+        "date": "2026-08-22",
+        "concept": "MANTENIMIENTO PRVENTIVO",
+        "amount": 100000,
+        "paid": 100000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          "2026-08-22"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 98,
+        "date": "2026-08-22",
+        "concept": "OPEN IA CHAT GPT",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 39900,
+        "category": "Software / servicios digitales",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 96,
+        "code": "GAS-0096",
+        "date": "2026-08-22",
+        "concept": "OPEN IA CHAT GPT",
+        "amount": 39900,
+        "paid": 39900,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-22"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 99,
+        "date": "2026-08-24",
+        "concept": "ANTICIPO MODELADO 3D \"NUBI\"",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 100000,
+        "category": "Servicios profesionales",
+        "receipt": "Sin comprobante"
+      },
+      "database": {
+        "id": 97,
+        "code": "GAS-0097",
+        "date": "2026-08-24",
+        "concept": "ANTICIPO MODELADO 3D \"NUBI\"",
+        "amount": 100000,
+        "paid": 100000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          "2026-08-24"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 100,
+        "date": "2026-08-15",
+        "concept": "PAUTAS FACEBOOK",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 50000,
+        "category": "Marketing / ventas",
+        "receipt": "Recibo / nota"
+      },
+      "database": {
+        "id": 98,
+        "code": "GAS-0098",
+        "date": "2026-08-15",
+        "concept": "PAUTAS FACEBOOK",
+        "amount": 50000,
+        "paid": 50000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-15"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 101,
+        "date": "2026-08-26",
+        "concept": "vaqueiros",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 20000,
+        "category": "Operación general",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 99,
+        "code": "GAS-0099",
+        "date": "2026-08-26",
+        "concept": "vaqueiros",
+        "amount": 20000,
+        "paid": 20000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-26"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 102,
+        "date": "2026-08-26",
+        "concept": "Lenin Desarrollo Nubi",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 290000,
+        "category": "Producto / I+D",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 100,
+        "code": "GAS-0100",
+        "date": "2026-08-26",
+        "concept": "Lenin Desarrollo Nubi",
+        "amount": 290000,
+        "paid": 290000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-26"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 103,
+        "date": "2026-08-28",
+        "concept": "vercel inc",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 4399,
+        "category": "Software / SaaS",
+        "receipt": ""
+      },
+      "database": {
+        "id": 101,
+        "code": "GAS-0101",
+        "date": "2026-08-28",
+        "concept": "vercel inc",
+        "amount": 4399,
+        "paid": 4399,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-28"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 104,
+        "date": "2026-08-28",
+        "concept": "uber",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 4994,
+        "category": "Ventas / prospección",
+        "receipt": ""
+      },
+      "database": {
+        "id": 102,
+        "code": "GAS-0102",
+        "date": "2026-08-28",
+        "concept": "uber",
+        "amount": 4994,
+        "paid": 4994,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-28"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 105,
+        "date": "2026-08-29",
+        "concept": "uber",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 4995,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 103,
+        "code": "GAS-0103",
+        "date": "2026-08-29",
+        "concept": "uber",
+        "amount": 4995,
+        "paid": 4995,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-29"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 106,
+        "date": "2026-09-01",
+        "concept": "marblism",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 58474,
+        "category": "Software / SaaS",
+        "receipt": ""
+      },
+      "database": {
+        "id": 104,
+        "code": "GAS-0104",
+        "date": "2026-09-01",
+        "concept": "marblism",
+        "amount": 58474,
+        "paid": 58474,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-01"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 107,
+        "date": "2026-09-01",
+        "concept": "cloudflare",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 3323,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 105,
+        "code": "GAS-0105",
+        "date": "2026-09-01",
+        "concept": "cloudflare",
+        "amount": 3323,
+        "paid": 3323,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-01"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 108,
+        "date": "2026-08-29",
+        "concept": "uber",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 6032,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 106,
+        "code": "GAS-0106",
+        "date": "2026-08-29",
+        "concept": "uber",
+        "amount": 6032,
+        "paid": 6032,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-08-29"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 109,
+        "date": "2026-09-03",
+        "concept": "NeonTech",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 2103,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 107,
+        "code": "GAS-0107",
+        "date": "2026-09-03",
+        "concept": "NeonTech",
+        "amount": 2103,
+        "paid": 2103,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-03"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 110,
+        "date": "2026-09-03",
+        "concept": "gas",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 50000,
+        "category": "",
+        "receipt": "Factura"
+      },
+      "database": {
+        "id": 108,
+        "code": "GAS-0108",
+        "date": "2026-09-03",
+        "concept": "gas",
+        "amount": 50000,
+        "paid": 50000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-03"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 111,
+        "date": "2026-09-04",
+        "concept": "serv banca",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 45000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 109,
+        "code": "GAS-0109",
+        "date": "2026-09-04",
+        "concept": "serv banca",
+        "amount": 45000,
+        "paid": 45000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-04"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 112,
+        "date": "2026-09-07",
+        "concept": "serv banca",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 650,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 110,
+        "code": "GAS-0110",
+        "date": "2026-09-07",
+        "concept": "serv banca",
+        "amount": 650,
+        "paid": 650,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-07"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 113,
+        "date": "2026-09-07",
+        "concept": "serv banca",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 7304,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 111,
+        "code": "GAS-0111",
+        "date": "2026-09-07",
+        "concept": "serv banca",
+        "amount": 7304,
+        "paid": 7304,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-07"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 114,
+        "date": "2026-09-08",
+        "concept": "canva",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 15000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 112,
+        "code": "GAS-0112",
+        "date": "2026-09-08",
+        "concept": "canva",
+        "amount": 15000,
+        "paid": 15000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-08"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 115,
+        "date": "2026-09-08",
+        "concept": "dev dominio",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 14382,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 113,
+        "code": "GAS-0113",
+        "date": "2026-09-08",
+        "concept": "dev dominio",
+        "amount": 14382,
+        "paid": 14382,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-08"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 116,
+        "date": "2026-09-08",
+        "concept": "nominas",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 1972000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 114,
+        "code": "GAS-0114",
+        "date": "2026-09-08",
+        "concept": "nominas",
+        "amount": 1972000,
+        "paid": 1972000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-08"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 117,
+        "date": "2026-09-09",
+        "concept": "servicio contable",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 278400,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 115,
+        "code": "GAS-0115",
+        "date": "2026-09-09",
+        "concept": "servicio contable",
+        "amount": 278400,
+        "paid": 278400,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-09"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 118,
+        "date": "2026-09-11",
+        "concept": "cloudflare",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 8502,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 116,
+        "code": "GAS-0116",
+        "date": "2026-09-11",
+        "concept": "cloudflare",
+        "amount": 8502,
+        "paid": 8502,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-11"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 119,
+        "date": "2026-09-11",
+        "concept": "cac",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 9400,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 117,
+        "code": "GAS-0117",
+        "date": "2026-09-11",
+        "concept": "cac",
+        "amount": 9400,
+        "paid": 9400,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-11"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 120,
+        "date": "2026-09-16",
+        "concept": "ventas",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 30000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 118,
+        "code": "GAS-0118",
+        "date": "2026-09-16",
+        "concept": "ventas",
+        "amount": 30000,
+        "paid": 30000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-16"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 121,
+        "date": "2026-09-18",
+        "concept": "limpieza OFICINA ",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 50000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 119,
+        "code": "GAS-0119",
+        "date": "2026-09-18",
+        "concept": "limpieza OFICINA",
+        "amount": 50000,
+        "paid": 50000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-18"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 122,
+        "date": "2026-09-19",
+        "concept": "sat impuestos",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 970400,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 120,
+        "code": "GAS-0120",
+        "date": "2026-09-19",
+        "concept": "sat impuestos",
+        "amount": 970400,
+        "paid": 970400,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          "2026-09-19"
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 123,
+        "date": "",
+        "concept": "vaqueiros",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 18103,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 121,
+        "code": "GAS-0121",
+        "date": "",
+        "concept": "vaqueiros",
+        "amount": 18103,
+        "paid": 18103,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 124,
+        "date": "",
+        "concept": "mkt",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 40000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 122,
+        "code": "GAS-0122",
+        "date": "",
+        "concept": "mkt",
+        "amount": 40000,
+        "paid": 40000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 125,
+        "date": "",
+        "concept": "gas",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 12003,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 123,
+        "code": "GAS-0123",
+        "date": "",
+        "concept": "gas",
+        "amount": 12003,
+        "paid": 12003,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 126,
+        "date": "",
+        "concept": "sat impuestos ISR",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 618300,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 124,
+        "code": "GAS-0124",
+        "date": "",
+        "concept": "sat impuestos ISR",
+        "amount": 618300,
+        "paid": 618300,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 127,
+        "date": "",
+        "concept": "telmex",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 44900,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 125,
+        "code": "GAS-0125",
+        "date": "",
+        "concept": "telmex",
+        "amount": 44900,
+        "paid": 44900,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 128,
+        "date": "",
+        "concept": "CFE ",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 100200,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 126,
+        "code": "GAS-0126",
+        "date": "",
+        "concept": "CFE",
+        "amount": 100200,
+        "paid": 100200,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 129,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 10450,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 127,
+        "code": "GAS-0127",
+        "date": "",
+        "concept": "Concepto pendiente · fila 129",
+        "amount": 10450,
+        "paid": 10450,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 130,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 112000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 128,
+        "code": "GAS-0128",
+        "date": "",
+        "concept": "Concepto pendiente · fila 130",
+        "amount": 112000,
+        "paid": 112000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 131,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 134400,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 129,
+        "code": "GAS-0129",
+        "date": "",
+        "concept": "Concepto pendiente · fila 131",
+        "amount": 134400,
+        "paid": 134400,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 132,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 886600,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 130,
+        "code": "GAS-0130",
+        "date": "",
+        "concept": "Concepto pendiente · fila 132",
+        "amount": 886600,
+        "paid": 886600,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 133,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 126100,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 131,
+        "code": "GAS-0131",
+        "date": "",
+        "concept": "Concepto pendiente · fila 133",
+        "amount": 126100,
+        "paid": 126100,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 134,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 21670,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 132,
+        "code": "GAS-0132",
+        "date": "",
+        "concept": "Concepto pendiente · fila 134",
+        "amount": 21670,
+        "paid": 21670,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 135,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 10400,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 133,
+        "code": "GAS-0133",
+        "date": "",
+        "concept": "Concepto pendiente · fila 135",
+        "amount": 10400,
+        "paid": 10400,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 136,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 15800,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 134,
+        "code": "GAS-0134",
+        "date": "",
+        "concept": "Concepto pendiente · fila 136",
+        "amount": 15800,
+        "paid": 15800,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 137,
+        "date": "",
+        "concept": "MESA",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 330000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 135,
+        "code": "GAS-0135",
+        "date": "",
+        "concept": "MESA",
+        "amount": 330000,
+        "paid": 330000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 138,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 35000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 136,
+        "code": "GAS-0136",
+        "date": "",
+        "concept": "Concepto pendiente · fila 138",
+        "amount": 35000,
+        "paid": 35000,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 139,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 55007,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 137,
+        "code": "GAS-0137",
+        "date": "",
+        "concept": "Concepto pendiente · fila 139",
+        "amount": 55007,
+        "paid": 55007,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 140,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 4104,
+        "category": "",
+        "receipt": ""
+      },
+      "database": {
+        "id": 138,
+        "code": "GAS-0138",
+        "date": "",
+        "concept": "Concepto pendiente · fila 140",
+        "amount": 4104,
+        "paid": 4104,
+        "accounts": [
+          "Cuenta bancaria NIMUS"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 141,
+        "date": "",
+        "concept": "LENIN PIPO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 200000,
+        "category": "Servicios profesionales",
+        "receipt": ""
+      },
+      "database": {
+        "id": 139,
+        "code": "GAS-0139",
+        "date": "",
+        "concept": "LENIN PIPO",
+        "amount": 200000,
+        "paid": 200000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 142,
+        "date": "",
+        "concept": "PLACAS EXPO COMERCIO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 85000,
+        "category": "Producción / materiales",
+        "receipt": ""
+      },
+      "database": {
+        "id": 140,
+        "code": "GAS-0140",
+        "date": "",
+        "concept": "PLACAS EXPO COMERCIO",
+        "amount": 85000,
+        "paid": 85000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [],
+      "candidates": [],
+      "status": "Coincide por origen"
+    },
+    {
+      "sheet": {
+        "row": 143,
+        "date": "",
+        "concept": "PRESUPUESTO EXPO",
+        "supplier": "",
+        "account": "Efectivo / caja",
+        "amount": 150000,
+        "category": "Otros egresos",
+        "receipt": ""
+      },
+      "database": {
+        "id": 141,
+        "code": "GAS-0141",
+        "date": "2026-10-09",
+        "concept": "PRESUPUESTO EXPO",
+        "amount": 100000,
+        "paid": 100000,
+        "accounts": [
+          "Efectivo / caja"
+        ],
+        "payment_dates": [
+          ""
+        ],
+        "status": "Activo"
+      },
+      "differences": [
+        "amount",
+        "date",
+        "paid"
+      ],
+      "candidates": [],
+      "status": "Diferencias"
+    },
+    {
+      "sheet": {
+        "row": 144,
+        "date": "",
+        "concept": "NEON",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 4104,
+        "category": "",
+        "receipt": ""
+      },
+      "database": null,
+      "differences": [],
+      "candidates": [
+        {
+          "id": 138,
+          "code": "GAS-0138",
+          "date": "",
+          "concept": "Concepto pendiente · fila 140",
+          "amount": 4104
+        },
+        {
+          "id": 155,
+          "code": "GAS-0155",
+          "date": "2026-10-11",
+          "concept": "NEON DB",
+          "amount": 4104
+        }
+      ],
+      "status": "Sin vínculo de origen"
+    },
+    {
+      "sheet": {
+        "row": 145,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 20000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": null,
+      "differences": [],
+      "candidates": [
+        {
+          "id": 29,
+          "code": "GAS-0029",
+          "date": "2026-08-05",
+          "concept": "GASOLINA OPS",
+          "amount": 20000
+        },
+        {
+          "id": 99,
+          "code": "GAS-0099",
+          "date": "2026-08-26",
+          "concept": "vaqueiros",
+          "amount": 20000
+        }
+      ],
+      "status": "Sin vínculo de origen"
+    },
+    {
+      "sheet": {
+        "row": 146,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 20000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": null,
+      "differences": [],
+      "candidates": [
+        {
+          "id": 29,
+          "code": "GAS-0029",
+          "date": "2026-08-05",
+          "concept": "GASOLINA OPS",
+          "amount": 20000
+        },
+        {
+          "id": 99,
+          "code": "GAS-0099",
+          "date": "2026-08-26",
+          "concept": "vaqueiros",
+          "amount": 20000
+        }
+      ],
+      "status": "Sin vínculo de origen"
+    },
+    {
+      "sheet": {
+        "row": 147,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 45000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": null,
+      "differences": [],
+      "candidates": [
+        {
+          "id": 2,
+          "code": "GAS-0002",
+          "date": "2026-05-07",
+          "concept": "SERV BANCA INTERNET",
+          "amount": 45000
+        },
+        {
+          "id": 5,
+          "code": "GAS-0005",
+          "date": "2026-06-05",
+          "concept": "SERV BANCA INTERNET",
+          "amount": 45000
+        },
+        {
+          "id": 12,
+          "code": "GAS-0012",
+          "date": "2026-07-06",
+          "concept": "SERV BANCA INTERNET",
+          "amount": 45000
+        },
+        {
+          "id": 35,
+          "code": "GAS-0035",
+          "date": "2026-08-16",
+          "concept": "SERV BANCA INTERNET",
+          "amount": 45000
+        },
+        {
+          "id": 109,
+          "code": "GAS-0109",
+          "date": "2026-09-04",
+          "concept": "serv banca",
+          "amount": 45000
+        },
+        {
+          "id": 157,
+          "code": "GAS-0157",
+          "date": "2026-10-06",
+          "concept": "BANCA MOV",
+          "amount": 45000
+        }
+      ],
+      "status": "Sin vínculo de origen"
+    },
+    {
+      "sheet": {
+        "row": 148,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 650,
+        "category": "",
+        "receipt": ""
+      },
+      "database": null,
+      "differences": [],
+      "candidates": [
+        {
+          "id": 110,
+          "code": "GAS-0110",
+          "date": "2026-09-07",
+          "concept": "serv banca",
+          "amount": 650
+        }
+      ],
+      "status": "Sin vínculo de origen"
+    },
+    {
+      "sheet": {
+        "row": 149,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 7304,
+        "category": "",
+        "receipt": ""
+      },
+      "database": null,
+      "differences": [],
+      "candidates": [
+        {
+          "id": 111,
+          "code": "GAS-0111",
+          "date": "2026-09-07",
+          "concept": "serv banca",
+          "amount": 7304
+        }
+      ],
+      "status": "Sin vínculo de origen"
+    },
+    {
+      "sheet": {
+        "row": 150,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 6400,
+        "category": "",
+        "receipt": ""
+      },
+      "database": null,
+      "differences": [],
+      "candidates": [
+        {
+          "id": 159,
+          "code": "GAS-0159",
+          "date": "2026-10-07",
+          "concept": "STICKERS",
+          "amount": 6400
+        }
+      ],
+      "status": "Sin vínculo de origen"
+    },
+    {
+      "sheet": {
+        "row": 151,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 55000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": null,
+      "differences": [],
+      "candidates": [
+        {
+          "id": 161,
+          "code": "GAS-0161",
+          "date": "2026-10-07",
+          "concept": "CAPACITACION AI -  TEXAS RH",
+          "amount": 55000
+        }
+      ],
+      "status": "Sin vínculo de origen"
+    },
+    {
+      "sheet": {
+        "row": 152,
+        "date": "",
+        "concept": "",
+        "supplier": "",
+        "account": "Cuenta bancaria NIMUS",
+        "amount": 15000,
+        "category": "",
+        "receipt": ""
+      },
+      "database": null,
+      "differences": [],
+      "candidates": [
+        {
+          "id": 16,
+          "code": "GAS-0016",
+          "date": "2026-07-06",
+          "concept": "CANVA",
+          "amount": 15000
+        },
+        {
+          "id": 112,
+          "code": "GAS-0112",
+          "date": "2026-09-08",
+          "concept": "canva",
+          "amount": 15000
+        },
+        {
+          "id": 160,
+          "code": "GAS-0160",
+          "date": "2026-06-11",
+          "concept": "CANVA",
+          "amount": 15000
+        }
+      ],
+      "status": "Sin vínculo de origen"
+    }
+  ],
+  "capital_checks": [
+    {
+      "row": 15,
+      "kind": "Compra pagada por socio",
+      "amount": 1858800,
+      "date": "2026-02-06",
+      "partner": "Ali",
+      "database": {
+        "id": 1,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:15",
+        "moved_on": "2026-02-06",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "CONSTITUTIVA",
+        "party": "RFC ABOGADOS",
+        "treatment": "Aportación de socio",
+        "amount_cents": 1858800,
+        "subtotal_cents": 1602414,
+        "tax_cents": 256386,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 142,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 16,
+      "kind": "Compra pagada por socio",
+      "amount": 696000,
+      "date": "2026-02-23",
+      "partner": "Ali",
+      "database": {
+        "id": 2,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:16",
+        "moved_on": "2026-02-23",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "BRANDING",
+        "party": "VIRIDIANA",
+        "treatment": "Aportación de socio",
+        "amount_cents": 696000,
+        "subtotal_cents": 600000,
+        "tax_cents": 96000,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 143,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 17,
+      "kind": "Compra pagada por socio",
+      "amount": 3458409,
+      "date": "2026-02-25",
+      "partner": "Ali",
+      "database": {
+        "id": 3,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:17",
+        "moved_on": "2026-02-25",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "Bambu Lab P1S Nueva + Bambu Lab P1S Refabricada + Envio",
+        "party": "MEXICO MAKERS",
+        "treatment": "Aportación de socio",
+        "amount_cents": 3458409,
+        "subtotal_cents": 2981387,
+        "tax_cents": 477022,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 144,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 18,
+      "kind": "Compra pagada por socio",
+      "amount": 3248000,
+      "date": "2026-02-25",
+      "partner": "Ali",
+      "database": {
+        "id": 4,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:18",
+        "moved_on": "2026-02-25",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "DIGIMARK PUBLICIDAD",
+        "party": "DIGIMARK PUBLICIDAD",
+        "treatment": "Aportación de socio",
+        "amount_cents": 3248000,
+        "subtotal_cents": 2800000,
+        "tax_cents": 448000,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 145,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 19,
+      "kind": "Compra pagada por socio",
+      "amount": 579884,
+      "date": "2026-02-25",
+      "partner": "Ali",
+      "database": {
+        "id": 5,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:19",
+        "moved_on": "2026-02-25",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "RACK IMPRESORAS",
+        "party": "HOME DEPOT",
+        "treatment": "Aportación de socio",
+        "amount_cents": 579884,
+        "subtotal_cents": null,
+        "tax_cents": 0,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 146,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 20,
+      "kind": "Compra pagada por socio",
+      "amount": 1181850,
+      "date": "2026-03-04",
+      "partner": "Ali",
+      "database": {
+        "id": 6,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:20",
+        "moved_on": "2026-03-04",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "DIGIMARK PUBLICIDAD",
+        "party": "DIGIMARK PUBLICIDAD",
+        "treatment": "Aportación de socio",
+        "amount_cents": 1181850,
+        "subtotal_cents": 1018836,
+        "tax_cents": 163014,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 147,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 21,
+      "kind": "Compra pagada por socio",
+      "amount": 832900,
+      "date": "2026-03-09",
+      "partner": "Ali",
+      "database": {
+        "id": 7,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:21",
+        "moved_on": "2026-03-09",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "Bambu Lab A1",
+        "party": "AG ELECTRONICA",
+        "treatment": "Aportación de socio",
+        "amount_cents": 832900,
+        "subtotal_cents": 718017,
+        "tax_cents": 114883,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 148,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 22,
+      "kind": "Compra pagada por socio",
+      "amount": 2449621,
+      "date": "2026-03-09",
+      "partner": "Ali",
+      "database": {
+        "id": 8,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:22",
+        "moved_on": "2026-03-09",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "2 X BAMBU LAB A1 COMBO",
+        "party": "AG ELECTRONICA",
+        "treatment": "Aportación de socio",
+        "amount_cents": 2449621,
+        "subtotal_cents": 2111742,
+        "tax_cents": 337879,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 149,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 23,
+      "kind": "Compra pagada por socio",
+      "amount": 1594558,
+      "date": "2026-03-09",
+      "partner": "Ali",
+      "database": {
+        "id": 9,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:23",
+        "moved_on": "2026-03-09",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "FILAMENTO",
+        "party": "AG ELECTRONICA",
+        "treatment": "Aportación de socio",
+        "amount_cents": 1594558,
+        "subtotal_cents": 1374619,
+        "tax_cents": 219939,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 150,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 24,
+      "kind": "Compra pagada por socio",
+      "amount": 2026288,
+      "date": "2026-03-25",
+      "partner": "Ali",
+      "database": {
+        "id": 10,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:24",
+        "moved_on": "2026-03-25",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "DIGIMARK PUBLICIDAD",
+        "party": "DIGIMARK PUBLICIDAD",
+        "treatment": "Aportación de socio",
+        "amount_cents": 2026288,
+        "subtotal_cents": 1746800,
+        "tax_cents": 279488,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 151,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 25,
+      "kind": "Compra pagada por socio",
+      "amount": 2354029,
+      "date": "2026-04-10",
+      "partner": "Ali",
+      "database": {
+        "id": 11,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:25",
+        "moved_on": "2026-04-10",
+        "partner": "Ali",
+        "movement": "Compra pagada por socio",
+        "concept": "DIGIMARK PUBLICIDAD",
+        "party": "DIGIMARK PUBLICIDAD",
+        "treatment": "Aportación de socio",
+        "amount_cents": 2354029,
+        "subtotal_cents": 2029335,
+        "tax_cents": 324694,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 152,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 26,
+      "kind": "Inyección a cuenta NIMUS",
+      "amount": 2500000,
+      "date": "2026-04-28",
+      "partner": "Ali",
+      "database": {
+        "id": 13,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:26",
+        "moved_on": "2026-04-28",
+        "partner": "Ali",
+        "movement": "Inyección a cuenta NIMUS",
+        "concept": "INYECCION",
+        "party": "ALI CHARRUF",
+        "treatment": "Aportación de socio",
+        "amount_cents": 2500000,
+        "subtotal_cents": null,
+        "tax_cents": null,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": 1,
+        "sign": 1,
+        "linked_expense_id": null,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 27,
+      "kind": "Inyección a cuenta NIMUS",
+      "amount": 3600000,
+      "date": "2026-06-04",
+      "partner": "Ali",
+      "database": {
+        "id": 14,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:27",
+        "moved_on": "2026-06-04",
+        "partner": "Ali",
+        "movement": "Inyección a cuenta NIMUS",
+        "concept": "INYECCION",
+        "party": "ALI CHARRUF",
+        "treatment": "Aportación de socio",
+        "amount_cents": 3600000,
+        "subtotal_cents": null,
+        "tax_cents": null,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": 1,
+        "sign": 1,
+        "linked_expense_id": null,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 28,
+      "kind": "Inyección a cuenta NIMUS",
+      "amount": 6200000,
+      "date": "2026-07-07",
+      "partner": "Ali",
+      "database": {
+        "id": 15,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:28",
+        "moved_on": "2026-07-07",
+        "partner": "Ali",
+        "movement": "Inyección a cuenta NIMUS",
+        "concept": "INYECCION",
+        "party": "ALI CHARRUF",
+        "treatment": "Aportación de socio",
+        "amount_cents": 6200000,
+        "subtotal_cents": null,
+        "tax_cents": null,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": 1,
+        "sign": 1,
+        "linked_expense_id": null,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 29,
+      "kind": "Inyección a cuenta NIMUS",
+      "amount": 5000000,
+      "date": "2026-07-29",
+      "partner": "Ali",
+      "database": {
+        "id": 16,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:29",
+        "moved_on": "2026-07-29",
+        "partner": "Ali",
+        "movement": "Inyección a cuenta NIMUS",
+        "concept": "INYECCION",
+        "party": "ALI CHARRUF",
+        "treatment": "Aportación de socio",
+        "amount_cents": 5000000,
+        "subtotal_cents": null,
+        "tax_cents": null,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": 1,
+        "sign": 1,
+        "linked_expense_id": null,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 30,
+      "kind": "Reembolso al socio",
+      "amount": 724884,
+      "date": "2026-08-11",
+      "partner": "Ali",
+      "database": {
+        "id": 12,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:30",
+        "moved_on": "2026-08-11",
+        "partner": "Ali",
+        "movement": "Reembolso al socio",
+        "concept": "CLIMA",
+        "party": "ALI CHARRUF",
+        "treatment": "Reembolso",
+        "amount_cents": 724884,
+        "subtotal_cents": null,
+        "tax_cents": null,
+        "reimbursed_cents": 724884,
+        "pending_cents": 0,
+        "account_id": null,
+        "sign": 0,
+        "linked_expense_id": 41,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": []
+    },
+    {
+      "row": 31,
+      "kind": "Inyección a cuenta NIMUS",
+      "amount": 6000000,
+      "date": "",
+      "partner": "",
+      "database": {
+        "id": 17,
+        "origin": "1jmCHf1QxrXEZLHcKPJ5ArfY8qK2v6r951KKS-uW7PvU:SOCIOS:31",
+        "moved_on": "2026-09-07",
+        "partner": "ALI CHARRUF",
+        "movement": "Inyección a cuenta NIMUS",
+        "concept": "INYECCION",
+        "party": "ALI CHARRUF",
+        "treatment": "Aportación de socio",
+        "amount_cents": 6000000,
+        "subtotal_cents": null,
+        "tax_cents": null,
+        "reimbursed_cents": 0,
+        "pending_cents": 0,
+        "account_id": 1,
+        "sign": 1,
+        "linked_expense_id": null,
+        "receipt": "",
+        "notes": ""
+      },
+      "differences": [
+        "date",
+        "partner"
+      ]
+    }
+  ],
+  "income_sheet": [
+    {
+      "row": 4,
+      "date": "2026-05-01",
+      "client": "JORGE",
+      "concept": "Colección Origen",
+      "reference": "VTA-001",
+      "account": "Efectivo / caja",
+      "amount": 233100
+    },
+    {
+      "row": 5,
+      "date": "2026-05-01",
+      "client": "ABRAHAM RAMOS",
+      "concept": "Colección Origen",
+      "reference": "VTA-004",
+      "account": "Efectivo / caja",
+      "amount": 77700
+    },
+    {
+      "row": 6,
+      "date": "2026-05-01",
+      "client": "AVAGEV",
+      "concept": "LLAVEROS",
+      "reference": "",
+      "account": "Efectivo / caja",
+      "amount": 70000
+    },
+    {
+      "row": 7,
+      "date": "2026-05-05",
+      "client": "MAURICIO SAAVEDRA ",
+      "concept": "Colección Origen",
+      "reference": "VTA-005",
+      "account": "Efectivo / caja",
+      "amount": 77700
+    },
+    {
+      "row": 8,
+      "date": "2026-05-06",
+      "client": "GERARDO CAMACHO",
+      "concept": "Colección Origen",
+      "reference": "VTA-006",
+      "account": "Efectivo / caja",
+      "amount": 77700
+    },
+    {
+      "row": 9,
+      "date": "2026-05-07",
+      "client": "NAJA",
+      "concept": "Colección Origen",
+      "reference": "VTA-007",
+      "account": "Efectivo / caja",
+      "amount": 77700
+    },
+    {
+      "row": 10,
+      "date": "2026-05-08",
+      "client": "NOOX ADMINISTRACIONES SAPI DE CV",
+      "concept": "SMART LINKS",
+      "reference": "",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 194880
+    },
+    {
+      "row": 11,
+      "date": "2026-05-08",
+      "client": "GRUAS JM",
+      "concept": "SMART LINKS",
+      "reference": "",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 63800
+    },
+    {
+      "row": 12,
+      "date": "2026-05-08",
+      "client": "PURPLE",
+      "concept": "Colección Origen",
+      "reference": "VTA-008",
+      "account": "Efectivo / caja",
+      "amount": 62100
+    },
+    {
+      "row": 13,
+      "date": "2026-05-08",
+      "client": "BERNARDINO",
+      "concept": "SMART LINKS",
+      "reference": "",
+      "account": "Efectivo / caja",
+      "amount": 60000
+    },
+    {
+      "row": 14,
+      "date": "2026-05-09",
+      "client": "PURPLE",
+      "concept": "Colección Origen",
+      "reference": "VTA-009",
+      "account": "Efectivo / caja",
+      "amount": 62100
+    },
+    {
+      "row": 15,
+      "date": "2026-05-09",
+      "client": "HUSH N SLUSH",
+      "concept": "",
+      "reference": "",
+      "account": "Efectivo / caja",
+      "amount": 302500
+    },
+    {
+      "row": 16,
+      "date": "2026-05-10",
+      "client": "PURPLE",
+      "concept": "Colección Origen",
+      "reference": "VTA-010",
+      "account": "Efectivo / caja",
+      "amount": 62100
+    },
+    {
+      "row": 17,
+      "date": "2026-05-10",
+      "client": "YUKAN GO",
+      "concept": "",
+      "reference": "",
+      "account": "Efectivo / caja",
+      "amount": 60000
+    },
+    {
+      "row": 18,
+      "date": "2026-05-11",
+      "client": "SHOPIFY",
+      "concept": "LAMPARA",
+      "reference": "",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 122834
+    },
+    {
+      "row": 19,
+      "date": "2026-05-11",
+      "client": "PURPLE",
+      "concept": "Colección Origen",
+      "reference": "VTA-011",
+      "account": "Efectivo / caja",
+      "amount": 124300
+    },
+    {
+      "row": 20,
+      "date": "2026-05-12",
+      "client": "PURPLE",
+      "concept": "Colección Origen",
+      "reference": "VTA-012",
+      "account": "Efectivo / caja",
+      "amount": 62100
+    },
+    {
+      "row": 21,
+      "date": "2026-05-29",
+      "client": "FAMEX EXPORT SA DE CV",
+      "concept": "SMART LINKS Y STAND",
+      "reference": "",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 174000
+    },
+    {
+      "row": 22,
+      "date": "2026-05-29",
+      "client": "MOSES",
+      "concept": "SMART LINKS Y STAND",
+      "reference": "",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 81200
+    },
+    {
+      "row": 23,
+      "date": "2026-05-29",
+      "client": "MOSES",
+      "concept": "SMART LINKS Y STAND",
+      "reference": "",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 81200
+    },
+    {
+      "row": 24,
+      "date": "2026-05-29",
+      "client": "INARA ",
+      "concept": "SMART LINKS Y STAND",
+      "reference": "",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 96000
+    },
+    {
+      "row": 25,
+      "date": "2026-05-29",
+      "client": "INARA ",
+      "concept": "SMART LINKS Y STAND",
+      "reference": "",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 95400
+    },
+    {
+      "row": 26,
+      "date": "2026-06-13",
+      "client": "ADDIX GYM",
+      "concept": "",
+      "reference": "",
+      "account": "Efectivo / caja",
+      "amount": 140000
+    },
+    {
+      "row": 27,
+      "date": "2026-06-29",
+      "client": "EL VILLANO",
+      "concept": "",
+      "reference": "",
+      "account": "Efectivo / caja",
+      "amount": 114000
+    },
+    {
+      "row": 28,
+      "date": "2026-08-05",
+      "client": "GRUPO VALORA VELAMAR",
+      "concept": "PAGINA WEB BASICA",
+      "reference": "",
+      "account": "Efectivo / caja",
+      "amount": 1500000
+    },
+    {
+      "row": 29,
+      "date": "2026-08-16",
+      "client": "HOBBY",
+      "concept": "",
+      "reference": "",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 359600
+    },
+    {
+      "row": 30,
+      "date": "2026-08-16",
+      "client": "VELAMAR",
+      "concept": "SMART LINKS",
+      "reference": "",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 580000
+    },
+    {
+      "row": 31,
+      "date": "2026-08-21",
+      "client": "PURPLE",
+      "concept": "Colección Origen",
+      "reference": "10 LAMPARAS",
+      "account": "Efectivo / caja",
+      "amount": 310000
+    },
+    {
+      "row": 32,
+      "date": "2026-09-09",
+      "client": "CORESA",
+      "concept": "TAP BAR",
+      "reference": "2 TAP BAR",
+      "account": "Cuenta bancaria NIMUS",
+      "amount": 208800
+    },
+    {
+      "row": 33,
+      "date": "",
+      "client": "PIPO PERICO",
+      "concept": "DESARROLLO",
+      "reference": "DESARROLLO",
+      "account": "Efectivo / caja",
+      "amount": 250000
+    },
+    {
+      "row": 35,
+      "date": "2026-10-09",
+      "client": "PURPLE",
+      "concept": "Colección Origen",
+      "reference": "10 LAMPARAS",
+      "account": "Efectivo / caja",
+      "amount": 310000
+    },
+    {
+      "row": 36,
+      "date": "",
+      "client": "PURPLE",
+      "concept": "",
+      "reference": "",
+      "account": "Efectivo / caja",
+      "amount": 186000
+    },
+    {
+      "row": 37,
+      "date": "",
+      "client": "PURPLE",
+      "concept": "",
+      "reference": "",
+      "account": "Efectivo / caja",
+      "amount": 124300
+    }
+  ],
+  "income_db": [
+    {
+      "source": "sale",
+      "id": 3,
+      "code": "PAG-0003",
+      "document": "VEN-0002",
+      "date": "2026-05-01",
+      "amount": 77700,
+      "account": "Efectivo / caja",
+      "client": "Público en general",
+      "project": "",
+      "concept": "Lampara Origen",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 4,
+      "code": "PAG-0004",
+      "document": "VEN-0004",
+      "date": "2026-05-01",
+      "amount": 70000,
+      "account": "Efectivo / caja",
+      "client": "Público en general",
+      "project": "AVAGEV",
+      "concept": "LLAVEROS IMPRESOS 3D",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 5,
+      "code": "PAG-0005",
+      "document": "VEN-0005",
+      "date": "2026-05-05",
+      "amount": 77700,
+      "account": "Efectivo / caja",
+      "client": "Público en general",
+      "project": "Lampara Origen",
+      "concept": "LAMAPARA ORIGEN",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 6,
+      "code": "PAG-0006",
+      "document": "VEN-0006",
+      "date": "2026-05-06",
+      "amount": 77700,
+      "account": "Efectivo / caja",
+      "client": "Público en general",
+      "project": "LAMPARA ORIGEN",
+      "concept": "LAMPARA ORIGEN",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 7,
+      "code": "PAG-0007",
+      "document": "VEN-0007",
+      "date": "2026-05-07",
+      "amount": 77700,
+      "account": "Efectivo / caja",
+      "client": "Público en general",
+      "project": "LAMPARA ORIGEN",
+      "concept": "LAMPARA ORIGEN",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 8,
+      "code": "PAG-0008",
+      "document": "VEN-0008",
+      "date": "2026-05-08",
+      "amount": 194880,
+      "account": "Cuenta bancaria NIMUS",
+      "client": "NOOX ADMINISTRACIONES SAPI DE CV",
+      "project": "SAMRT LINKS",
+      "concept": "SERVICIO SMART LINKS",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 9,
+      "code": "PAG-0009",
+      "document": "VEN-0001",
+      "date": "2026-05-01",
+      "amount": 233100,
+      "account": "Efectivo / caja",
+      "client": "Público en general",
+      "project": "JORGE Colección Origen",
+      "concept": "Colección Origen",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 10,
+      "code": "PAG-0010",
+      "document": "VEN-0012",
+      "date": "2026-05-08",
+      "amount": 63800,
+      "account": "Cuenta bancaria NIMUS",
+      "client": "GRUAS JM",
+      "project": "LLAVEROS SMART LINK",
+      "concept": "SMART LINKS",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 11,
+      "code": "PAG-0011",
+      "document": "VEN-0013",
+      "date": "2026-05-08",
+      "amount": 60000,
+      "account": "Efectivo / caja",
+      "client": "BERNARDINO",
+      "project": "SMART LINKS",
+      "concept": "SMART LINKS",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 12,
+      "code": "PAG-0012",
+      "document": "VEN-0014",
+      "date": "2026-05-10",
+      "amount": 302500,
+      "account": "Efectivo / caja",
+      "client": "HUSH N SLUSH",
+      "project": "NIMUS BUSSINES KIT",
+      "concept": "SMART LINK / Stand NFC-QR / Llavero personalizado / Smart Link NFC / Diseño / Smart Link NFC",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 13,
+      "code": "PAG-0013",
+      "document": "VEN-0015",
+      "date": "2026-05-10",
+      "amount": 60000,
+      "account": "Efectivo / caja",
+      "client": "Público en general",
+      "project": "BUSSINES",
+      "concept": "SMART LINK",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 14,
+      "code": "PAG-0014",
+      "document": "VEN-0016",
+      "date": "2026-06-10",
+      "amount": 140000,
+      "account": "Efectivo / caja",
+      "client": "Público en general",
+      "project": "KIT BUSSINES",
+      "concept": "KIT PAQUETE 1",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 15,
+      "code": "PAG-0015",
+      "document": "VEN-0017",
+      "date": "2026-06-15",
+      "amount": 81200,
+      "account": "Efectivo / caja",
+      "client": "Público en general",
+      "project": "BUSSINES",
+      "concept": "PAQUETE 1",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 16,
+      "code": "PAG-0016",
+      "document": "VEN-0017",
+      "date": "2026-06-15",
+      "amount": 81200,
+      "account": "Cuenta bancaria NIMUS",
+      "client": "Público en general",
+      "project": "BUSSINES",
+      "concept": "PAQUETE 1",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 17,
+      "code": "PAG-0017",
+      "document": "VEN-0018",
+      "date": "2026-06-29",
+      "amount": 114000,
+      "account": "Efectivo / caja",
+      "client": "EL VILLANO",
+      "project": "BUSSINES",
+      "concept": "KIT 1",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 18,
+      "code": "PAG-0018",
+      "document": "VEN-0019",
+      "date": "2026-07-13",
+      "amount": 95700,
+      "account": "Cuenta bancaria NIMUS",
+      "client": "Público en general",
+      "project": "BUSSINES",
+      "concept": "PAQUETE 2",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 19,
+      "code": "PAG-0019",
+      "document": "VEN-0019",
+      "date": "2026-07-13",
+      "amount": 95700,
+      "account": "Cuenta bancaria NIMUS",
+      "client": "Público en general",
+      "project": "BUSSINES",
+      "concept": "PAQUETE 2",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 20,
+      "code": "PAG-0020",
+      "document": "VEN-0020",
+      "date": "2026-07-10",
+      "amount": 359600,
+      "account": "Cuenta bancaria NIMUS",
+      "client": "HOBBY STORE",
+      "project": "BUSSINES LICENCIA",
+      "concept": "PRODUCTOS LICENCIA",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 21,
+      "code": "PAG-0021",
+      "document": "VEN-0021",
+      "date": "2026-07-29",
+      "amount": 580000,
+      "account": "Cuenta bancaria NIMUS",
+      "client": "VELAMAR",
+      "project": "BUSSINES",
+      "concept": "SMART LINK",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 22,
+      "code": "PAG-0022",
+      "document": "VEN-0022",
+      "date": "2026-07-29",
+      "amount": 1500000,
+      "account": "Efectivo / caja",
+      "client": "VELAMAR",
+      "project": "SERVICIOS DEVS",
+      "concept": "PAGINA WEB",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 23,
+      "code": "PAG-0023",
+      "document": "VEN-0024",
+      "date": "2026-09-09",
+      "amount": 208800,
+      "account": "Cuenta bancaria NIMUS",
+      "client": "CORESA",
+      "project": "BUSSINES",
+      "concept": "TAP BAR 3 NFC + QR",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 24,
+      "code": "PAG-0024",
+      "document": "VEN-0025",
+      "date": "2026-05-29",
+      "amount": 174000,
+      "account": "Cuenta bancaria NIMUS",
+      "client": "FAMEX EXPORT SA DE CV",
+      "project": "BUSSINES",
+      "concept": "PAQUETE 1",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 25,
+      "code": "PAG-0025",
+      "document": "VEN-0026",
+      "date": "2026-05-08",
+      "amount": 62100,
+      "account": "Efectivo / caja",
+      "client": "PURPLE INTERIORISMO",
+      "project": "COLECCION ORIGEN",
+      "concept": "ORG-BD-CUM / ORG-NN-CUM / ORG-NN-CUM / ORG-BD-CIR / ORG-BD-CIR",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 26,
+      "code": "PAG-0026",
+      "document": "VEN-0026",
+      "date": "2026-05-26",
+      "amount": 62100,
+      "account": "Efectivo / caja",
+      "client": "PURPLE INTERIORISMO",
+      "project": "COLECCION ORIGEN",
+      "concept": "ORG-BD-CUM / ORG-NN-CUM / ORG-NN-CUM / ORG-BD-CIR / ORG-BD-CIR",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 27,
+      "code": "PAG-0027",
+      "document": "VEN-0026",
+      "date": "2026-05-10",
+      "amount": 62100,
+      "account": "Efectivo / caja",
+      "client": "PURPLE INTERIORISMO",
+      "project": "COLECCION ORIGEN",
+      "concept": "ORG-BD-CUM / ORG-NN-CUM / ORG-NN-CUM / ORG-BD-CIR / ORG-BD-CIR",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 28,
+      "code": "PAG-0028",
+      "document": "VEN-0026",
+      "date": "2026-05-11",
+      "amount": 62100,
+      "account": "Efectivo / caja",
+      "client": "PURPLE INTERIORISMO",
+      "project": "COLECCION ORIGEN",
+      "concept": "ORG-BD-CUM / ORG-NN-CUM / ORG-NN-CUM / ORG-BD-CIR / ORG-BD-CIR",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 29,
+      "code": "PAG-0029",
+      "document": "VEN-0026",
+      "date": "2026-05-12",
+      "amount": 62100,
+      "account": "Efectivo / caja",
+      "client": "PURPLE INTERIORISMO",
+      "project": "COLECCION ORIGEN",
+      "concept": "ORG-BD-CUM / ORG-NN-CUM / ORG-NN-CUM / ORG-BD-CIR / ORG-BD-CIR",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 30,
+      "code": "PAG-0030",
+      "document": "VEN-0027",
+      "date": "2026-08-21",
+      "amount": 310000,
+      "account": "Efectivo / caja",
+      "client": "PURPLE INTERIORISMO",
+      "project": "COLECCION ORIGEN+",
+      "concept": "LAMPARAS COLECCION ORIGEN",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 31,
+      "code": "PAG-0031",
+      "document": "VEN-0027",
+      "date": "2026-10-09",
+      "amount": 310000,
+      "account": "Efectivo / caja",
+      "client": "PURPLE INTERIORISMO",
+      "project": "COLECCION ORIGEN+",
+      "concept": "LAMPARAS COLECCION ORIGEN",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 32,
+      "code": "PAG-0032",
+      "document": "VEN-0028",
+      "date": "2026-10-09",
+      "amount": 124200,
+      "account": "Efectivo / caja",
+      "client": "PURPLE INTERIORISMO",
+      "project": "",
+      "concept": "COLECCION ORIGEN",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 33,
+      "code": "PAG-0033",
+      "document": "VEN-0029",
+      "date": "2026-10-01",
+      "amount": 250000,
+      "account": "Efectivo / caja",
+      "client": "PIPO PERICO",
+      "project": "BUSSINES",
+      "concept": "PROTOTIPADO PIPO",
+      "reference": ""
+    },
+    {
+      "source": "sale",
+      "id": 34,
+      "code": "PAG-0034",
+      "document": "VEN-0031",
+      "date": "2026-05-11",
+      "amount": 122834,
+      "account": "Cuenta bancaria NIMUS",
+      "client": "Público en general",
+      "project": "LAMPARA ORIGEN SHOPIFY",
+      "concept": "LAMPARA ORIGEN",
+      "reference": ""
+    }
+  ],
+  "income_invalid": [
+    {
+      "row": 34,
+      "date": "",
+      "client": "EXPO COMERCIO",
+      "concept": "",
+      "reference": "",
+      "account": "",
+      "amount": null
+    }
+  ],
+  "manual_expenses": [
+    {
+      "id": 153,
+      "code": "GAS-0153",
+      "revision": 1,
+      "status": "Activo",
+      "expense_on": "2026-10-03",
+      "due_on": null,
+      "concept": "PIPO PERICO LENIN",
+      "category": "Servicios profesionales",
+      "subtype": "",
+      "cost_type": "Desarrollo / único",
+      "unit": "NIMUS",
+      "supplier": "LENIN",
+      "account": "Efectivo / caja",
+      "tax_mode": "Sin desglose",
+      "subtotal_cents": null,
+      "tax_cents": null,
+      "total_cents": 200000,
+      "receipt_type": "Pendiente",
+      "receipt_ref": "",
+      "notes": "",
+      "order_id": null,
+      "template_id": null,
+      "occurrence": null,
+      "request_key": "0ddbee45c8914283b3f605276b568c52",
+      "request_payload": "[{\"account\": \"Efectivo / caja\", \"category\": \"Servicios profesionales\", \"concept\": \"PIPO PERICO LENIN\", \"cost_type\": \"Desarrollo / único\", \"due_on\": null, \"expense_on\": \"2026-10-03\", \"notes\": \"\", \"order_id\": null, \"receipt_ref\": \"\", \"receipt_type\": \"Pendiente\", \"subtotal_cents\": null, \"subtype\": \"\", \"supplier\": \"LENIN\", \"tax_cents\": null, \"tax_mode\": \"Sin desglose\", \"total_cents\": 200000, \"unit\": \"NIMUS\"}, [200000, \"2026-10-03\", \"Efectivo / caja\", \"Efectivo\", \"\"], null, null]",
+      "created_at": "2026-10-11T15:10:59.299556",
+      "updated_at": "2026-10-11T15:10:59.306062",
+      "cancel_reason": null,
+      "payload": null
+    },
+    {
+      "id": 154,
+      "code": "GAS-0154",
+      "revision": 1,
+      "status": "Activo",
+      "expense_on": "2026-10-08",
+      "due_on": null,
+      "concept": "EXPO",
+      "category": "Otros egresos",
+      "subtype": "",
+      "cost_type": "Variable",
+      "unit": "NIMUS",
+      "supplier": "",
+      "account": "Efectivo / caja",
+      "tax_mode": "Sin desglose",
+      "subtotal_cents": null,
+      "tax_cents": null,
+      "total_cents": 65000,
+      "receipt_type": "Pendiente",
+      "receipt_ref": "",
+      "notes": "",
+      "order_id": null,
+      "template_id": null,
+      "occurrence": null,
+      "request_key": "95d5605bb1ba4deaaa4d729a78bc8ea7",
+      "request_payload": "[{\"account\": \"Efectivo / caja\", \"category\": \"Otros egresos\", \"concept\": \"EXPO\", \"cost_type\": \"Variable\", \"due_on\": null, \"expense_on\": \"2026-10-08\", \"notes\": \"\", \"order_id\": null, \"receipt_ref\": \"\", \"receipt_type\": \"Pendiente\", \"subtotal_cents\": null, \"subtype\": \"\", \"supplier\": \"\", \"tax_cents\": null, \"tax_mode\": \"Sin desglose\", \"total_cents\": 65000, \"unit\": \"NIMUS\"}, null, null, null]",
+      "created_at": "2026-10-11T15:13:15.889119",
+      "updated_at": "2026-10-11T15:13:30.537057",
+      "cancel_reason": null,
+      "payload": null
+    },
+    {
+      "id": 155,
+      "code": "GAS-0155",
+      "revision": 1,
+      "status": "Activo",
+      "expense_on": "2026-10-11",
+      "due_on": null,
+      "concept": "NEON DB",
+      "category": "Operación general",
+      "subtype": "",
+      "cost_type": "Variable",
+      "unit": "NIMUS",
+      "supplier": "NEON",
+      "account": "Cuenta bancaria NIMUS",
+      "tax_mode": "Sin desglose",
+      "subtotal_cents": null,
+      "tax_cents": null,
+      "total_cents": 4104,
+      "receipt_type": "Pendiente",
+      "receipt_ref": "",
+      "notes": "",
+      "order_id": null,
+      "template_id": null,
+      "occurrence": null,
+      "request_key": "d407d241536e4100bffd6757eee8206a",
+      "request_payload": "[{\"account\": \"Cuenta bancaria NIMUS\", \"category\": \"Operación general\", \"concept\": \"NEON DB\", \"cost_type\": \"Variable\", \"due_on\": null, \"expense_on\": \"2026-10-11\", \"notes\": \"\", \"order_id\": null, \"receipt_ref\": \"\", \"receipt_type\": \"Pendiente\", \"subtotal_cents\": null, \"subtype\": \"\", \"supplier\": \"NEON\", \"tax_cents\": null, \"tax_mode\": \"Sin desglose\", \"total_cents\": 4104, \"unit\": \"NIMUS\"}, [4104, \"2026-10-11\", \"Cuenta bancaria NIMUS\", \"Transferencia\", \"\"], null, null]",
+      "created_at": "2026-10-11T15:26:29.066519",
+      "updated_at": "2026-10-11T15:26:29.070520",
+      "cancel_reason": null,
+      "payload": null
+    },
+    {
+      "id": 156,
+      "code": "GAS-0156",
+      "revision": 1,
+      "status": "Activo",
+      "expense_on": "2026-10-09",
+      "due_on": null,
+      "concept": "GASOLINA ABHIMERI",
+      "category": "Logística / traslados / envíos",
+      "subtype": "",
+      "cost_type": "Variable",
+      "unit": "NIMUS",
+      "supplier": "ABHIMERI",
+      "account": "Cuenta bancaria NIMUS",
+      "tax_mode": "Sin desglose",
+      "subtotal_cents": null,
+      "tax_cents": null,
+      "total_cents": 40000,
+      "receipt_type": "Pendiente",
+      "receipt_ref": "",
+      "notes": "",
+      "order_id": null,
+      "template_id": null,
+      "occurrence": null,
+      "request_key": "bd11188fdfd14c239b940a13cba2b37c",
+      "request_payload": "[{\"account\": \"Cuenta bancaria NIMUS\", \"category\": \"Logística / traslados / envíos\", \"concept\": \"GASOLINA ABHIMERI\", \"cost_type\": \"Variable\", \"due_on\": null, \"expense_on\": \"2026-10-09\", \"notes\": \"\", \"order_id\": null, \"receipt_ref\": \"\", \"receipt_type\": \"Pendiente\", \"subtotal_cents\": null, \"subtype\": \"\", \"supplier\": \"ABHIMERI\", \"tax_cents\": null, \"tax_mode\": \"Sin desglose\", \"total_cents\": 40000, \"unit\": \"NIMUS\"}, [40000, \"2026-10-09\", \"Cuenta bancaria NIMUS\", \"Tarjeta\", \"\"], null, null]",
+      "created_at": "2026-10-11T15:27:16.029074",
+      "updated_at": "2026-10-11T15:27:16.037584",
+      "cancel_reason": null,
+      "payload": null
+    },
+    {
+      "id": 157,
+      "code": "GAS-0157",
+      "revision": 1,
+      "status": "Activo",
+      "expense_on": "2026-10-06",
+      "due_on": null,
+      "concept": "BANCA MOV",
+      "category": "Impuestos / comisiones",
+      "subtype": "",
+      "cost_type": "Variable",
+      "unit": "NIMUS",
+      "supplier": "",
+      "account": "Cuenta bancaria NIMUS",
+      "tax_mode": "Sin desglose",
+      "subtotal_cents": null,
+      "tax_cents": null,
+      "total_cents": 45000,
+      "receipt_type": "Pendiente",
+      "receipt_ref": "",
+      "notes": "",
+      "order_id": null,
+      "template_id": null,
+      "occurrence": null,
+      "request_key": "b47ebae3ca3a479ea3ad0048cb445a58",
+      "request_payload": "[{\"account\": \"Cuenta bancaria NIMUS\", \"category\": \"Impuestos / comisiones\", \"concept\": \"BANCA MOV\", \"cost_type\": \"Variable\", \"due_on\": null, \"expense_on\": \"2026-10-06\", \"notes\": \"\", \"order_id\": null, \"receipt_ref\": \"\", \"receipt_type\": \"Pendiente\", \"subtotal_cents\": null, \"subtype\": \"\", \"supplier\": \"\", \"tax_cents\": null, \"tax_mode\": \"Sin desglose\", \"total_cents\": 45000, \"unit\": \"NIMUS\"}, [45000, \"2026-10-06\", \"Cuenta bancaria NIMUS\", \"Tarjeta\", \"\"], null, null]",
+      "created_at": "2026-10-11T15:28:55.585431",
+      "updated_at": "2026-10-11T15:28:55.591961",
+      "cancel_reason": null,
+      "payload": null
+    },
+    {
+      "id": 158,
+      "code": "GAS-0158",
+      "revision": 1,
+      "status": "Activo",
+      "expense_on": "2026-10-06",
+      "due_on": null,
+      "concept": "BANCA SERV",
+      "category": "Impuestos / comisiones",
+      "subtype": "",
+      "cost_type": "Variable",
+      "unit": "NIMUS",
+      "supplier": "",
+      "account": "Cuenta bancaria NIMUS",
+      "tax_mode": "Sin desglose",
+      "subtotal_cents": null,
+      "tax_cents": null,
+      "total_cents": 7954,
+      "receipt_type": "Pendiente",
+      "receipt_ref": "",
+      "notes": "",
+      "order_id": null,
+      "template_id": null,
+      "occurrence": null,
+      "request_key": "f753fc16ab304a8996c5331d1c972ef7",
+      "request_payload": "[{\"account\": \"Cuenta bancaria NIMUS\", \"category\": \"Impuestos / comisiones\", \"concept\": \"BANCA SERV\", \"cost_type\": \"Variable\", \"due_on\": null, \"expense_on\": \"2026-10-06\", \"notes\": \"\", \"order_id\": null, \"receipt_ref\": \"\", \"receipt_type\": \"Pendiente\", \"subtotal_cents\": null, \"subtype\": \"\", \"supplier\": \"\", \"tax_cents\": null, \"tax_mode\": \"Sin desglose\", \"total_cents\": 7954, \"unit\": \"NIMUS\"}, [7954, \"2026-10-06\", \"Cuenta bancaria NIMUS\", \"Tarjeta\", \"\"], null, null]",
+      "created_at": "2026-10-11T15:29:55.092737",
+      "updated_at": "2026-10-11T15:29:55.097263",
+      "cancel_reason": null,
+      "payload": null
+    },
+    {
+      "id": 159,
+      "code": "GAS-0159",
+      "revision": 1,
+      "status": "Activo",
+      "expense_on": "2026-10-07",
+      "due_on": null,
+      "concept": "STICKERS",
+      "category": "Producción / materiales",
+      "subtype": "",
+      "cost_type": "Variable",
+      "unit": "NIMUS",
+      "supplier": "",
+      "account": "Cuenta bancaria NIMUS",
+      "tax_mode": "Sin desglose",
+      "subtotal_cents": null,
+      "tax_cents": null,
+      "total_cents": 6400,
+      "receipt_type": "Pendiente",
+      "receipt_ref": "",
+      "notes": "",
+      "order_id": null,
+      "template_id": null,
+      "occurrence": null,
+      "request_key": "44900df800fb4178ab144a432420f0a7",
+      "request_payload": "[{\"account\": \"Cuenta bancaria NIMUS\", \"category\": \"Producción / materiales\", \"concept\": \"STICKERS\", \"cost_type\": \"Variable\", \"due_on\": null, \"expense_on\": \"2026-10-07\", \"notes\": \"\", \"order_id\": null, \"receipt_ref\": \"\", \"receipt_type\": \"Pendiente\", \"subtotal_cents\": null, \"subtype\": \"\", \"supplier\": \"\", \"tax_cents\": null, \"tax_mode\": \"Sin desglose\", \"total_cents\": 6400, \"unit\": \"NIMUS\"}, [6400, \"2026-10-07\", \"Cuenta bancaria NIMUS\", \"Transferencia\", \"\"], null, null]",
+      "created_at": "2026-10-11T15:30:22.658221",
+      "updated_at": "2026-10-11T15:30:22.663516",
+      "cancel_reason": null,
+      "payload": null
+    },
+    {
+      "id": 160,
+      "code": "GAS-0160",
+      "revision": 2,
+      "status": "Activo",
+      "expense_on": "2026-06-11",
+      "due_on": null,
+      "concept": "CANVA",
+      "category": "Software / SaaS",
+      "subtype": "",
+      "cost_type": "Variable",
+      "unit": "NIMUS",
+      "supplier": "",
+      "account": "Cuenta bancaria NIMUS",
+      "tax_mode": "Sin desglose",
+      "subtotal_cents": null,
+      "tax_cents": null,
+      "total_cents": 15000,
+      "receipt_type": "Pendiente",
+      "receipt_ref": "",
+      "notes": "",
+      "order_id": null,
+      "template_id": null,
+      "occurrence": null,
+      "request_key": "9accc8d59cb241fd807dde5f487fb1c6",
+      "request_payload": "[{\"account\": \"Cuenta bancaria NIMUS\", \"category\": \"Software / SaaS\", \"concept\": \"CANVA\", \"cost_type\": \"Variable\", \"due_on\": null, \"expense_on\": \"2026-10-11\", \"notes\": \"\", \"order_id\": null, \"receipt_ref\": \"\", \"receipt_type\": \"Pendiente\", \"subtotal_cents\": null, \"subtype\": \"\", \"supplier\": \"\", \"tax_cents\": null, \"tax_mode\": \"Sin desglose\", \"total_cents\": 15000, \"unit\": \"NIMUS\"}, [15000, \"2026-10-11\", \"Cuenta bancaria NIMUS\", \"Tarjeta\", \"\"], null, null]",
+      "created_at": "2026-10-11T15:31:00.865517",
+      "updated_at": "2026-10-11T15:34:57.077582",
+      "cancel_reason": null,
+      "payload": null
+    },
+    {
+      "id": 161,
+      "code": "GAS-0161",
+      "revision": 1,
+      "status": "Activo",
+      "expense_on": "2026-10-07",
+      "due_on": null,
+      "concept": "CAPACITACION AI -  TEXAS RH",
+      "category": "Producción / materiales",
+      "subtype": "",
+      "cost_type": "Variable",
+      "unit": "NIMUS",
+      "supplier": "",
+      "account": "Cuenta bancaria NIMUS",
+      "tax_mode": "Sin desglose",
+      "subtotal_cents": null,
+      "tax_cents": null,
+      "total_cents": 55000,
+      "receipt_type": "Pendiente",
+      "receipt_ref": "",
+      "notes": "",
+      "order_id": null,
+      "template_id": null,
+      "occurrence": null,
+      "request_key": "b8d9d2427134439f8b248fc041a9e0dc",
+      "request_payload": "[{\"account\": \"Cuenta bancaria NIMUS\", \"category\": \"Producción / materiales\", \"concept\": \"CAPACITACION AI -  TEXAS RH\", \"cost_type\": \"Variable\", \"due_on\": null, \"expense_on\": \"2026-10-07\", \"notes\": \"\", \"order_id\": null, \"receipt_ref\": \"\", \"receipt_type\": \"Pendiente\", \"subtotal_cents\": null, \"subtype\": \"\", \"supplier\": \"\", \"tax_cents\": null, \"tax_mode\": \"Sin desglose\", \"total_cents\": 55000, \"unit\": \"NIMUS\"}, [55000, \"2026-10-07\", \"Cuenta bancaria NIMUS\", \"Tarjeta\", \"\"], null, null]",
+      "created_at": "2026-10-11T15:31:41.371329",
+      "updated_at": "2026-10-11T15:31:41.376744",
+      "cancel_reason": null,
+      "payload": null
+    }
+  ]
+}

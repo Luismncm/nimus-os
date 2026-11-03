@@ -1,0 +1,26 @@
+{
+  "version": "0.18",
+  "schema": 14,
+  "backup": "C:\\Users\\fella\\Desktop\\NIMUS_Production_v0.3\\backups\\antes-costos-20261011-195445",
+  "seeded": {
+    "components": 12,
+    "recipes": 5
+  },
+  "existing_records_unchanged": true,
+  "files": [
+    "db.py",
+    "models/costing_schema.py",
+    "services/costing.py",
+    "services/cost_reference.py",
+    "views/costing_forms.py",
+    "views/costs.py",
+    "views/catalog.py",
+    "views/sales.py",
+    "views/planning_forms.py",
+    "app.py",
+    "README.md",
+    "docs/COSTOS_ORIGEN.md",
+    "tests/test_costing.py"
+  ],
+  "tests": "53 pruebas de costos, impresión, recetas, ventas y conciliación; comprobación de referencias con copia real."
+}

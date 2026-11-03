@@ -1,0 +1,61 @@
+[server]
+address = "127.0.0.1"
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"
+
+# NIMUS OS: a fresh teal accent on calm neutrals, soft curves and a compact workspace sidebar.
+[theme]
+base = "light"
+primaryColor = "#0F6F78"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F1F5F7"
+textColor = "#18262E"
+borderColor = "#DCE4E8"
+dataframeBorderColor = "#E1E8EB"
+dataframeHeaderBackgroundColor = "#EEF3F5"
+dataframeHeaderTextColor = "#33474F"
+showWidgetBorder = true
+showSidebarBorder = false
+baseRadius = "14px"
+buttonRadius = "10px"
+font = "'Segoe UI Variable Text', 'Segoe UI', system-ui, sans-serif"
+baseFontSize = 15
+headingFontSizes = ["30px", "25px", "20px", "17px", "15px", "13px"]
+headingFontWeights = [700, 650, 650, 600, 600, 600]
+linkUnderline = false
+linkColor = "#0F6F78"
+codeTextColor = "#365761"
+codeBackgroundColor = "#EFF4F5"
+greenColor = "#2F7A57"
+greenTextColor = "#235E43"
+greenBackgroundColor = "#E3F2EA"
+redColor = "#B2434C"
+redTextColor = "#922F39"
+redBackgroundColor = "#FBE9EA"
+orangeColor = "#B0691F"
+orangeTextColor = "#86501A"
+orangeBackgroundColor = "#FBEEDC"
+blueColor = "#3D6FA3"
+blueTextColor = "#2D5580"
+blueBackgroundColor = "#E5EEF8"
+violetColor = "#7A5FA6"
+violetTextColor = "#5E4785"
+violetBackgroundColor = "#F0EBF8"
+grayColor = "#64737C"
+grayTextColor = "#4A5962"
+grayBackgroundColor = "#EDF1F3"
+chartCategoricalColors = ["#0F6F78", "#3D6FA3", "#2F7A57", "#B0691F", "#7A5FA6", "#B2434C"]
+
+[theme.sidebar]
+backgroundColor = "#0F252C"
+secondaryBackgroundColor = "#1B3840"
+textColor = "#EEF5F5"
+# Navigation selections use the accent as text on the dark sidebar.
+primaryColor = "#8FD3D3"
+borderColor = "#3E5C65"
+linkColor = "#A8E0E0"
+codeBackgroundColor = "#26444C"

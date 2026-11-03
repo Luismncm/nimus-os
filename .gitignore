@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+data/**/*.db
+data/**/*.db-shm
+data/**/*.db-wal
+data/*.db*
+backups/
+data/backups/
+.streamlit/secrets.toml
+*.log
+# Local tooling: preview servers point at this machine's temp folders.
+.claude/
+*.db
+*.db-shm
+*.db-wal

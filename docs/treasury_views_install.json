@@ -1,0 +1,17 @@
+{
+  "installed_files": [
+    "services/treasury.py",
+    "services/expenses.py",
+    "views/expense_forms.py",
+    "views/capital.py",
+    "views/treasury.py",
+    "views/treasury_components.py",
+    "app.py",
+    "README.md",
+    "docs/TESORERIA_OPERACION.md",
+    "tests/test_treasury_views.py"
+  ],
+  "database_unchanged": true,
+  "backup": "C:\\Users\\fella\\Desktop\\NIMUS_Production_v0.3\\backups\\antes-vistas-tesoreria-20261011-141823",
+  "tests": "35 pruebas de tesorería, gastos e importación; 3 comprobaciones finales y revisión con copia de datos reales."
+}

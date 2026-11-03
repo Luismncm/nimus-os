@@ -1,0 +1,1 @@
+Logos de NIMUS MAIN, proporcionados por el usuario. Los originales se conservan en originals/. Las versiones de interfaz solo ajustan el viewBox para eliminar margen vacío; nimus-light.svg usa relleno blanco. No se modificaron los trazados ni los archivos fuente.

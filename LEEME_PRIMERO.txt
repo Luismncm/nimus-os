@@ -1,0 +1,103 @@
+NIMUS OS v0.38 · Control de producción, ventas e inventario
+
+1. Haz doble clic en INICIAR_WINDOWS.bat.
+2. Abre http://127.0.0.1:8502/
+3. Para detener la aplicación, pulsa Ctrl+C en su terminal.
+
+Si NIMUS ya está funcionando, el iniciador abre esa misma instancia.
+Si otra aplicación ocupa 8502, se usa un puerto libre y se muestra la dirección en la terminal.
+
+La carpeta conserva su nombre NIMUS_Production_v0.3; el contenido está actualizado a v0.38.
+Agregar inventario → Pedido: registra unidades solicitadas y confirma su llegada en Inventario → Pedidos.
+Costos de impresión: gramos × MXN/g + tiempo × MXN/h, por pieza o por lote, desde Origen e Inventario.
+Notificaciones al final de la barra: pedidos, cobros, pagos, insumos y producción, con búsqueda y prioridades.
+Incluye logos NIMUS y un entorno Python local ya preparado.
+Tus pedidos y piezas existentes se conservan en data/nimus_production.db.
+Los items existentes no se clasifican como colección automáticamente.
+Para un modelo Origen, edita su item y activa Producir para inventario de Colección Origen antes de registrar avances.
+Las unidades buenas de piezas de Impresión 3D o Resina ingresan a Inventario.
+Desde esa vista puedes asignar piezas a clientes B2B, moverlas a Stock y consultar el historial.
+Materiales, modelos, piezas y clientes: selecciona un valor anterior o escribe uno nuevo, pulsa Enter y guarda el registro. Estará disponible la próxima vez.
+Cada asignación de inventario nueva inicia con cantidad 1 y sin un cliente preseleccionado.
+Se usa el puerto 8502 para no interferir con la instancia anterior del puerto 8501.
+
+README.md contiene instrucciones de uso, arquitectura, CSV y respaldos.
+docs/INVENTARIO_ORIGEN_V04.md explica el flujo y las correcciones de inventario.
+
+NUEVO: En Agregar item usa Reutilizar despiece; en Agregar pieza usa Reutilizar pieza.
+Guardar y agregar otra conserva material/proceso y mantiene la ventana abierta.
+Guardar como receta convierte un despiece existente para futuros pedidos.
+Catálogo y recetas permite definir productos y piezas una sola vez.
+Pedidos > Desde receta calcula existencias, reservas y cantidades a fabricar.
+Máquinas permite agregar, editar, eliminar equipos sin uso y archivar los que tienen historial.
+La cobertura de recetas se mide en piezas; no confirma lámparas ensambladas.
+
+HOY: Operar el taller / Revisión y empacado / Planificar y gestionar.
+Puedes marcar Revisión final, Empacado y Listo para salida por pedido.
+Cada item tiene un check Revisado y una etiqueta reutilizable sin editar todos sus datos.
+Estos checks son manuales: no cambian cantidades producidas ni entregan el pedido.
+
+COTIZACIONES: partidas, volumen, IVA opcional, condiciones e imágenes.
+Calcular y guardar persiste la cotización. Vista para cliente permite descargar e imprimir/PDF.
+Pagos y recibos registra abonos reales y saldo, sin cobros automáticos.
+Aceptada > Crear pedido convierte solo las partidas Para fabricar; después define su despiece.
+IMPRESIÓN RÁPIDA: check por item o pieza para unidades realmente terminadas.
+INVENTARIO: Agregar inventario permite ingresar existencias físicas sin imprimir.
+
+VENTAS: Nueva venta directa permite capturar productos o servicios sin cotización.
+Desde una cotización Aceptada, pulsa Registrar venta para incluirla en el control.
+Cada cotización tiene una sola venta; sus pagos se comparten sin duplicar anticipos.
+Registra abonos o liquidación desde Ventas. Consulta saldo, vencimiento y canal.
+Vendido usa fecha de venta; Cobrado usa fecha de pago. Revisa Sobre los totales.
+Exporta el control a CSV o descarga el comprobante de la venta para imprimir/PDF.
+Crear pedido es opcional y solo usa las partidas Para fabricar.
+Registrar ventas no modifica automáticamente inventario ni entregas.
+
+GASTOS: Nuevo gasto registra compras y servicios con clasificación reutilizable.
+Elige captura sin desglose, subtotal + IVA, total con IVA o desglose manual.
+Si no activas Pagado completo en la fecha del gasto, queda Por pagar.
+Puedes registrar abonos, cuenta de salida y fecha real desde Registrar pago.
+Costos recurrentes reutiliza rentas, suscripciones y otros costos por período.
+La previsión mensual no se suma a los gastos ni genera pagos automáticos.
+Resumen muestra categorías y pagos del período; Movimientos permite exportar CSV.
+Se tomó la estructura de la hoja NIMUS · Control, sin importar datos históricos.
+
+NUEVO v0.12 · TESORERÍA Y HOY
+Tesorería agrupa Resumen y cuentas, Ventas, Gastos y Cotizaciones.
+Crea o edita cuentas bancarias, cajas de efectivo y pasarelas desde Resumen y cuentas → Cuentas.
+En cada cobro elige la cuenta donde entró el dinero; en los gastos, la cuenta real de salida.
+El resumen muestra flujo por cuenta, no saldos bancarios conciliados.
+Los cobros históricos se muestran sin cuenta: puedes asignarla al consultar el movimiento.
+Hoy permite producir, entregar, cobrar y pagar con acciones directas; conserva filtros durante la sesión.
+Usa Continuar para retomar el último registro y Reutilizar venta para repetir una captura sin copiar pagos.
+
+NUEVO v0.13 · AGENDA, PDF Y CORRECCIONES
+Operación → Agenda de impresión: calendario por máquina, próximas impresiones y costos previstos.
+Programar / consumos: inicio programado, duración, gramos previstos y reales, y tarifas opcionales de material/máquina.
+Al iniciar se guarda la hora real. Se calcula el fin estimado y aparecen avisos de horarios vencidos o coincidentes.
+Los avisos se muestran en NIMUS; las notificaciones externas se podrán incorporar después.
+Ventas / Gastos → detalle → Factura y PDF: indicar si lleva factura, adjuntar PDF hasta 10 MB y descargarlo.
+Ventas → Eliminar venta seleccionada: papelera recuperable; requiere revisar pagos vigentes y pedidos vinculados.
+Ventas → detalle → Eliminar partidas: ventas directas sin pagos, factura PDF ni pedido; recalcula total y conserva historial.
+Los PDFs quedan incluidos en el respaldo de la base de datos.
+
+NUEVO v0.14 · COLA POR MÁQUINA
+Cola de producción tiene vistas Por máquina, Lista de trabajos y Tabla.
+Cada equipo muestra estado por color, lote actual/siguiente, pendientes y horas capturadas.
+Los lotes adicionales se gestionan en un desplegable que conserva la selección durante los cambios de la misma vista.
+Puedes buscar por pieza, material o cliente, y filtrar pedido, fecha, prioridad y proceso.
+Mostrar vacías incluye equipos activos sin lotes para la consulta.
+Los inicios, avances y cierres siguen usando las reglas de producción existentes.
+
+NUEVO v0.33 · CONTROL DE PRODUCCIÓN
+Control de producción reúne Capacidad, Fallas y reimpresiones, Costos y margen, y Avisos.
+No se pueden guardar reservas que se crucen en una misma máquina; inicio y duración son obligatorios para reservar.
+Revisar estimación permite elegir el siguiente espacio libre. Máquinas diferentes pueden trabajar en paralelo.
+Falla registra rechazos/merma y pausa el lote. Reimprimir pendientes reprograma el mismo trabajo sin duplicar asignaciones.
+Se acumula tiempo registrado en producción excluyendo pausas. El tiempo histórico sin medición se captura manualmente.
+Costo real confirma consumo total y tarifas medias sin IVA al terminar; incluye todos los intentos y la merma una sola vez.
+El margen por pedido requiere completar producción/consumos y vincular su venta. Puedes incorporar gastos o costos adicionales.
+Avisos se actualiza cada minuto cuando está abierto; permite marcar visto y posponer.
+Captura lecturas de material y fecha de mantenimiento desde los ajustes de Avisos para activar esas alertas.
+Las lecturas de material son manuales, no existe descuento automático de filamento.
+Las reservas históricas y sus datos se conservan; corrige los cruces indicados en Avisos.

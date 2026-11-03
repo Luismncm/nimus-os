@@ -1,0 +1,48 @@
+{
+  "version": "0.17",
+  "schema": 13,
+  "backup": "C:\\Users\\fella\\Desktop\\NIMUS_Production_v0.3\\backups\\antes-conciliacion-20261011-143229",
+  "imported": {
+    "imported": 5,
+    "skipped": 0,
+    "amount_cents": 23300000,
+    "undated": 1
+  },
+  "unchanged": "Gastos, compras de socios, reembolso y cobros existentes",
+  "accounts": [
+    {
+      "account_id": 2,
+      "account": "Efectivo / caja",
+      "kind": "Efectivo",
+      "income": 3926300,
+      "outflow": 3748900,
+      "net": 177400
+    },
+    {
+      "account_id": 1,
+      "account": "Cuenta bancaria NIMUS",
+      "kind": "Banco",
+      "income": 25153680,
+      "outflow": 24960240,
+      "net": 193440
+    }
+  ],
+  "installed_files": [
+    "db.py",
+    "models/reconciliation_schema.py",
+    "services/reconciliation.py",
+    "services/sheet_migration.py",
+    "services/treasury.py",
+    "services/expenses.py",
+    "views/reconciliation_forms.py",
+    "views/capital.py",
+    "views/treasury.py",
+    "views/expenses.py",
+    "views/expense_forms.py",
+    "app.py",
+    "README.md",
+    "docs/TESORERIA_OPERACION.md",
+    "tests/test_reconciliation.py"
+  ],
+  "tests": "46 pruebas pasaron; interfaz verificada con copia de datos reales."
+}
