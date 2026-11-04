@@ -5,6 +5,7 @@ import db
 from services import inventory, piece_stock as s, production as p, recipes
 from services.queries import load_snapshot
 from tests import test_development as fixture
+from tests.backends import sqlite_only
 
 APP = str(Path(__file__).resolve().parents[1] / 'app.py')
 
@@ -95,6 +96,8 @@ class PieceSharingTest(unittest.TestCase):
         third = recipes.create_recipe_order(rid, 1, client='C', use_stock=False)
         piece = next(x for x in load_snapshot()['parts'] if x['order_id'] == third)
         self.assertEqual((piece['stock_free'], piece['stock_incoming']), (1, 0))
+
+    @sqlite_only
 
     def test_migration_from_31(self):
         with db.connect(write=True) as conn:

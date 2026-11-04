@@ -16,6 +16,7 @@ import db
 from services import production as s
 from services.queries import dashboard, export_rows, csv_bytes, filter_jobs, load_snapshot
 from utils.calculations import progress
+from tests.backends import sqlite_only
 
 
 class ProductionTest(unittest.TestCase):
@@ -234,7 +235,8 @@ class ProductionTest(unittest.TestCase):
             ("UPDATE production_jobs SET part_id=999 WHERE id=?",(jid,)),
             ("UPDATE production_jobs SET quantity_completed=-1 WHERE id=?",(jid,)),
             ("UPDATE production_jobs SET quantity=11 WHERE id=?",(jid,)),
-            ("UPDATE production_jobs SET quantity=1.5 WHERE id=?",(jid,)),
+            # A fraction arrives as a parameter, as the services send it; both databases refuse it in a whole-unit column.
+            ("UPDATE production_jobs SET quantity=? WHERE id=?",(1.5,jid)),
             ("UPDATE production_jobs SET status='Terminado' WHERE id=?",(jid,)),
             ("UPDATE parts SET quantity_required=9 WHERE id=?",(self.part,)),
         ]
@@ -288,6 +290,8 @@ class ProductionTest(unittest.TestCase):
         self.assertIn('Señalética, "A"',[r["project"] for r in rows])
         self.assertIn("quantity_completed",rows[0])
         self.assertIn("completed_quantity",rows[0])
+
+    @sqlite_only
 
     def test_backup_and_idempotence(self):
         backup=db.backup_database()

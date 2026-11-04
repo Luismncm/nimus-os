@@ -38,7 +38,8 @@ def register_injection(partner,amount,moved_on,account_id,*,concept='Inyección 
 
 def saved_partners():
     with connect() as conn:
-        return [r[0] for r in conn.execute("SELECT DISTINCT partner FROM capital_movements WHERE trim(partner)<>'' ORDER BY partner COLLATE NOCASE")]
+        # GROUP BY rather than DISTINCT: Postgres orders a DISTINCT list only by what it selects.
+        return [r[0] for r in conn.execute("SELECT partner FROM capital_movements WHERE trim(partner)<>'' GROUP BY partner ORDER BY partner COLLATE NOCASE")]
 
 
 def void_injection(cid,reason,*,expected):

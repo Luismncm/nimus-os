@@ -9,6 +9,7 @@ import db
 from services import inbound,expenses,expense_control,treasury,cash_projection
 from tests import test_inbound as fixture
 from utils.dates import now
+from tests.backends import sqlite_only
 
 
 class PurchaseExpenseTest(unittest.TestCase):
@@ -82,6 +83,8 @@ class PurchaseExpenseTest(unittest.TestCase):
         with patch.object(inbound,'_event',side_effect=ValueError('Falla de registro')),self.assertRaises(ValueError):
             inbound.cancel(pid,'Prueba de cancelación',expected_token=row['token'],request_key='cancel')
         self.assertEqual(self.fingerprint(),before)
+
+    @sqlite_only
 
     def test_migration_from_25_preserves_all_prior_rows_and_does_not_guess_old_cost_links(self):
         self.create(paid=True,method='Transferencia')

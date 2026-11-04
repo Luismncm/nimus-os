@@ -1,0 +1,25 @@
+{
+  "name": "nimus-os",
+  "private": true,
+  "version": "0.60.0",
+  "description": "NIMUS OS en la nube: Next.js (interfaz) + API en Python (servicios) sobre Postgres.",
+  "scripts": {
+    "dev": "concurrently -n web,api -c cyan,magenta \"next dev\" \"npm run api\"",
+    "api": ".venv/Scripts/python.exe -m uvicorn api.index:app --port 8000 --reload --reload-dir cloud --reload-dir services --reload-dir pgcompat",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "~15.5.28",
+    "react": "~19.1.10",
+    "react-dom": "~19.1.10"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "concurrently": "^9.1.0",
+    "typescript": "~5.9.3"
+  }
+}

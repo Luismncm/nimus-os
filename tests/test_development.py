@@ -10,6 +10,7 @@ from services import development as d, production as p, consumables as c, order_
 from services.daily import daily_board
 from services.queries import load_snapshot
 from utils.dates import now
+from tests.backends import sqlite_only
 
 
 class DevelopmentTest(unittest.TestCase):
@@ -57,6 +58,8 @@ class DevelopmentTest(unittest.TestCase):
         with self.assertRaises(ValueError):self.launch('after-close')
         d.reopen_project(self.project);self.launch('reopened',planned_start=(self.start+timedelta(days=1)).isoformat())
         self.assertEqual(sum(j['order_id']==self.project for j in load_snapshot()['jobs']),2)
+
+    @sqlite_only
 
     def test_migration_from_28_adds_projects_with_backup(self):
         with db.connect(write=True) as conn:

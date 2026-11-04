@@ -8,7 +8,7 @@ if sys.version_info < (3,11):
     sys.exit(1)
 try:
     from packaging.requirements import Requirement
-    for line in (Path(__file__).resolve().parents[1]/"requirements.txt").read_text().splitlines():
+    for line in (Path(__file__).resolve().parents[1]/"requirements-local.txt").read_text().splitlines():
         if line.strip() and not line.startswith("#"):
             requirement=Requirement(line)
             if version(requirement.name) not in requirement.specifier:

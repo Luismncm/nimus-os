@@ -12,6 +12,7 @@ from services import production as p, inventory as inv, recipes as r
 from services.quick_print import fingerprint, finish_printing
 from services.queries import load_snapshot
 from tests.ui_helpers import enter_option
+from tests.backends import sqlite_only
 
 
 class QuickFlowTest(unittest.TestCase):
@@ -110,6 +111,8 @@ class QuickFlowTest(unittest.TestCase):
         self.assertEqual(sum(s['reserved'] for s in inv.load_inventory()['skus']), 5)
         p.deliver_order(oid)
         self.assertEqual(inv.load_inventory()['skus'][0]['delivered'], 5)
+
+    @sqlite_only
 
     def test_v5_migration_preserves_ledger_reversals_and_reservations(self):
         # Use v0.7's schema creators to make an actual predecessor database.

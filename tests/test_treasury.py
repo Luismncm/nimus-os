@@ -11,6 +11,7 @@ from services import treasury as t, sales as s, quotations as q, expenses as e, 
 from services.workbench import operating_board, visible
 from services.queries import load_snapshot
 from utils.dates import now
+from tests.backends import sqlite_only
 
 
 class TreasuryTest(unittest.TestCase):
@@ -96,6 +97,8 @@ class TreasuryTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             e.record_payment(eid,50,self.today,'Efectivo / caja','Efectivo',request_key='bad',expected_revision=0)
         self.assertEqual(e.get_expense(eid)['paid_cents'],0)
+
+    @sqlite_only
 
     def test_v9_migration_keeps_rows_and_does_not_guess_receipt_account(self):
         sid=self.sale();self.pay(sid,100,None)

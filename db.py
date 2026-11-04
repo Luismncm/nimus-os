@@ -17,8 +17,22 @@ def database_path() -> Path:
     return Path(os.environ.get("NIMUS_DB_PATH", BASE_DIR / "data" / "nimus_production.db")).resolve()
 
 
+def postgres_enabled() -> bool:
+    """Postgres when DATABASE_URL points at it (the cloud); SQLite on this computer otherwise.
+
+    Read from the environment only, so the local app never needs the Postgres driver installed.
+    """
+    return os.environ.get('DATABASE_URL', '').startswith(('postgres://', 'postgresql://')) or bool(os.environ.get('NIMUS_PG_PER_PATH'))
+
+
 @contextmanager
 def connect(path: Path | str | None = None, *, write: bool = False, migration: bool = False, reconciliation: bool = False):
+    # An explicit path is always a SQLite file (migrations, backups, imports); otherwise the configured database.
+    if path is None and postgres_enabled():
+        from pgcompat.connection import connect as pg_connect
+        with pg_connect(write=write, migration=migration, reconciliation=reconciliation) as conn:
+            yield conn
+        return
     target = Path(path) if path is not None else database_path()
     target.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(target, timeout=15, isolation_level=None)
@@ -40,6 +54,8 @@ def connect(path: Path | str | None = None, *, write: bool = False, migration: b
 
 
 def backup_database(path: Path | str | None = None, *, label: str = "manual") -> Path:
+    if path is None and postgres_enabled():
+        raise OSError('La base en la nube se respalda en Neon (restauración a cualquier momento); no hay archivo local que copiar.')
     source = Path(path) if path is not None else database_path()
     folder = source.parent / "backups"
     folder.mkdir(parents=True, exist_ok=True)
@@ -349,6 +365,11 @@ def _restore_legacy(conn: sqlite3.Connection, old: dict) -> None:
 SCHEMA_VERSION = 33
 
 def init_db(path=None):
+    if path is None and postgres_enabled():
+        # Postgres takes this same schema, translated once (pgcompat.schema); SQLite's migrations stay the source.
+        from pgcompat.connection import ensure_schema
+        ensure_schema()
+        return
     target = Path(path) if path is not None else database_path()
     with connect(target) as conn:
         version = conn.execute("PRAGMA user_version").fetchone()[0]

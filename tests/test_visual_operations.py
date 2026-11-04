@@ -10,6 +10,7 @@ import db
 from services import production as p,board_moves as moves,photos,inventory,recipes,operations
 from services.queries import load_snapshot
 from services.order_board import tracking
+from tests.backends import sqlite_only
 
 class VisualOperationsTest(unittest.TestCase):
     def setUp(self):
@@ -67,6 +68,8 @@ class VisualOperationsTest(unittest.TestCase):
         with self.assertRaises(ValueError):self.move('Producir','conflict',job_id=self.jid)
         self.assertEqual(before,load_snapshot())
         with db.connect() as conn:self.assertEqual(conn.execute('SELECT COUNT(*) FROM operation_events').fetchone()[0],0)
+
+    @sqlite_only
 
     def test_photo_validation_resize_conflicts_fallback_and_backup(self):
         cid=recipes.create_component('Pantalla','PLA','Impresión 3D')

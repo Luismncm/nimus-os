@@ -5,6 +5,7 @@ from streamlit.testing.v1 import AppTest
 import db
 from services import origin,recipes as r,production as p,inventory,costing as cost
 from services.queries import load_snapshot
+from tests.backends import sqlite_only
 
 class OriginTest(unittest.TestCase):
     def setUp(self):
@@ -87,6 +88,8 @@ class OriginTest(unittest.TestCase):
         gray=origin.create_base_set('Gris','PLA gris')
         with self.assertRaises(ValueError):origin.publish_lamp(self.pid,name='x',shade_id=self.shade,base_set_id=gray,expected_recipe_id=new,**self.supplies)
 
+    @sqlite_only
+
     def test_legacy_bridge_appends_seven_piece_recipe_and_preserves_original(self):
         # A legacy four-piece lamp using the existing shared base.
         base=origin.load()['bases'][0];pid=r.create_product('Lámpara legada',collection='Origen')
@@ -138,6 +141,8 @@ class OriginModelsTest(unittest.TestCase):
         self.bases={color:origin.create_base_set(color,'PLA '+color) for color in ('BEIGE','GRIS NIEBLA','NEGRO NOCHE')}
         self.supplies={field:origin.create_component(role,material='Insumo') for role,field in (('Cable','cable_id'),('Foco','bulb_id'),('Empaque','packaging_id'))}
         self.pid=origin.publish_lamp(None,name='Cirrus beige',shade_id=self.shades['CIRRUS'],base_set_id=self.bases['BEIGE'],expected_recipe_id=None,**self.supplies)
+
+    @sqlite_only
 
     def test_migration_retires_only_generic_ivory_preserving_history_and_stock(self):
         generic=r.create_component('PANTALLA','PLA MATTE IVORY','Impresión 3D','IVORY','Origen')

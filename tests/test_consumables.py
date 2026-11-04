@@ -8,6 +8,7 @@ from streamlit.testing.v1 import AppTest
 import db
 from services import consumables as c, alert_inputs, expenses, production as p
 from services.queries import load_snapshot
+from tests.backends import sqlite_only
 
 
 class ConsumablesTest(unittest.TestCase):
@@ -55,6 +56,8 @@ class ConsumablesTest(unittest.TestCase):
         petg=next(r for r in c.items([]) if r['name']=='PETG Negro')
         self.assertEqual((petg['balance'],petg['category']),(1200,'Filamento'))
         self.assertEqual(self.reading('PETG Negro')['available_grams'],1200)
+
+    @sqlite_only
 
     def test_previous_readings_become_opening_balances(self):
         with db.connect(write=True) as conn:
@@ -145,6 +148,8 @@ class ConsumableCostTest(unittest.TestCase):
         c.receive_order(purchase,1,expected_token=row['token'],request_key='arrive')
         # $180 for 2 bottles → $90 per bottle becomes the reference cost.
         self.assertEqual(self.item(glue)['package_cost_cents'],9000)
+
+    @sqlite_only
 
     def test_migration_from_27_adds_cost_columns_and_backup(self):
         with db.connect(write=True) as conn:conn.execute('PRAGMA user_version=27')

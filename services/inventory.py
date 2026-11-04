@@ -221,7 +221,7 @@ def load_inventory() -> dict:
             MIN(m.client) client,s.product,s.part,s.material,s.process,COALESCE(c.variant,'') variant,
             SUM(CASE WHEN m.destination='B2B' THEN m.quantity ELSE 0 END - CASE WHEN m.source='B2B' THEN m.quantity ELSE 0 END) quantity
             FROM inventory_movements m JOIN inventory_skus s ON s.id=m.sku_id LEFT JOIN catalog_components c ON c.id=s.component_id WHERE m.client_key<>''
-            GROUP BY m.client_key,m.sku_id HAVING SUM(CASE WHEN m.destination='B2B' THEN m.quantity ELSE 0 END
+            GROUP BY m.client_key,m.sku_id,s.id,c.id HAVING SUM(CASE WHEN m.destination='B2B' THEN m.quantity ELSE 0 END
             - CASE WHEN m.source='B2B' THEN m.quantity ELSE 0 END)>0 ORDER BY client,s.product,s.part""")]
         held = [dict(r) for r in conn.execute("""SELECT h.*,o.code order_code,o.project,o.fulfillment,c.name part,c.material,c.variant
           FROM inventory_reservations h JOIN recipe_requirements r ON r.id=h.requirement_id

@@ -9,7 +9,7 @@ if not exist ".venv\Scripts\python.exe" (
 if not exist ".venv\Scripts\python.exe" goto error_python
 ".venv\Scripts\python.exe" scripts\check_runtime.py
 if errorlevel 1 (
-  ".venv\Scripts\python.exe" -m pip install -r requirements.txt
+  ".venv\Scripts\python.exe" -m pip install -r requirements-local.txt
   if errorlevel 1 goto error_dependencies
 )
 ".venv\Scripts\python.exe" scripts\launch_windows.py

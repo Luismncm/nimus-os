@@ -8,6 +8,7 @@ from streamlit.testing.v1 import AppTest
 import db
 from services import invoices as f,sales as s,quotations as q,expenses as e,sale_corrections as c
 from utils.dates import now
+from tests.backends import sqlite_only
 
 PDF=b'%PDF-1.4\n1 0 obj <</Type /Catalog>> endobj\n%%EOF\n'
 
@@ -26,6 +27,8 @@ class InvoiceCorrectionTest(unittest.TestCase):
         row=f.get(kind,identity)
         return f.save(kind,identity,required,'FAC-100',upload,expected_revision=row['revision'],expected_owner_revision=row['owner_revision'],**kwargs)
     def app(self,page):return AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'),default_timeout=20).run().switch_page(page).run()
+
+    @sqlite_only
 
     def test_sale_pdf_roundtrip_and_backup_includes_bytes(self):
         sid=self.sale(invoice_required=True);self.invoice('sale',sid)

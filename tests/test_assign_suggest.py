@@ -7,6 +7,7 @@ from services import assign_suggest as a, production as p
 from services.queries import load_snapshot
 from tests import test_development as fixture
 from views.live_floor import progress_of
+from tests.backends import sqlite_only
 
 
 class AssignSuggestTest(unittest.TestCase):
@@ -36,6 +37,8 @@ class AssignSuggestTest(unittest.TestCase):
         job=dict(current_run_started_at=start.isoformat(),estimated_finish=(start+timedelta(hours=4)).isoformat())
         done,left=progress_of(job,start+timedelta(hours=1))
         self.assertEqual((round(done,2),round(left)),(0.25,180))
+
+    @sqlite_only
 
     def test_migration_from_29_adds_loadout(self):
         with db.connect(write=True) as conn:conn.execute('DROP TABLE machine_loadout');conn.execute('PRAGMA user_version=29')

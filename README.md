@@ -356,7 +356,7 @@ Instalación manual en una carpeta nueva:
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r requirements-local.txt
 .\.venv\Scripts\python.exe scripts\launch_windows.py
 ```
 

@@ -5,6 +5,7 @@ import db
 from services import capture, inventory, piece_stock as s, production as p, recipes
 from services.queries import load_snapshot
 from tests import test_development as fixture
+from tests.backends import sqlite_only
 
 
 def part_of(pid):
@@ -77,6 +78,8 @@ class PieceStockTest(unittest.TestCase):
         self.assertFalse([x for x in load_snapshot()['parts'] if x['order_id'] == oid])
         order = next(o for o in load_snapshot()['orders'] if o['id'] == oid)
         self.assertEqual((order['manufactured_from_stock'], order['remaining_total']), (3, 0))
+
+    @sqlite_only
 
     def test_custom_piece_cannot_be_taken_and_migration_from_30(self):
         _, pid = self.custom()

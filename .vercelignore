@@ -1,0 +1,16 @@
+# Only the web app, the API and the services travel to Vercel; local data and the Streamlit app stay here.
+.venv/
+data/
+backups/
+tests/
+docs/
+views/
+.streamlit/
+*.db
+*.db-shm
+*.db-wal
+app.py
+INICIAR_WINDOWS.bat
+RESPALDAR_WINDOWS.bat
+iniciar_mac_linux.sh
+LEEME_PRIMERO.txt

@@ -1,4 +1,6 @@
-streamlit>=1.65,<1.66
-pandas>=2.2,<3
+# Cloud API (Vercel Python functions): the services over Postgres. The local Streamlit app uses requirements-local.txt.
+fastapi>=0.115,<1
+psycopg[binary]>=3.2,<4
+sqlglot>=25,<27
 tzdata>=2025.2
 Pillow>=10.4,<13

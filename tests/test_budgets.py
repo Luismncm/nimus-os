@@ -11,6 +11,7 @@ import db
 from services import budgets as b, expenses as e, treasury, sheet_migration
 from datetime import date
 from tests import test_sheet_migration as fixtures
+from tests.backends import sqlite_only
 
 
 class BudgetTest(unittest.TestCase):
@@ -116,6 +117,8 @@ class BudgetTest(unittest.TestCase):
         self.assertEqual(sum(r['fixed_cents'] for r in lines),1200000)
         self.assertEqual(b.list_months(),[])
         self.assertEqual(e.list_expenses(),[])
+
+    @sqlite_only
 
     def test_migrate_v14_preserves_financial_records_and_is_idempotent(self):
         e.create(dict(e.defaults(),concept='Original',amount=123.45),request_key='old')

@@ -6,6 +6,7 @@ from streamlit.testing.v1 import AppTest
 import db
 from services import cash_projection as cash,treasury,expense_control as control,expenses,sales,quotations
 from tests import test_treasury as fixture
+from tests.backends import sqlite_only
 
 
 class CashProjectionTest(unittest.TestCase):
@@ -116,6 +117,8 @@ class CashProjectionTest(unittest.TestCase):
         self.assertEqual(cash.projection('2026-10',pending_cents=200000)['projected_cents'],200000)
         for bad in (-1,None,True,float('nan')):
             with self.assertRaises(ValueError):cash.save_forecast('2026-10',bad,request_key='bad')
+
+    @sqlite_only
 
     def test_history_is_immutable_and_migration_preserves_every_original_row(self):
         self.confirm();cash.save_forecast('2026-10',100,request_key='plan')

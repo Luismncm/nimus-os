@@ -14,3 +14,9 @@ data/backups/
 *.db
 *.db-shm
 *.db-wal
+# Web app (Next.js) build output and dependencies.
+node_modules/
+.next/
+.vercel/
+*.tsbuildinfo
+.env*.local

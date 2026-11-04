@@ -7,6 +7,7 @@ from services.daily import daily_board
 from services.queries import load_snapshot
 from services.queue_review import destinations
 from tests import test_development as fixture
+from tests.backends import sqlite_only
 
 APP = str(Path(__file__).resolve().parents[1] / 'app.py')
 
@@ -88,6 +89,8 @@ class StockRunTest(unittest.TestCase):
         self.assertEqual(part_of(pid)['stock_free'], 2)
         s.cover_from_stock([(pid, 2)])
         self.assertEqual(part_of(pid)['quantity_required'], 1)
+
+    @sqlite_only
 
     def test_validation_and_migration_from_32(self):
         with self.assertRaises(ValueError):

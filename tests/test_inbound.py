@@ -10,6 +10,7 @@ import db
 from services import inbound,inventory,restock,notifications
 from tests import test_restock as fixture
 from utils.dates import now
+from tests.backends import sqlite_only
 
 
 class InboundTest(unittest.TestCase):
@@ -93,6 +94,8 @@ class InboundTest(unittest.TestCase):
             except ValueError:return False
         with ThreadPoolExecutor(max_workers=2) as pool:results=list(pool.map(receive,['a','b']))
         self.assertEqual(sum(results),1);self.assertEqual(self.stock(),8)
+
+    @sqlite_only
 
     def test_immutable_history_and_migration_from_22_preserve_all_original_rows(self):
         self.create()
