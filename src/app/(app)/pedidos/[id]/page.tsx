@@ -83,7 +83,10 @@ export default function Pedido() {
       </section>
 
       <section className="card">
-        <h2 className="section-title">Productos y piezas · {order.progress}% fabricado</h2>
+        <div className="toolbar" style={{ marginBottom: 6 }}>
+          <h2 className="section-title" style={{ margin: 0 }}>Productos y piezas · {order.progress}% fabricado</h2>
+          <Link className="btn small ghost" href={`/cola?pedido=${order.id}`}>Ver sus trabajos en la cola</Link>
+        </div>
         {order.items.map((item) => (
           <div key={item.id} style={{ marginBottom: 14 }}>
             <strong>{item.name}</strong> <span className="muted">×{item.quantity}</span>

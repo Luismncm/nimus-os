@@ -5,7 +5,7 @@ from db import backup_database
 from services.queries import csv_bytes,export_rows,PART_EXPORT_FIELDS
 from utils.dates import now
 
-VERSION='0.61'
+VERSION='0.66'
 AREAS=('Taller','Negocio')
 # Path and full title stay stable for existing links, dialogs and saved context.
 # The label is what people read: sidebar entry, search result and page heading.

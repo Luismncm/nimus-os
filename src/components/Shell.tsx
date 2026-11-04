@@ -8,12 +8,12 @@ import { api, ApiError, User } from '@/lib/api';
 /** The same sections as the local sidebar (views/shell.py). `ready` marks those already in the cloud. */
 const SECTIONS: { group: string; area: 'Taller' | 'Negocio'; pages: { href: string; label: string; ready?: boolean; admin?: boolean }[] }[] = [
   { group: 'Trabajo diario', area: 'Taller', pages: [{ href: '/', label: 'Hoy', ready: true }, { href: '/pedidos', label: 'Pedidos', ready: true }] },
-  { group: 'Producción', area: 'Taller', pages: [{ href: '/cola', label: 'Cola de producción' }, { href: '/desarrollo', label: 'Desarrollo y prototipos' }, { href: '/control', label: 'Control de producción' }] },
-  { group: 'Productos y existencias', area: 'Taller', pages: [{ href: '/origen', label: 'Colección Origen' }, { href: '/inventario', label: 'Inventario' }, { href: '/catalogo', label: 'Catálogo y recetas' }] },
-  { group: 'Equipo', area: 'Taller', pages: [{ href: '/maquinas', label: 'Máquinas' }] },
-  { group: 'Comercial', area: 'Negocio', pages: [{ href: '/ventas', label: 'Ventas y cobranza', admin: true }, { href: '/cotizaciones', label: 'Cotizaciones', admin: true }] },
-  { group: 'Control financiero', area: 'Negocio', pages: [{ href: '/resumen', label: 'Resumen y previsión', admin: true }, { href: '/gastos', label: 'Gastos y comprobantes', admin: true }, { href: '/tesoreria', label: 'Tesorería', admin: true }, { href: '/socios', label: 'Socios y aportaciones', admin: true }] },
-  { group: 'Rentabilidad', area: 'Negocio', pages: [{ href: '/costos', label: 'Costos y utilidad', admin: true }, { href: '/rendimiento', label: 'Estado de rendimiento', admin: true }] },
+  { group: 'Producción', area: 'Taller', pages: [{ href: '/cola', label: 'Cola de producción', ready: true }, { href: '/desarrollo', label: 'Desarrollo y prototipos', ready: true }, { href: '/control', label: 'Control de producción', ready: true }] },
+  { group: 'Productos y existencias', area: 'Taller', pages: [{ href: '/origen', label: 'Colección Origen', ready: true }, { href: '/inventario', label: 'Inventario', ready: true }, { href: '/catalogo', label: 'Catálogo y recetas', ready: true }] },
+  { group: 'Equipo', area: 'Taller', pages: [{ href: '/maquinas', label: 'Máquinas', ready: true }] },
+  { group: 'Comercial', area: 'Negocio', pages: [{ href: '/ventas', label: 'Ventas y cobranza', admin: true, ready: true }, { href: '/cotizaciones', label: 'Cotizaciones', admin: true, ready: true }] },
+  { group: 'Control financiero', area: 'Negocio', pages: [{ href: '/resumen', label: 'Resumen y previsión', admin: true, ready: true }, { href: '/gastos', label: 'Gastos y comprobantes', admin: true, ready: true }, { href: '/tesoreria', label: 'Tesorería', admin: true, ready: true }, { href: '/socios', label: 'Socios y aportaciones', admin: true, ready: true }] },
+  { group: 'Rentabilidad', area: 'Negocio', pages: [{ href: '/costos', label: 'Costos y utilidad', admin: true, ready: true }, { href: '/rendimiento', label: 'Estado de rendimiento', admin: true, ready: true }] },
 ];
 
 const UserContext = createContext<User | null>(null);

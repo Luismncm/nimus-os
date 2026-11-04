@@ -102,7 +102,7 @@ export default function Hoy() {
           )) : <div className="empty">Nada pendiente.</div>}
         </section>
         <section className="card">
-          <h2 className="section-title">Taller ahora</h2>
+          <h2 className="section-title"><Link href="/cola" style={{ color: 'inherit' }}>Taller ahora →</Link></h2>
           {data.machines.map((m) => (
             <div className="row" key={m.id}>
               <span><strong>{m.code}</strong> <span className="who">· {m.current ? `Imprimiendo ${m.current}` : m.next ? `Siguiente: ${m.next}` : 'Libre'}</span></span>

@@ -2,7 +2,7 @@
 from datetime import timedelta
 from html import escape
 import streamlit as st
-from services.timeline import duration_text, when, issues
+from services.timeline import duration_text, when, issues, slot_line  # noqa: F401 (slot_line is shared with the API)
 from utils.dates import now, parse_end
 
 STRIP_CSS = """<style>
@@ -192,16 +192,3 @@ def schedule_tag_html(label):
             f'font-size:.68rem;font-weight:700;vertical-align:1px;background:{back};color:{text}">{escape(label)}</span>')
 
 
-def slot_line(s, at=None):
-    """'hoy 10:00 → 20:00 · 10 h' for the interval, or what is missing to book it."""
-    at = at or now()
-    if s['state'] == 'Sin horario':
-        return 'Sin horario · ' + (f"{duration_text(s['minutes'])} estimadas" if s['minutes'] else 'sin duración')
-    if s['state'] == 'Sin duración':
-        return f"Inicio {when(s['start'], at)} · sin duración, no reserva la máquina"
-    if s['state'] == 'Sin fin':
-        return f"En marcha desde {when(parse_end(s['job'].get('current_run_started_at')), at)} · sin fin vigente"
-    text = f"{when(s['start'], at)} → {when(s['end'], at)} · {duration_text(s['minutes'] or (s['end'] - s['start']).total_seconds() / 60)}"
-    if s['state'] == 'En marcha' and s['remaining'] is not None:
-        text += f" · faltan {duration_text(max(1, s['remaining']))}"
-    return text

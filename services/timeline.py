@@ -113,3 +113,18 @@ def attention(jobs, at=None):
     rows = [slot(j, at) for j in jobs if j['status'] != 'Terminado' and j['order_status'] != 'Entregado' and not j.get('commercial_cancelled')]
     rows = [s for s in rows if issues(s)]
     return sorted(rows, key=lambda s: (rank[s['state']], not s['conflicts'], s['start'] or datetime.max, s['job']['id']))
+
+
+def slot_line(s, at=None):
+    """'hoy 10:00 → 20:00 · 10 h' for the interval, or what is missing to book it."""
+    at = at or now()
+    if s['state'] == 'Sin horario':
+        return 'Sin horario · ' + (f"{duration_text(s['minutes'])} estimadas" if s['minutes'] else 'sin duración')
+    if s['state'] == 'Sin duración':
+        return f"Inicio {when(s['start'], at)} · sin duración, no reserva la máquina"
+    if s['state'] == 'Sin fin':
+        return f"En marcha desde {when(parse_end(s['job'].get('current_run_started_at')), at)} · sin fin vigente"
+    text = f"{when(s['start'], at)} → {when(s['end'], at)} · {duration_text(s['minutes'] or (s['end'] - s['start']).total_seconds() / 60)}"
+    if s['state'] == 'En marcha' and s['remaining'] is not None:
+        text += f" · faltan {duration_text(max(1, s['remaining']))}"
+    return text
