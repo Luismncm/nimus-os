@@ -63,6 +63,16 @@ class CloudApiTest(unittest.TestCase):
         s.link_existing_order(sid, self.oid, expected_revision=s.get_sale(sid)['revision'])
         return sid
 
+    def test_missing_secret_is_explained_not_a_500(self):
+        with patch.dict(os.environ, NIMUS_SECRET=''):
+            client = TestClient(self.app)
+            client.cookies.set('nimus_session', 'eyJ1aWQiOjF9.abc')
+            response = client.get('/api/auth/me')
+            self.assertEqual(response.status_code, 503)
+            self.assertIn('NIMUS_SECRET', response.json()['detail'])
+            self.assertFalse(client.get('/api/health').json()['ok'])
+        self.assertTrue(TestClient(self.app).get('/api/health').json()['session_secret'])
+
     def test_writes_need_a_session_and_the_app_header(self):
         anonymous = TestClient(self.app)
         self.assertEqual(anonymous.post(f'/api/pedidos/{self.oid}/entregar', headers=WRITE).status_code, 401)

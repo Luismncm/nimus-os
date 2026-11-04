@@ -39,7 +39,9 @@ USERS_INDEX = 'CREATE UNIQUE INDEX IF NOT EXISTS nimus_users_email ON nimus_user
 def _secret() -> bytes:
     value = os.environ.get('NIMUS_SECRET', '')
     if len(value) < 32:
-        raise RuntimeError('Falta NIMUS_SECRET (al menos 32 caracteres) en las variables de entorno.')
+        # Said plainly to the screen: without it no session can be signed or read.
+        raise HTTPException(status_code=503, detail='Falta configurar NIMUS_SECRET (al menos 32 caracteres) en Vercel → Settings → '
+                                                    'Environment Variables. Agrégala y vuelve a desplegar.')
     return value.encode()
 
 

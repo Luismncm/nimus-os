@@ -5,6 +5,7 @@ a revision that changed) comes back as 400/409 with the same Spanish message the
 """
 from __future__ import annotations
 
+import os
 import sqlite3
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
@@ -90,7 +91,9 @@ def health():
         return {'ok': False, 'detail': 'Falta DATABASE_URL de Postgres.'}
     with db.connect() as conn:
         version = conn.execute('PRAGMA user_version').fetchone()[0]
-    return {'ok': True, 'database': 'postgres', 'schema_version': version, 'expected': db.SCHEMA_VERSION}
+    secret = len(os.environ.get('NIMUS_SECRET', '')) >= 32
+    return {'ok': secret, 'database': 'postgres', 'schema_version': version, 'expected': db.SCHEMA_VERSION,
+            'session_secret': secret}
 
 
 @router.post('/auth/login')
