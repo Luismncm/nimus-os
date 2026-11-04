@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Job, JobCard, ProgressDialog, ScheduleDialog } from '@/components/Production';
 import { api } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type MachineRow = {
   id: number; code: string; name: string; status: string; material: string; availability: string; pending_units: number;
@@ -93,7 +94,7 @@ export default function Cola() {
         </div>
       </div>
 
-      {notice && <div className={notice.tone === 'ok' ? 'notice' : 'error notice-bad'} role="status">{notice.text}<button onClick={() => setNotice(null)} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className={notice.tone === 'ok' ? 'notice' : 'error notice-bad'} role="status">{notice.text}<button onClick={() => setNotice(null)} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
 
       <div className="filters">
         <input type="search" placeholder="Pieza, cliente, material, pedido o trabajo" value={search} onChange={(e) => setSearch(e.target.value)} aria-label="Buscar en la cola" />

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import { RecipeOrderDialog } from '@/components/RecipeOrder';
 import { api } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Lamp = { id: number; code: string; name: string; model: string; color: string; recipe_id: number | null; version: number | null; lines: { name: string; variant: string; material: string; quantity: number }[] };
 type Order = { id: number; code: string; project: string; client: string; status: string; can_reserve: boolean; needs: { name: string; supply: string; quantity: number; covered: number; pending: number }[] };
@@ -37,7 +38,7 @@ export default function Origen() {
         <div><h1>Colección Origen</h1><p>{data.lamps.length} lámparas publicadas · {data.models.length} modelos de pantalla × {data.colors.length} colores de base · {data.orders.length} pedidos activos</p></div>
         <Link className="btn" href="/inventario">Ver inventario</Link>
       </div>
-      {notice && <div className={notice.tone === 'ok' ? 'notice' : 'error notice-bad'} role="status">{notice.text}<button onClick={() => setNotice(null)} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className={notice.tone === 'ok' ? 'notice' : 'error notice-bad'} role="status">{notice.text}<button onClick={() => setNotice(null)} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
 
       {data.orders.length > 0 && (
         <section className="card" style={{ marginBottom: 18 }}>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { CloseIcon } from '@/components/Icon';
 
 /** A native modal dialog: focus stays inside, Escape and the backdrop close it, the page behind does not scroll. */
 export default function Modal({ title, onClose, children, wide = false }: { title: string; onClose: () => void; children: React.ReactNode; wide?: boolean }) {
@@ -17,7 +18,7 @@ export default function Modal({ title, onClose, children, wide = false }: { titl
             onClick={(e) => { if (e.target === ref.current) onClose(); }}>
       <div className="modal-head">
         <h2>{title}</h2>
-        <button type="button" className="close" onClick={onClose} aria-label="Cerrar">×</button>
+        <button type="button" className="close" onClick={onClose} aria-label="Cerrar"><CloseIcon /></button>
       </div>
       {children}
     </dialog>

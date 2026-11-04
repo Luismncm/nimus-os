@@ -4,6 +4,7 @@ import { FormEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import Modal from '@/components/Modal';
 import { newKey } from '@/components/Production';
 import { api } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Piece = {
   id: number; code: string; label: string; part: string; model: string; product: string; reference: string; collection: string;
@@ -58,7 +59,7 @@ export default function Inventario() {
   return (
     <>
       <div className="head"><div><h1>Inventario</h1><p>{data.pieces.length} referencias · En taller = Disponibles + Reservadas · cantidades en piezas</p></div></div>
-      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
       <div className="grid pulse">
         <div className="card tile"><div className="label">Disponibles</div><div className="value">{totals.free}</div><span className="muted">libres para mover o reservar</span></div>
         <div className="card tile orange"><div className="label">Reservadas</div><div className="value">{totals.reserved}</div><span className="muted">apartadas para pedidos</span></div>

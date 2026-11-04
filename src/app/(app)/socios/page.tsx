@@ -5,6 +5,7 @@ import { today } from '@/components/Commercial';
 import Modal from '@/components/Modal';
 import { newKey } from '@/components/Production';
 import { api, money } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Row = { id: number; code: string; moved_on: string | null; partner: string; movement: string; concept: string; party: string; amount_cents: number; sign: number; account: string; reference: string; receipt: string; expense: string; voided: boolean; void_reason: string; pending_cents: number; can_void: boolean; token: string | null };
 type Data = { rows: Row[]; partners: string[]; accounts: { id: number; name: string; kind: string }[]; injected_cents: number; covered_cents: number; reimbursable_cents: number };
@@ -27,7 +28,7 @@ export default function Socios() {
     <>
       <div className="head"><div><h1>Socios y aportaciones</h1><p>Las aportaciones suman entradas de capital en la cuenta elegida; las compras pagadas por un socio no salen del banco.</p></div>
         <button className="btn primary" onClick={() => setOpen({ kind: 'new' })}>Nueva aportación</button></div>
-      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
       <div className="grid pulse">
         <div className="card tile"><div className="label">Aportaciones a cuenta</div><div className="value">{money(data.injected_cents)}</div></div>
         <div className="card tile"><div className="label">Compras cubiertas por socios</div><div className="value">{money(data.covered_cents)}</div></div>

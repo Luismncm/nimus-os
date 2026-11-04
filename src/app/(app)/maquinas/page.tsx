@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import Modal from '@/components/Modal';
 import { api } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Machine = {
   id: number; code: string; name: string; status: string; notes: string; material: string; pending_units: number;
@@ -48,7 +49,7 @@ export default function Maquinas() {
         </div>
         <button className="btn primary" onClick={() => setEdit('new')}>Agregar máquina</button>
       </div>
-      {notice && <div className={notice.tone === 'ok' ? 'notice' : 'error notice-bad'} role="status">{notice.text}<button onClick={() => setNotice(null)} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className={notice.tone === 'ok' ? 'notice' : 'error notice-bad'} role="status">{notice.text}<button onClick={() => setNotice(null)} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
 
       <div className="grid cards3">
         {data.machines.map((m) => (

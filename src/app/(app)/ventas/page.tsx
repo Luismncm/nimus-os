@@ -7,6 +7,7 @@ import { clean, Draft, LinesEditor, ReasonDialog, today } from '@/components/Com
 import Modal from '@/components/Modal';
 import { newKey } from '@/components/Production';
 import { api, money } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Row = { id: number; code: string; sold_on: string; client: string; project: string; origin: string; quote: string; channel: string; status: string; payment_status: string; due_on: string | null; overdue: boolean; total_cents: number; paid_cents: number; balance_cents: number; order_id: number | null };
 type Report = { rows: Row[]; channels: string[]; count: number; sold_cents: number; collected_cents: number; balance_cents: number; total_balance_cents: number; overdue_cents: number };
@@ -41,7 +42,7 @@ export default function Ventas() {
         <div><h1>Ventas y cobranza</h1><p>{report ? `${report.count} ventas activas en el periodo · por cobrar en total ${money(report.total_balance_cents)}${report.overdue_cents ? ` · vencido ${money(report.overdue_cents)}` : ''}` : 'Cargando…'}</p></div>
         <button className="btn primary" onClick={() => setOpen({ kind: 'new' })}>Nueva venta</button>
       </div>
-      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
       {error && <div className="error" style={{ marginBottom: 12 }}>{error}</div>}
       <div className="filters">
         <label className="inline-label">Desde<input type="date" value={range.from} onChange={(e) => setRange({ ...range, from: e.target.value })} style={{ width: 160 }} /></label>

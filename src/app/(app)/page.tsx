@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import { DeliverDialog, DeliverTarget, PaymentDialog } from '@/components/Actions';
 import { api, longDate, money } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type MoneyRow = { id: number; code: string; party: string; balance_cents: number; due_on: string | null; overdue: boolean };
 type Today = {
@@ -61,7 +62,7 @@ export default function Hoy() {
         </div>
       </div>
 
-      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
 
       <div className="grid pulse">
         <div className="card tile"><div className="label">Producir</div><div className="value">{data.produce.units}</div><span className="muted">{data.produce.pieces} piezas por repartir</span></div>

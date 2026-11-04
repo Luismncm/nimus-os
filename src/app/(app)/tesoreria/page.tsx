@@ -5,6 +5,7 @@ import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { today } from '@/components/Commercial';
 import Modal from '@/components/Modal';
 import { api, money } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Account = { id: number; name: string; kind: string; active: boolean; revision: number; balance_cents: number | null };
 type Move = { source: string; id: number; code: string; paid_on: string | null; amount_cents: number; sign: number; method: string; reference: string; document: string; party: string; concept: string; account: string; category: string; record_kind: string; record_id: number };
@@ -31,7 +32,7 @@ export default function Tesoreria() {
     <>
       <div className="head"><div><h1>Tesorería</h1><p>Entradas y salidas reales por cuenta: cobros, anticipos, pagos de gastos y aportaciones.</p></div>
         <button className="btn" onClick={() => setEdit('new')}>Nueva cuenta</button></div>
-      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
       {error && <div className="error" style={{ marginBottom: 12 }}>{error}</div>}
       {data && (
         <div className="grid cards3" style={{ marginBottom: 18 }}>

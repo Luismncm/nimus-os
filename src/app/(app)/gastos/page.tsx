@@ -5,6 +5,7 @@ import { ReasonDialog, today } from '@/components/Commercial';
 import Modal from '@/components/Modal';
 import { newKey } from '@/components/Production';
 import { api, money } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Row = { id: number; code: string; expense_on: string | null; due_on: string | null; concept: string; category: string; subtype: string; supplier: string; account: string; unit: string; cost_type: string; status: string; payment_status: string; overdue: boolean; total_cents: number; paid_cents: number; balance_cents: number; receipt_type: string; control: string; order: string; revision: number };
 type Detail = Row & { notes: string; receipt_ref: string; tax_mode: string; subtotal_cents: number | null; tax_cents: number | null; cancel_reason: string; payments: { id: number; code: string; amount_cents: number; paid_on: string; account: string; method: string; reference: string; voided: boolean; void_reason: string }[] };
@@ -37,7 +38,7 @@ export default function Gastos() {
         <div><h1>Gastos y comprobantes</h1><p>{data ? `Por pagar en total ${money(data.all_balance_cents)}${data.overdue_cents ? ` · vencido ${money(data.overdue_cents)}` : ''}${data.missing_receipts ? ` · ${data.missing_receipts} sin comprobante completo` : ''}` : 'Cargando…'}</p></div>
         <button className="btn primary" onClick={() => setOpen({ kind: 'new' })} disabled={!data}>Nuevo gasto</button>
       </div>
-      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
       {error && <div className="error" style={{ marginBottom: 12 }}>{error}</div>}
 
       {data && data.pending.length > 0 && (

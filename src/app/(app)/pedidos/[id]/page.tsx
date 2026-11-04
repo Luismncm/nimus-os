@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { DeliverDialog, PaymentDialog, SplitDialog } from '@/components/Actions';
 import { useUser } from '@/components/Shell';
 import { api, money } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Detail = {
   id: number; code: string; project: string; client: string; status: string; priority: string; deadline: string | null; notes: string; progress: number;
@@ -55,7 +56,7 @@ export default function Pedido() {
         <span className={`badge ${step.delivered ? 'green' : step.blocked ? 'red' : 'blue'}`}>{order.status}</span>
       </div>
 
-      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
 
       {!step.delivered && (
         <section className="card next" style={{ marginBottom: 18 }}>

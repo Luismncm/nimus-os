@@ -4,6 +4,7 @@ import { FormEvent, useCallback, useEffect, useState } from 'react';
 import Modal from '@/components/Modal';
 import { RecipeOrderDialog } from '@/components/RecipeOrder';
 import { api } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Line = { component_id: number; name: string; variant: string; material: string; process: string; quantity: number };
 type Product = { id: number; code: string; name: string; variant: string; collection: string; recipe_id: number | null; version: number | null; versions: number; retired: boolean; lines: Line[] };
@@ -35,7 +36,7 @@ export default function Catalogo() {
           <button className="btn primary" onClick={() => setOpen({ kind: 'product' })}>Nuevo producto</button>
         </span>
       </div>
-      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
       <div className="filters">
         <div className="pills" role="tablist">
           {(['Productos y recetas', 'Piezas reutilizables'] as const).map((t) => <button key={t} role="tab" aria-selected={tab === t} className={`pill${tab === t ? ' on' : ''}`} onClick={() => setTab(t)}>{t}</button>)}

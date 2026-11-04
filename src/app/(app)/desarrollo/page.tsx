@@ -6,6 +6,7 @@ import Modal from '@/components/Modal';
 import { newKey, STATUS_TONE } from '@/components/Production';
 import { useUser } from '@/components/Shell';
 import { api, money } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Project = {
   id: number; code: string; name: string; goal: string; status: string; running: number; waiting: number; finished: number;
@@ -48,7 +49,7 @@ export default function Desarrollo() {
             {finances && ` · costo real ${money(active.reduce((n, p) => n + (p.money?.real_cents || 0), 0))}`}</p></div>
         <button className="btn primary" onClick={() => setOpen({ kind: 'new' })}>Nuevo proyecto</button>
       </div>
-      {notice && <div className={notice.tone === 'ok' ? 'notice' : 'error notice-bad'} role="status">{notice.text}<button onClick={() => setNotice(null)} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className={notice.tone === 'ok' ? 'notice' : 'error notice-bad'} role="status">{notice.text}<button onClick={() => setNotice(null)} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
       <label className="check inline" style={{ marginBottom: 14 }}><input type="checkbox" checked={closed} onChange={(e) => setClosed(e.target.checked)} /><span>Mostrar proyectos cerrados</span></label>
 
       {!shown.length && <div className="card empty">Aún no hay proyectos activos. Crea uno para lanzar impresiones de prueba sin mezclarlas con pedidos ni ventas.</div>}

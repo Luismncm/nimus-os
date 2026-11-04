@@ -6,6 +6,7 @@ import { clean, Draft, LinesEditor, today } from '@/components/Commercial';
 import Modal from '@/components/Modal';
 import { newKey } from '@/components/Production';
 import { api, money } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 type Row = { id: number; code: string; status: string; client: string; project: string; total_cents: number; paid_cents: number; valid_until: string; order_id: number | null };
 type Payment = { id: number; code: string; amount_cents: number; paid_on: string; method: string; concept: string; account: string; voided: boolean };
@@ -60,7 +61,7 @@ export default function Cotizaciones() {
         <div><h1>Cotizaciones</h1><p>{rows.filter((r) => r.status === 'Enviada').length} enviadas esperando respuesta · {rows.filter((r) => r.status === 'Aceptada' && !r.order_id).length} aceptadas sin pedido</p></div>
         <button className="btn primary" disabled={busy} onClick={() => create()}>Nueva cotización</button>
       </div>
-      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso">×</button></div>}
+      {notice && <div className="notice" role="status">{notice}<button onClick={() => setNotice('')} aria-label="Ocultar aviso"><CloseIcon /></button></div>}
       <div className="filters">
         <div className="pills">{['Abiertas', 'Borrador', 'Enviada', 'Aceptada', 'Cancelada', 'Todas'].map((f) => <button key={f} className={`pill${filter === f ? ' on' : ''}`} aria-pressed={filter === f} onClick={() => setFilter(f)}>{f}</button>)}</div>
         <input type="search" placeholder="Folio, cliente o proyecto" value={search} onChange={(e) => setSearch(e.target.value)} aria-label="Buscar cotización" />

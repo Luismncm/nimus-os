@@ -7,6 +7,7 @@
 import { FormEvent, useEffect, useState } from 'react';
 import Modal from '@/components/Modal';
 import { api, money } from '@/lib/api';
+import { CloseIcon } from '@/components/Icon';
 
 export type DraftLine = { description: string; quantity: number | string; price: number | string; produce: boolean; recipe_id?: number | null };
 export type Draft = { client: string; project: string; discount: number | string; iva: boolean; notes?: string; lines: DraftLine[]; [key: string]: unknown };
@@ -54,7 +55,7 @@ export function LinesEditor({ draft, onChange, disabled = false }: { draft: Draf
                 <td><input disabled={disabled} type="number" inputMode="decimal" min={0} step="0.01" value={l.price} onChange={(e) => line(i, { price: e.target.value })} aria-label="Precio unitario" /></td>
                 <td><input disabled={disabled} type="checkbox" checked={l.produce} onChange={(e) => line(i, { produce: e.target.checked })} aria-label="Para fabricar" style={{ minWidth: 0, width: 20 }} /></td>
                 <td className="right num">{money(Math.round((Number(l.quantity) || 0) * (Number(l.price) || 0) * 100))}</td>
-                <td>{!disabled && <button type="button" className="btn small ghost" onClick={() => onChange({ ...draft, lines: draft.lines.filter((_, j) => j !== i) })} aria-label={`Quitar partida ${i + 1}`}>×</button>}</td>
+                <td>{!disabled && <button type="button" className="btn small ghost" onClick={() => onChange({ ...draft, lines: draft.lines.filter((_, j) => j !== i) })} aria-label={`Quitar partida ${i + 1}`}><CloseIcon /></button>}</td>
               </tr>
             ))}
           </tbody>
