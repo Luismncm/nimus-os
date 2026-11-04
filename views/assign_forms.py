@@ -2,16 +2,10 @@
 import pandas as pd
 import streamlit as st
 from services import production as service
-from services.assign_suggest import same_material
+from services.assign_suggest import auto_split, pending_parts
 from views.common import managed_dialog, perform
 
 EXTERNAL = 'Sin máquina'
-
-
-def pending_parts(order, item_id=None):
-    """Pieces with units still to assign, grouped by material so shared filaments sit together."""
-    rows = [p for i in order['items'] if item_id in (None, i['id']) for p in i['parts'] if p['quantity_unassigned'] > 0]
-    return sorted(rows, key=lambda p: ((p['material'] or '').casefold(), p['item_name'], p['id']))
 
 
 def _columns(machines):
@@ -26,26 +20,8 @@ def _frame(parts, machines, amounts=None):
 
 
 def _auto(parts, machines):
-    """Each piece whole to the least loaded available machine, preferring one already on that material.
-
-    Keeping a piece on one machine avoids one-unit jobs; existing pending units count as load.
-    """
-    available = [m for m in machines if m['status'] == 'Disponible']
-    if not available:
-        return {(p['id'], EXTERNAL): p['quantity_unassigned'] for p in parts}
-    load = {m['code']: m.get('pending_units', 0) for m in available}
-    materials = {m['code']: set() for m in available}
-    loaded = {m['code']: m.get('loaded_material', '') for m in available}
-    amounts = {}
-    for p in sorted(parts, key=lambda p: -p['quantity_unassigned']):
-        # The filament already mounted is worth the piece's own units of load: it avoids a spool change
-        # without piling a whole batch on one printer.
-        bonus = lambda c: p['quantity_unassigned'] if same_material(loaded[c], p['material']) else 0
-        code = min(load, key=lambda c: (load[c] - bonus(c), p['material'] not in materials[c], c))
-        amounts[(p['id'], code)] = p['quantity_unassigned']
-        load[code] += p['quantity_unassigned']
-        materials[code].add(p['material'])
-    return amounts
+    codes = {m['id']: m['code'] for m in machines}
+    return {(part, codes.get(machine, EXTERNAL)): units for (part, machine), units in auto_split(parts, machines).items()}
 
 
 @managed_dialog('Repartir piezas pendientes', width='large')

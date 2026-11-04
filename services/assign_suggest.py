@@ -59,3 +59,34 @@ def reason(row, at=None):
     timing = 'libre ahora' if row['free'] <= at else f"libre {when(row['free'], at)}"
     loaded = row['machine'].get('loaded_material')
     return timing + (' · material cargado' if row['match'] else f" · cambiar filamento ({loaded or 'sin registrar'})" if row['change'] else '')
+
+
+def pending_parts(order, item_id=None):
+    """Pieces with units still to assign, grouped by material so shared filaments sit together."""
+    rows = [p for i in order['items'] if item_id in (None, i['id']) for p in i['parts'] if p['quantity_unassigned'] > 0]
+    return sorted(rows, key=lambda p: ((p['material'] or '').casefold(), p['item_name'], p['id']))
+
+
+def auto_split(parts, machines):
+    """Each piece whole to the least loaded available machine, preferring one already on that material.
+
+    Returns {(part_id, machine_id): units}; machine_id None means no machine (nothing available).
+    Keeping a piece on one machine avoids one-unit jobs; existing pending units count as load.
+    """
+    available = [m for m in machines if m['status'] == 'Disponible']
+    if not available:
+        return {(p['id'], None): p['quantity_unassigned'] for p in parts}
+    load = {m['id']: m.get('pending_units', 0) for m in available}
+    code = {m['id']: m['code'] for m in available}
+    materials = {m['id']: set() for m in available}
+    loaded = {m['id']: m.get('loaded_material', '') for m in available}
+    amounts = {}
+    for p in sorted(parts, key=lambda p: -p['quantity_unassigned']):
+        # The filament already mounted is worth the piece's own units of load: it avoids a spool change
+        # without piling a whole batch on one printer.
+        bonus = lambda m: p['quantity_unassigned'] if same_material(loaded[m], p['material']) else 0
+        machine = min(load, key=lambda m: (load[m] - bonus(m), p['material'] not in materials[m], code[m]))
+        amounts[(p['id'], machine)] = p['quantity_unassigned']
+        load[machine] += p['quantity_unassigned']
+        materials[machine].add(p['material'])
+    return amounts

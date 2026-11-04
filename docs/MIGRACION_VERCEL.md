@@ -64,7 +64,7 @@ Cada fase termina desplegada, probada y usable. Hasta el corte final, la app loc
 | Fase | Contenido | Estado |
 |---|---|---|
 | **0 · Fundaciones** | Capa dual SQLite/Postgres, esquema y reglas en Postgres, pruebas en Postgres, script de migración de datos, API con inicio de sesión, estructura de Vercel y Next.js con sesión. | Hecha |
-| 1 · Hoy y Pedidos | Resumen del día, tablero de pedidos, detalle con rastreo, entrega y cobro. | Lectura hecha (Hoy, lista y detalle con rastreo); faltan entregar, cobrar y asignar piezas |
+| **1 · Hoy y Pedidos** | Resumen del día, tablero de pedidos, detalle con rastreo, entrega y cobro. | Hecha (v0.61) |
 | 2 · Producción | Cola (operar, asignar, calendario, tabla), Máquinas, Control de producción, Desarrollo y prototipos. | Pendiente |
 | 3 · Productos y existencias | Inventario, compras, reposición, Colección Origen, Catálogo y recetas, fotos. | Pendiente |
 | 4 · Comercial | Ventas y cobranza, Cotizaciones, documentos PDF. | Pendiente |
@@ -95,6 +95,16 @@ Cada fase termina desplegada, probada y usable. Hasta el corte final, la app loc
 npm install
 npm run dev        # Next.js en :3000 y la API en :8000 (necesita DATABASE_URL y NIMUS_SECRET)
 ```
+
+## Estado de la Fase 1 (v0.61)
+
+| Acción | API | Pantalla | Reglas |
+|---|---|---|---|
+| Entregar o liberar a stock | `POST /api/pedidos/{id}/entregar` | Detalle del pedido (siguiente paso) y Hoy → Listos para entregar | Las de `production.deliver_order`: listo, preparado y, si se pidió, saldo liquidado. Al entregar ofrece cobrar el saldo de la venta, como la app local. |
+| Cobrar | `GET /api/ventas/{id}/cobro`, `POST /api/ventas/{id}/pagos` | Hoy → Cobros prioritarios y Rastreo del pedido | Solo administración. Revisión de la venta (otro cambio la rechaza), clave por formulario (un doble clic guarda un pago) y el tope del saldo de la base. |
+| Repartir piezas | `GET/POST /api/pedidos/{id}/reparto` | Detalle del pedido | `production.create_order_jobs`: todo o nada. La distribución automática es la misma de la app local (`assign_suggest.auto_split`). |
+
+Pruebas: `tests/test_cloud_api.py` (sesión, encabezado X-NIMUS, roles, reintentos, revisiones y reparto), en Postgres.
 
 ## Despliegue en Vercel (paso a paso)
 
