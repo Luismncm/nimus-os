@@ -8,6 +8,7 @@ so splitting a piece between printers is just creating a second job.
 import streamlit as st
 from models.constants import PRIORITY_RANK
 from services import capture, production as service
+from services.inventory import PRINT_PROCESSES
 from views.common import perform
 from views.piece_stock_ui import stock_notice
 from views.print_setup import _pick, print_setup, quantity_row, save_label
@@ -41,7 +42,8 @@ def single_print(snapshot, part, key, *, keep_open=False):
     setup = print_setup(snapshot, part['material'], key, process=part['process'], label=f"{part['name']} ×{units}")
     code = next((m['code'] for m in snapshot['machines'] if m['id'] == setup['machine_id']), 'sin máquina')
     if st.button(save_label('Crear trabajo', units, extra, setup['machine_id'], setup['planned_start'], snapshot),
-                 type='primary', width='stretch', key=key + '_save', icon=':material/add_task:'):
+                 type='primary', width='stretch', key=key + '_save', icon=':material/add_task:',
+                 disabled=part['process'] in PRINT_PROCESSES and not setup['estimated_grams']):
         rest = part['quantity_unassigned'] - units
         perform(service.create_jobs, part['id'], [dict(quantity=units, machine_id=setup['machine_id'], extra=extra)], notes=setup['notes'],
                 plan=capture.plan_for(part['material'], setup['planned_start'], setup['duration_minutes'], setup['estimated_grams'], setup['machine_rate'], setup['material_rate']),

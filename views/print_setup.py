@@ -112,28 +112,65 @@ def schedule_picker(machine_id, duration, key):
     return None
 
 
+def gcode_upload(key, material):
+    """A .gcode's own header/footer already has the slicer's time and weight; read it instead of retyping it.
+
+    Only pre-fills the moment a new file lands (session state, compared by name+size), so a value the
+    person then corrects by hand is never silently overwritten on a later rerun.
+    """
+    from services import gcode
+    file = st.file_uploader('Subir G-code · opcional', type=['gcode', 'gco', 'g'], key=key + '_gcode',
+                            help='Lee el tiempo y el peso de filamento que el slicer ya calculó (Bambu Studio, OrcaSlicer, PrusaSlicer, Cura).')
+    if not file:
+        return
+    signature = f'{file.name}:{file.size}'
+    if st.session_state.get(key + '_gcode_sig') == signature:
+        return
+    st.session_state[key + '_gcode_sig'] = signature
+    result = gcode.parse_file(file)
+    if not result['found']:
+        st.warning('No se reconocieron el tiempo ni el peso en este archivo. Captúralos a mano.', icon=':material/warning:')
+        return
+    if result['minutes'] is not None:
+        st.session_state[key + '_hours'] = result['minutes'] // 60
+        st.session_state[key + '_minutes'] = result['minutes'] % 60
+    if result['grams'] is not None:
+        st.session_state[key + '_grams'] = result['grams']
+    bits = []
+    if result['minutes'] is not None: bits.append(f"{result['minutes'] // 60} h {result['minutes'] % 60} min")
+    if result['grams'] is not None: bits.append(f"{result['grams']:g} g")
+    st.success(f"Leído de {file.name}: " + ' · '.join(bits), icon=':material/auto_awesome:')
+
+
 def print_setup(snapshot, material, key, *, process='Impresión 3D', label=''):
     """Time, filament, printer, start, rate and notes of one print; returns the values to save it.
 
-    Under the printers, the chosen one's agenda by day shows where this print falls among the others.
+    The printer is chosen first so its own tariff can default the machine rate below it. Grams and a
+    filament price are required: no print queues at zero cost. Under the printers, the chosen one's
+    agenda by day shows where this print falls among the others.
     """
     printing = process in PRINT_PROCESSES
     duration = grams = rate = price = None
     if printing:
         from services.capture import material_rate
+        gcode_upload(key, material)
+        st.markdown('**Impresora**')
+        machine_id = printer_cards(snapshot, material, None, key)
+        machine = next((m for m in snapshot['machines'] if m['id'] == machine_id), None)
+        default_rate = (machine.get('hourly_rate_cents') or 0) / 100 if machine else 0.0
         with st.container(horizontal=True, gap='small', vertical_alignment='bottom'):
-            hours = st.number_input('Duración · h', min_value=0, max_value=8760, value=0, step=1, key=key + '_hours', icon=':material/schedule:')
-            minutes = st.number_input('min', min_value=0, max_value=59, value=0, step=5, key=key + '_minutes')
-            grams = st.number_input('Filamento · g', min_value=0.0, value=0.0, step=5.0, key=key + '_grams', icon=':material/scale:') or None
+            # No explicit value=: a fresh G-code upload pre-fills these through session state, and
+            # passing a literal default alongside that would only trigger Streamlit's duplication warning.
+            hours = st.number_input('Duración · h', min_value=0, max_value=8760, step=1, key=key + '_hours', icon=':material/schedule:')
+            minutes = st.number_input('min', min_value=0, max_value=59, step=5, key=key + '_minutes')
+            grams = st.number_input('Filamento · g', min_value=0.0, step=5.0, key=key + '_grams', icon=':material/scale:') or None
             price = st.number_input('Filamento · MXN/kg', min_value=0.0, value=material_rate(material) / 100, step=10.0, key=key + '_price',
                                     icon=':material/sell:', help='Precio del carrete: el de Filamento y consumibles si está registrado, si no el promedio de 380.')
-            rate = st.number_input('Máquina · MXN/h', min_value=0.0, value=0.0, step=5.0, key=key + '_rate', icon=':material/payments:',
-                                   help='Opcional: energía y desgaste por hora. En 0 la impresión cuesta solo su filamento.')
+            rate = st.number_input('Máquina · MXN/h', min_value=0.0, value=default_rate, step=5.0, key=key + '_rate', icon=':material/payments:',
+                                   help='Tarifa de esta impresora (Máquinas → editar). En 0 la impresión cuesta solo su filamento.')
         duration = hours * 60 + minutes or None
         cost_line(grams, price, duration, rate)
         material_note(material, snapshot['jobs'])
-        st.markdown('**Impresora**')
-        machine_id = printer_cards(snapshot, material, duration, key)
     else:
         st.caption(f":material/info: {process}: se registra sin impresora.")
         machine_id = None

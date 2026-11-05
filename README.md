@@ -1,3 +1,7 @@
+# v0.68 · Costos de impresión: obligatorio, tarifa por máquina y lectura de G-code
+
+Sin gramos capturados, el botón de guardar una impresión queda deshabilitado: ya no se puede crear un trabajo sin su costo de filamento. Cada máquina tiene su propia tarifa MXN/h (Máquinas → editar) y la rellena sola al elegirla. Un cargador opcional de G-code lee el tiempo y el peso de filamento que Bambu Studio, OrcaSlicer, PrusaSlicer o Cura ya calcularon, para no capturarlos a mano. [Detalle](docs/COSTOS_V068.md).
+
 # v0.67 · Eliminar gastos efectuados (app local)
 
 Los gastos ya solo se podían cancelar (quedan como histórico). Ahora, desde Más opciones en su detalle, también se pueden eliminar por completo — sin dejar registro, a diferencia de cancelar. Se bloquea solo cuando queda una referencia externa sin destino: un socio que lo cubrió, una compra de inventario, el costo adicional de un pedido o un gasto de la migración histórica. Funciona igual en SQLite y Postgres; por ahora, disponible solo en la app local. [Detalle](docs/ELIMINAR_GASTOS_V067.md).

@@ -362,7 +362,12 @@ def _restore_legacy(conn: sqlite3.Connection, old: dict) -> None:
         conn.execute("UPDATE machines SET status='Imprimiendo' WHERE id=?", (row[0],))
 
 
-SCHEMA_VERSION = 34
+SCHEMA_VERSION = 35
+
+def _add_machine_rate_column(conn):
+    if 'hourly_rate_cents' not in {r[1] for r in conn.execute('PRAGMA table_info(machines)')}:
+        conn.execute('ALTER TABLE machines ADD COLUMN hourly_rate_cents INTEGER CHECK(hourly_rate_cents IS NULL OR hourly_rate_cents>=0)')
+
 
 def init_db(path=None):
     if path is None and postgres_enabled():
@@ -377,8 +382,15 @@ def init_db(path=None):
         return
     if version < CORE_SCHEMA_VERSION:
         _init_core_db(target)
-    elif version not in (11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33):
+    elif version not in (11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34):
         raise RuntimeError(f'Base versión {version} no compatible; no se modificó.')
+    if version == 34:
+        backup_database(target,label='pre-tarifas-maquina-v35')
+        with connect(target,write=True) as conn:
+            if conn.execute('PRAGMA user_version').fetchone()[0]==34:
+                _add_machine_rate_column(conn)
+                conn.execute('PRAGMA user_version = 35')
+        return
     if version == 33:
         backup_database(target,label='pre-eliminar-gastos-v34')
         with connect(target,write=True) as conn:
@@ -386,7 +398,7 @@ def init_db(path=None):
                 from models.expense_delete_schema import create_expense_delete_schema
                 create_expense_delete_schema(conn)
                 conn.execute('PRAGMA user_version = 34')
-        return
+        return init_db(target)
     if version == 32:
         backup_database(target,label='pre-stock-directo-v33')
         with connect(target,write=True) as conn:
@@ -561,4 +573,5 @@ def init_db(path=None):
         create_stock_run_schema(conn)
         from models.expense_delete_schema import create_expense_delete_schema
         create_expense_delete_schema(conn)
-        conn.execute("PRAGMA user_version = 34")
+        _add_machine_rate_column(conn)
+        conn.execute("PRAGMA user_version = 35")

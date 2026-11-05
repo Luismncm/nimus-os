@@ -13,11 +13,13 @@ def machine_form(machine=None):
         name = b.text_input('Nombre *',value=row.get('name',''),key='machine_edit_name',placeholder='Ej. Bambu Lab A1')
         statuses = [row['status']] if row.get('current_job') else [s for s in MACHINE_STATUSES if s != 'Imprimiendo']
         state = st.selectbox('Disponibilidad',statuses,index=statuses.index(row.get('status','Disponible')),key='machine_edit_status')
+        rate = st.number_input('Tarifa · MXN/h',min_value=0.,value=(row.get('hourly_rate_cents') or 0)/100,step=1.,key='machine_edit_rate',
+            icon=':material/payments:',help='Energía y desgaste por hora de esta impresora. Se usa como tarifa de máquina al asignar una impresión; 0 o vacío imprime sin costo de máquina.')
         notes = st.text_area('Notas',value=row.get('notes',''),key='machine_edit_notes')
         if row.get('current_job'):
             st.caption('Pausa o termina el trabajo activo para cambiar la disponibilidad.')
         if st.form_submit_button('Guardar máquina',type='primary',width='stretch',key='machine_details_save'):
-            perform(machines.save_machine,code,name,state,notes,machine_id=row.get('id'),message='Máquina guardada.')
+            perform(machines.save_machine,code,name,state,notes,machine_id=row.get('id'),hourly_rate=rate,message='Máquina guardada.')
 
 
 @managed_dialog('Retirar máquina')

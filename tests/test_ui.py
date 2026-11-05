@@ -135,6 +135,7 @@ class UITest(unittest.TestCase):
         self.assert_clean()
         self.assertEqual(self.app.session_state["order_production_view_1"], "Asignar")
         self.app.number_input(key="order_assign_1_1_v0_units").set_value(4)
+        self.app.number_input(key="order_assign_1_1_v0_grams").set_value(20).run()
         self.app.button(key="order_assign_1_1_v0_save").click().run()
         self.assert_clean()
         result=load_snapshot()

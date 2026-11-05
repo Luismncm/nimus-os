@@ -8,6 +8,7 @@ assign a piece, so each datum is captured once and looks the same everywhere.
 import streamlit as st
 from models.constants import PROCESSES
 from services import capture, sales, stock_runs
+from services.inventory import PRINT_PROCESSES
 from services.queue_review import destinations
 from services import piece_stock
 from views.common import managed_dialog, perform
@@ -80,7 +81,8 @@ def stock_direct(snapshot, prefix):
     with section('Cómo y dónde', f'how-{prefix}', 'print'):
         setup = print_setup(snapshot, material, prefix, process=process, label=f"{piece or 'Pieza'} ×{quantity}")
     if st.button(save_label('Imprimir para inventario', quantity, 0, setup['machine_id'], setup['planned_start'], snapshot),
-                 type='primary', width='stretch', key=prefix + '_save', icon=':material/add_task:'):
+                 type='primary', width='stretch', key=prefix + '_save', icon=':material/add_task:',
+                 disabled=process in PRINT_PROCESSES and not setup['estimated_grams']):
         if models and not component:
             st.error('Elige el modelo de la pieza antes de agregarla a la cola.')
             return
@@ -140,7 +142,8 @@ def order_print(snapshot, purpose, orders, labels, order_id, part_id, prefix):
     with section('Cómo y dónde', f'how-{prefix}', 'print'):
         setup = print_setup(snapshot, material, prefix, process=process, label=f"{piece or 'Pieza'} ×{quantity}")
     if st.button(save_label('Agregar a la cola', quantity, extra, setup['machine_id'], setup['planned_start'], snapshot),
-                 type='primary', width='stretch', key=prefix + '_save', icon=':material/add_task:'):
+                 type='primary', width='stretch', key=prefix + '_save', icon=':material/add_task:',
+                 disabled=process in PRINT_PROCESSES and not setup['estimated_grams']):
         perform(capture.new_print, target, part_id=None if piece_id == NEW_PIECE else piece_id, piece=piece, quantity=quantity,
                 material=material or '', process=process, extra=extra, request_key=_key(), **setup,
                 message='Impresión agregada a la cola.' + (f' Al terminar, {extra} unidades extra entran a inventario.' if extra else ''))

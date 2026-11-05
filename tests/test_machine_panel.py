@@ -45,6 +45,7 @@ class MachinePanelTest(unittest.TestCase):
         app.button(key=f'queue_here_2_{ring}').click().run()
         self.assertFalse(app.exception, [e.message for e in app.exception])
         self.assertEqual(app.button(key=f'split_one_{ring}_v0_use_2').label, 'Elegida')
+        app.number_input(key=f'split_one_{ring}_v0_grams').set_value(15).run()
         app.button(key=f'split_one_{ring}_v0_save').click().run()
         job = next(j for j in load_snapshot()['jobs'] if j['part_id'] == ring)
         self.assertEqual((job['machine_id'], job['quantity']), (2, 4))

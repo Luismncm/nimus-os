@@ -68,7 +68,8 @@ class CaptureUITest(unittest.TestCase):
         prefix='capture_'+app.session_state['dialog_request_key']
         app.selectbox(key=prefix+'_order').set_value(oid).run()
         app.text_input(key=prefix+'_piece').set_value('Soporte de pared')
-        app.number_input(key=prefix+'_hours').set_value(2).run()
+        app.number_input(key=prefix+'_hours').set_value(2)
+        app.number_input(key=prefix+'_grams').set_value(50).run()
         app.button(key=prefix+'_save').click().run()
         self.assertFalse(app.exception,[e.message for e in app.exception])
         job=next(j for j in load_snapshot()['jobs'] if j['part_name']=='Soporte de pared')

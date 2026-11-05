@@ -131,7 +131,8 @@ def recipe_extras_form(rid,profile):
 
 def recipe_cost_panel(rid,key):
     report=costing.recipe_cost(rid)
-    st.subheader('Costo estimado por producto', icon=':material/calculate:')
+    st.subheader('Costo de referencia por producto', icon=':material/calculate:')
+    st.caption('Para cotizar: una impresión real factura su propio costo al asignarla, sin pedirlo otra vez aquí.')
     with st.container(horizontal=True):
         st.metric('Costo completo',money(report['total_cents']) if report['total_cents'] is not None else 'Pendiente',border=True)
         st.metric('Costos capturados',money(report['known_cents']),border=True)

@@ -68,6 +68,7 @@ class AgendaUITest(unittest.TestCase):
         gap.set_value(after).run()
         self.assertFalse(app.exception, [e.message for e in app.exception])
         self.assertEqual(app.session_state[f'{key}_when_1'], 'Otra fecha')
+        app.number_input(key=f'{key}_grams').set_value(20).run()
         app.button(key=f'{key}_save').click().run()
         self.assertFalse(app.exception, [e.message for e in app.exception])
         job = next(j for j in load_snapshot()['jobs'] if j['part_id'] == second)

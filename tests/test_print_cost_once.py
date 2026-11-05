@@ -1,7 +1,7 @@
 import unittest
 from pathlib import Path
 from streamlit.testing.v1 import AppTest
-from services import capture, consumption, order_costs, production as p
+from services import capture, consumption, machines, order_costs, production as p
 from services.queries import load_snapshot
 from tests import test_development as fixture
 
@@ -57,6 +57,37 @@ class PrintCostOnceTest(unittest.TestCase):
         self.assertFalse(app.exception, [e.message for e in app.exception])
         job = next(j for j in load_snapshot()['jobs'] if j['order_id'] == oid)
         self.assertEqual((job['estimated_grams'], job['material_rate_cents'], job['estimated_cost_cents']), (50, 40000, 2000))
+
+
+    def test_no_grams_blocks_save_and_a_configured_machine_rate_fills_in(self):
+        machines.save_machine('A1-01', 'Bambu Lab A1', machine_id=1, hourly_rate=15)
+        oid, pid = self.order_part()
+        app = AppTest.from_file(APP, default_timeout=30).run().switch_page('views/queue.py').run()
+        app.session_state['queue_view'] = 'Asignar'
+        app.run()
+        key = next(n.key for n in app.number_input if (n.key or '').endswith('_price'))
+        base = key[:-len('_price')]
+        # No filament captured yet: the save button for this piece is disabled, not just unhelpful.
+        self.assertTrue(next(b for b in app.button if b.key == base + '_save').disabled)
+        # Its printer (A1-01, chosen by default) already has a configured rate; no blank field to fill by hand.
+        self.assertEqual(app.number_input(key=base + '_rate').value, 15.0)
+        app.number_input(key=base + '_grams').set_value(30).run()
+        self.assertFalse(next(b for b in app.button if b.key == base + '_save').disabled)
+
+    def test_gcode_upload_fills_grams_and_duration(self):
+        oid, pid = self.order_part()
+        app = AppTest.from_file(APP, default_timeout=30).run().switch_page('views/queue.py').run()
+        app.session_state['queue_view'] = 'Asignar'
+        app.run()
+        key = next(n.key for n in app.number_input if (n.key or '').endswith('_price'))
+        base = key[:-len('_price')]
+        text = '; total filament weight [g] : 27.5\n; total estimated time: 1h 15m 0s\n'
+        app.file_uploader(key=base + '_gcode').set_value(('pieza.gcode', text.encode('utf-8'), 'text/plain')).run()
+        self.assertFalse(app.exception, [e.message for e in app.exception])
+        self.assertEqual((app.number_input(key=base + '_grams').value, app.number_input(key=base + '_hours').value,
+                          app.number_input(key=base + '_minutes').value), (27.5, 1, 15))
+        self.assertTrue(any('pieza.gcode' in m.value for m in app.success))
+        self.assertFalse(next(b for b in app.button if b.key == base + '_save').disabled)
 
 
 if __name__ == '__main__':
