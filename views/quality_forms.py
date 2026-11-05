@@ -57,7 +57,7 @@ def consumption_form(job):
         from services import consumables
         reference=consumables.material_rate(job.get('material'))
         if reference is not None:
-            st.caption(f"Costo de referencia de {job['material']} en Filamento y consumibles: {money(reference)} MXN/kg sin IVA.")
+            st.caption(f"Costo de referencia de {job['material']} en Insumos y consumibles: {money(reference)} MXN/kg sin IVA.")
         st.caption('Las tarifas se aplican al consumo total. Si hubo varios precios de material o equipos, utiliza sus tarifas medias ponderadas.')
         st.caption('Sin corrección, la impresión cierra con los gramos, la duración y las tarifas capturados al asignarla. Corrige solo si cambió algo (por ejemplo, tras una falla). No cambia piezas, inventario ni pagos.')
         if st.form_submit_button('Guardar corrección',type='primary',width='stretch'):

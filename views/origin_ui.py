@@ -44,9 +44,10 @@ def render():
         elif pending['identity'] is not None:
             st.session_state['origin_product' if panel=='Recetas' else 'origin_inventory_selected']=pending['identity']
     if focus:=take_focus(ledger,origin=True):
+        sku,workspace=focus
         reset_filters('origin_stock')
-        st.session_state.update(origin_workspace='Inventario',origin_stock_selected=focus[0],
-                                origin_inventory_view=focus[1] if focus[1] in INVENTORY_VIEWS else 'Piezas')
+        st.session_state.update(origin_workspace='Inventario',origin_stock_selected=sku['id'],
+                                origin_inventory_view=workspace if workspace in INVENTORY_VIEWS else 'Piezas')
     if request:=st.session_state.pop('origin_builder_request',None):
         origin_builder.apply_request(data,request);st.session_state['origin_workspace']='Crear receta'
     if request:=st.session_state.pop('origin_cart_request',None):
@@ -174,26 +175,25 @@ def supplies_panel(data,ledger):
     st.caption('Cable, foco y empaque son insumos comprados. Se reservan para cada lámpara y no generan trabajos de impresión.')
     show_components([c for c in stock_rows(data,ledger) if c['supply']=='Comprar'],'origin_supplies')
 
-INVENTORY_VIEWS=('Piezas','Bases por color','Insumos y reposición')
+INVENTORY_VIEWS=('Piezas','Bases por color')
 
 
 def inventory_panel(data,ledger):
-    """Everything of Colección Origen in the workshop: its pieces with the full piece management, bases by color and supplies."""
+    """Everything of Colección Origen in the workshop: its pieces with the full piece management and bases by color.
+
+    Insumos share the general inventory's "Insumos y consumibles" tab — see views/supplies_ui.py.
+    """
     from services.inventory_view import present
     from views.inventory_ui import stock_panel,incoming_panel,incoming_rows,balance_row,is_origin
     from views.base_inventory_ui import panel as base_panel
-    from views.restock_ui import panel as restock_panel
     from views.collection_forms import manual_entry_form
     rows=[r for r in present(ledger['skus']) if is_origin(r)]
     balance_row(rows,incoming_rows(st.session_state['snapshot'],origin=True),scope='Colección Origen')
     if st.session_state.get('origin_inventory_view') not in INVENTORY_VIEWS:st.session_state['origin_inventory_view']='Piezas'
     view=st.segmented_control('Inventario de Colección Origen',INVENTORY_VIEWS,key='origin_inventory_view',width='stretch',label_visibility='collapsed',
-                              format_func=lambda v:{'Piezas':':material/category: Piezas','Bases por color':':material/layers: Bases por color',
-                                                    'Insumos y reposición':':material/electrical_services: Insumos y reposición'}[v]) or 'Piezas'
+                              format_func=lambda v:{'Piezas':':material/category: Piezas','Bases por color':':material/layers: Bases por color'}[v]) or 'Piezas'
     if view=='Bases por color':
         base_panel(ledger);return
-    if view=='Insumos y reposición':
-        restock_panel();return
     if rows:
         stock_panel(rows,'origin_stock',title='Piezas Origen')
     else:

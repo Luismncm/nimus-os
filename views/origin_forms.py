@@ -53,5 +53,10 @@ def receipt_form(component):
                 perform(inbound.create,quantity,'Stock',reason,component_id=component['id'],request_key=st.session_state['dialog_request_key'],**extra,
                     after=focus_inbound,navigate='views/collection.py',message='Pedido y gasto registrados. Recíbelo al llegar.')
             else:
+                if component['supply']=='Comprar':
+                    from views.restock_ui import open_restock
+                    after=lambda _:open_restock(component['id'])
+                else:
+                    after=lambda _:focus('Inventario',component['id'])
                 perform(inventory.receive_manual,quantity,'Stock',reason,component_id=component['id'],request_key=st.session_state['dialog_request_key'],
-                    after=lambda _:focus('Inventario',component['id']),message='Existencias registradas. Revisa las reservas de los pedidos pendientes.')
+                    after=after,message='Existencias registradas. Revisa las reservas de los pedidos pendientes.')

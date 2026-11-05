@@ -30,7 +30,7 @@ def material_note(material, jobs):
     stock = next((r for r in consumables.items(jobs) if r['identity'] == consumables.identity(material)), None)
     st.caption(f":material/science: {material} · {consumables.quantity_text(stock['balance'], 'g')} disponibles · la cola ya prevé "
                f"{consumables.quantity_text(stock['committed'], 'g')} · {consumables.cost_text(stock)}" if stock else
-               f":material/science: {material} no está registrado en Filamento y consumibles: no se compara con su existencia; se costea con el precio por kg de arriba.")
+               f":material/science: {material} no está registrado en Insumos y consumibles: no se compara con su existencia; se costea con el precio por kg de arriba.")
 
 
 def quantity_row(units_key, extra_key, *, value, top=None, process='Impresión 3D', extra=True, label='Unidades'):
@@ -165,7 +165,7 @@ def print_setup(snapshot, material, key, *, process='Impresión 3D', label=''):
             minutes = st.number_input('min', min_value=0, max_value=59, step=5, key=key + '_minutes')
             grams = st.number_input('Filamento · g', min_value=0.0, step=5.0, key=key + '_grams', icon=':material/scale:') or None
             price = st.number_input('Filamento · MXN/kg', min_value=0.0, value=material_rate(material) / 100, step=10.0, key=key + '_price',
-                                    icon=':material/sell:', help='Precio del carrete: el de Filamento y consumibles si está registrado, si no el promedio de 380.')
+                                    icon=':material/sell:', help='Precio del carrete: el de Insumos y consumibles si está registrado, si no el promedio de 380.')
             rate = st.number_input('Máquina · MXN/h', min_value=0.0, value=default_rate, step=5.0, key=key + '_rate', icon=':material/payments:',
                                    help='Tarifa de esta impresora (Máquinas → editar). En 0 la impresión cuesta solo su filamento.')
         duration = hours * 60 + minutes or None

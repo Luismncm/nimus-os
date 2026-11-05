@@ -41,7 +41,7 @@ class SidebarAttentionUITest(unittest.TestCase):
         self.assertFalse(any((b.key or '').startswith('today_restock') for b in app.button))
         app.sidebar.button(key='notifications_open').click().run();self.clean(app)
         app.button(key='sidebar_supplies_open').click().run();self.clean(app)
-        self.assertEqual(app.session_state['origin_inventory_view'],'Insumos y reposición')
+        self.assertEqual(app.session_state['collection_workspace'],'Insumos y consumibles')
         app.sidebar.button(key='notifications_open').click().run();self.clean(app)
         app.button(key='sidebar_pending_open').click().run();self.clean(app)
         self.assertEqual(app.session_state['control_view'],'Avisos')

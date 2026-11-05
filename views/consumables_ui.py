@@ -15,7 +15,7 @@ def q(value, row):
 
 
 def focus(item_id):
-    st.session_state['consumables_selected'] = item_id
+    st.session_state.update(consumables_selected=item_id, supplies_selected=f'c{item_id}')
 
 
 @managed_dialog('Consumible', width='medium')
@@ -100,7 +100,7 @@ def consumable_use_form(order_id):
     """From an order: record any consumable used on it, without leaving the order."""
     rows = {r['id']: r for r in c.items(st.session_state['snapshot']['jobs'])}
     if not rows:
-        st.info('Registra primero tus consumibles en Inventario → Filamento y consumibles.');return
+        st.info('Registra primero tus consumibles en Inventario → Insumos y consumibles.');return
     prefix = 'consumable_use_' + _key()
     order = next(o for o in st.session_state['snapshot']['orders'] if o['id'] == order_id)
     st.caption(f"{order['code']} · {order['project']}")
@@ -148,7 +148,7 @@ def consumable_fields(prefix, planned, item_id=None):
     from views.collection_forms import inbound_fields
     rows = {r['id']: r for r in c.items(st.session_state['snapshot']['jobs'])}
     if not rows:
-        st.info('Registra primero el consumible en Inventario → Filamento y consumibles.', icon=':material/inventory_2:')
+        st.info('Registra primero el consumible en Inventario → Insumos y consumibles.', icon=':material/inventory_2:')
         return
     selected = st.selectbox('Consumible', list(rows), index=list(rows).index(item_id) if item_id in rows else 0, key=prefix + '_consumable',
                             format_func=lambda i: f"{rows[i]['name']} · {rows[i]['category']} · {q(rows[i]['balance'], rows[i])} disponibles")
@@ -165,7 +165,7 @@ def consumable_fields(prefix, planned, item_id=None):
         else:
             amount = quantity_input(row, 'Cantidad que ingresa', prefix + '_in', entry)
             notes = st.text_input('Motivo / referencia *', placeholder='Stock inicial, compra, devolución…', key=prefix + '_reason')
-            st.caption('Se suma al saldo. Para corregirlo, haz un conteo desde Filamento y consumibles.')
+            st.caption('Se suma al saldo. Para corregirlo, haz un conteo desde Insumos y consumibles.')
         if st.form_submit_button('Guardar pedido' if planned else 'Registrar entrada', type='primary', icon=':material/add:', width='stretch'):
             if planned:
                 perform(c.create_order, selected, int(packages), package_size=size, supplier=extra['supplier'], ordered_on=extra['ordered_on'],
@@ -212,48 +212,8 @@ def consumable_cancel_order_form(row):
             perform(c.cancel_order, row['id'], reason, expected_token=row['token'], request_key=_key(), message='Pedido cancelado.')
 
 
-def panel():
-    snapshot = st.session_state['snapshot']
-    rows = c.items(snapshot['jobs'])
-    with st.container(horizontal=True, horizontal_alignment='distribute', vertical_alignment='center'):
-        st.caption('Filamento, resina, pinturas, tornillería y otros consumibles, cada uno en su unidad. Los insumos por pieza de las recetas siguen en Reposición de insumos.')
-        with st.container(horizontal=True, gap='small', width='content'):
-            if st.button('Nuevo consumible', key='consumables_new', icon=':material/add:', type='primary'):consumable_item_form()
-            if rows and st.button('Pedir', key='consumables_order', icon=':material/local_shipping:'):add_inventory(st.session_state.get('consumables_selected'))
-    missing = c.unregistered(snapshot['jobs'])
-    if missing:
-        with st.container(border=True, gap='xsmall'):
-            st.markdown(f":orange[**{len(missing)} filamentos de la cola sin registrar**] :gray[· regístralos para saber si alcanzan]")
-            with st.container(horizontal=True, gap='small'):
-                for name in missing[:6]:
-                    if st.button(name, key='consumables_register_' + c.identity(name), icon=':material/add:', type='tertiary'):consumable_item_form(name=name)
-    if not rows:
-        st.info('Aún no hay consumibles. Registra tus filamentos con el mismo nombre de material que usan las piezas.', icon=':material/inventory_2:')
-        return
-    attention = [r for r in rows if r['attention']]
-    a, b, d = st.columns(3)
-    a.metric('Consumibles', len(rows), border=True)
-    b.metric('Requieren atención', len(attention), border=True, help='Sin existencias, bajo mínimo o sin filamento suficiente para la cola.')
-    d.metric('Pedidos abiertos', sum(o['status'] in OPEN for o in c.list_orders()), border=True)
-    categories = ('Todas', *dict.fromkeys(r['category'] for r in rows))
-    category = st.segmented_control('Categoría', categories, default='Todas', key='consumables_category', persist_state='session') or 'Todas'
-    shown = [r for r in rows if category in ('Todas', r['category'])]
-    shown.sort(key=lambda r: (not r['attention'], r['category'], r['name']))
-    table([dict(r, balance_text=q(r['balance'], r), committed_text=q(r['committed'], r) if r['committed'] else '—',
-                free_text=q(r['free_after'], r) if r['committed'] else '—', minimum_text=q(r['minimum'], r) if r['minimum'] else '—',
-                order_text=q(r['on_order'], r) if r['on_order'] else '—', packages_text=f"{r['packages']:g} {r['package_label'].lower()}(s)",
-                cost=c.cost_text(r) if r['package_cost_cents'] is not None else '—',
-                value=money(r['stock_value_cents']) if r['stock_value_cents'] is not None else '—') for r in shown],
-          {'name': 'Consumible', 'category': 'Categoría', 'balance_text': 'Disponible', 'packages_text': 'Equivale a',
-           'committed_text': 'Previsto en cola', 'free_text': 'Libre después', 'minimum_text': 'Mínimo', 'order_text': 'En pedido', 'state': 'Estado',
-           'cost': 'Costo', 'value': 'Valor en existencia'},
-          label='Consumibles por unidad: disponible, previsto, mínimo y en pedido')
-    lookup = {r['id']: r for r in shown}
-    if not lookup:return
-    if st.session_state.get('consumables_selected') not in lookup:st.session_state['consumables_selected'] = next(iter(lookup))
-    selected = st.selectbox('Consumible para gestionar', list(lookup), key='consumables_selected',
-                            format_func=lambda i: f"{lookup[i]['name']} · {q(lookup[i]['balance'], lookup[i])}")
-    row = lookup[selected]
+def item_panel(row):
+    """One consumible's balance, cost and actions — shared by its own tab and the unified Insumos y consumibles screen."""
     with st.container(border=True, gap='small'):
         with st.container(horizontal=True, horizontal_alignment='distribute', vertical_alignment='center'):
             st.markdown(f"**{row['name']}** :gray[· {' · '.join(x for x in (row['category'], row['spec'], row['color'], row['brand']) if x)}]")

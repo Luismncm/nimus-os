@@ -90,7 +90,7 @@ class NotificationUITest(unittest.TestCase):
     def test_record_navigation_sales_expenses_orders_and_restock(self):
         sid,eid=self.finance();oid=self.order(2)
         cases=[(f'Venta:{sid}','open_sale_id',sid),(f'Gasto:{eid}','open_expense_id',eid),
-            (f'Pedido:{oid}','open_order_id',oid),(f"Insumo:{self.supplies['cable_id']}",'origin_inventory_view','Insumos y reposición')]
+            (f'Pedido:{oid}','open_order_id',oid),(f"Insumo:{self.supplies['cable_id']}",'collection_workspace','Insumos y consumibles')]
         before=self.fingerprint()
         for identity,state,value in cases:
             with self.subTest(identity=identity):

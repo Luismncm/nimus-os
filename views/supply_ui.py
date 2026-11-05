@@ -25,12 +25,12 @@ def open_inventory(row):
         # Supplies are Colección Origen components: they are replenished from its inventory.
         from views.restock_ui import open_restock
         open_restock(row['record_id'])
-    workspace = {'Consumible': 'Filamento y consumibles'}.get(row['kind'], 'Compras')
+    workspace = {'Consumible': 'Insumos y consumibles'}.get(row['kind'], 'Compras')
     st.session_state['collection_workspace'] = workspace
     if row['kind'] == 'Pedido de consumibles':st.session_state['orders_kind'] = 'Filamento y consumibles'
     elif row['kind'] == 'Pedido de piezas':
         st.session_state.update(orders_kind='Piezas e insumos', inbound_panel_focus=row['record_id'])
-    elif row['kind'] == 'Consumible':st.session_state['consumables_selected'] = row['record_id']
+    elif row['kind'] == 'Consumible':st.session_state.update(consumables_selected=row['record_id'], supplies_selected=f"c{row['record_id']}")
     else:st.session_state['restock_focus_component'] = row['record_id']
     st.switch_page('views/collection.py')
 

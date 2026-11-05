@@ -109,10 +109,10 @@ class RestockUITest(unittest.TestCase):
     row=RestockTest.row
     minimum=RestockTest.minimum
     def restock_screen(self):
-        # Supplies are Colección Origen components: their replenishment is in Colección Origen → Inventario.
+        # Insumos share the general Inventario's "Insumos y consumibles" tab with consumibles.
         app=AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'),default_timeout=30).run()
-        app.session_state['origin_workspace']='Inventario';app.session_state['origin_inventory_view']='Insumos y reposición'
-        return app.switch_page('views/origen.py').run()
+        app.session_state['collection_workspace']='Insumos y consumibles'
+        return app.switch_page('views/collection.py').run()
     def test_restock_tab_works_with_empty_ledger_and_minimum_grid_saves(self):
         app=self.restock_screen()
         self.assertFalse(app.exception,[e.message for e in app.exception])
@@ -133,7 +133,7 @@ class RestockUITest(unittest.TestCase):
         app.sidebar.button(key='notifications_open').click().run()
         app.button(key='sidebar_supplies_open').click().run()
         self.assertFalse(app.exception,[e.message for e in app.exception])
-        self.assertEqual(app.session_state['origin_inventory_view'],'Insumos y reposición')
+        self.assertEqual(app.session_state['collection_workspace'],'Insumos y consumibles')
         self.assertFalse(app.warning);self.assertFalse(app.error)
         self.assertTrue(any('En negativo' in str(frame.value) for frame in app.dataframe))
 

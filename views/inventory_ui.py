@@ -45,7 +45,7 @@ def balance_row(rows, incoming, *, scope='el taller'):
 
 
 # Where each kind of piece is managed: Colección Origen keeps its own inventory and these panels.
-ORIGIN_PANELS={'Bases por color':'Bases por color','Reposición de insumos':'Insumos y reposición'}
+ORIGIN_PANELS={'Bases por color':'Bases por color'}
 
 
 def open_origin_inventory(panel='Piezas', selected=None):
@@ -58,7 +58,7 @@ def open_origin_inventory(panel='Piezas', selected=None):
 def take_focus(data, *, origin):
     """A just-registered entry selects its piece; one of the other line moves to that page first.
 
-    Returns (sku_id, panel to show) for this page, or None.
+    Returns (sku, workspace to show) for this page, or None.
     """
     movement_id=st.session_state.get('inventory_focus_movement')
     if not movement_id:return None
@@ -69,7 +69,7 @@ def take_focus(data, *, origin):
     if is_origin(sku)!=origin:
         st.switch_page('views/origen.py' if is_origin(sku) else 'views/collection.py')
     st.session_state.pop('inventory_focus_movement',None)
-    return sku['id'],st.session_state.pop('inventory_return_workspace',None)
+    return sku,st.session_state.pop('inventory_return_workspace',None)
 
 
 def empty_inventory():

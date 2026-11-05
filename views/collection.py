@@ -9,7 +9,8 @@ from views.collection_forms import manual_entry_form, found_stock_form
 from views.inventory_ui import (overview_help,empty_inventory,stock_panel,reservations_panel,clients_panel,history_panel,reset_filters,
                                 incoming_panel,incoming_rows,balance_row,is_origin,take_focus,open_origin_inventory,ORIGIN_PANELS)
 from views.inbound_ui import panel as inbound_panel
-from views.consumables_ui import panel as consumables_panel,orders_panel as consumable_orders_panel
+from views.consumables_ui import orders_panel as consumable_orders_panel
+from views.supplies_ui import panel as supplies_panel
 from services.inbound import list_orders as inbound_orders
 from services.consumables import list_orders as consumable_orders
 from services.order_status import FLOW,OPEN,COLORS
@@ -24,12 +25,17 @@ if previous_tab in ORIGIN_PANELS:
     st.session_state['collection_workspace']='Existencias'
     open_origin_inventory(ORIGIN_PANELS[previous_tab])
 old_tabs={'Inventario':'Existencias','Reservas por pedido':'Reservas y clientes','Reservas':'Reservas y clientes','Asignaciones B2B':'Reservas y clientes',
-          'Clientes B2B':'Reservas y clientes','Pedidos':'Compras'}
+          'Clientes B2B':'Reservas y clientes','Pedidos':'Compras','Filamento y consumibles':'Insumos y consumibles'}
 if previous_tab in old_tabs: st.session_state['collection_workspace']=old_tabs[previous_tab]
 if focus:=take_focus(data,origin=False):
-    reset_filters()
-    st.session_state['inventory_selected']=focus[0]
-    st.session_state['collection_workspace']=focus[1] if focus[1] and focus[1] not in ORIGIN_PANELS else 'Existencias'
+    sku,workspace=focus
+    if workspace=='Insumos y consumibles' and sku.get('component_id'):
+        st.session_state['restock_focus_component']=sku['component_id']
+        st.session_state['collection_workspace']='Insumos y consumibles'
+    else:
+        reset_filters()
+        st.session_state['inventory_selected']=sku['id']
+        st.session_state['collection_workspace']=workspace if workspace and workspace not in ORIGIN_PANELS else 'Existencias'
 rows=[r for r in present(data['skus']) if not is_origin(r)]
 incoming=incoming_rows(st.session_state['snapshot'],origin=False)
 from views.shell import actions
@@ -45,7 +51,7 @@ balance_row(rows,incoming)
 with st.container(horizontal=True,horizontal_alignment='distribute',vertical_alignment='center'):
     st.caption(f'{len(rows)} referencias · En taller = Disponibles + Reservadas · Cantidades en piezas')
     overview_help()
-SECTIONS={'Existencias':'📦','Filamento y consumibles':'🧵','Compras':'🚚','Reservas y clientes':'🔖','Movimientos':'🧾'}
+SECTIONS={'Existencias':'📦','Insumos y consumibles':'🧵','Compras':'🚚','Reservas y clientes':'🔖','Movimientos':'🧾'}
 if st.session_state.get('collection_workspace') not in (None,*SECTIONS):st.session_state['collection_workspace']='Existencias'
 section=st.segmented_control('Sección del inventario',list(SECTIONS),default=remembered('collection_workspace','Existencias'),key='collection_workspace',
                              persist_state='session',label_visibility='collapsed',width='stretch',format_func=lambda s:f"{SECTIONS[s]} {s}") or 'Existencias'
@@ -58,7 +64,7 @@ elif section=='Reservas y clientes':
     st.divider()
     clients_panel(data)
 elif section=='Movimientos':history_panel(data)
-elif section=='Filamento y consumibles':consumables_panel()
+elif section=='Insumos y consumibles':supplies_panel()
 else:
     st.subheader('Compras de piezas, insumos y filamento',icon=':material/local_shipping:')
     st.caption('Lo que pediste a proveedores y todavía no llega, de todas las líneas. Al recibirlo entra a su inventario.')

@@ -24,7 +24,7 @@ a, b, c, d = st.columns(4)
 a.metric('Proyectos activos', len(active), border=True)
 b.metric('Impresiones en marcha · en cola', f"{sum(r['running'] for r in active)} · {sum(r['waiting'] for r in active)}", border=True)
 c.metric('Filamento previsto', f"{sum(r['grams_estimated'] for r in active):,.0f} g", border=True,
-         help='Gramos estimados de las impresiones de proyectos activos; ya cuentan en Filamento y consumibles.')
+         help='Gramos estimados de las impresiones de proyectos activos; ya cuentan en Insumos y consumibles.')
 d.metric('Costo de desarrollo', money(sum(r['real_cents'] for r in active)), border=True,
          help='Costo real registrado (consumo de impresiones, consumibles y costos adicionales) de proyectos activos, sin IVA.')
 

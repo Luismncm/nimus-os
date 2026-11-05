@@ -186,7 +186,7 @@ class ConsumablesUITest(unittest.TestCase):
 
     def test_tab_registers_counts_and_orders(self):
         app=AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'),default_timeout=30).run().switch_page('views/collection.py').run()
-        app.session_state['collection_workspace']='Filamento y consumibles';app.run()
+        app.session_state['collection_workspace']='Insumos y consumibles';app.run()
         self.assertFalse(app.exception,[e.message for e in app.exception])
         app.button(key='consumable_count').click().run()
         prefix='consumable_move_'+app.session_state['dialog_request_key']
