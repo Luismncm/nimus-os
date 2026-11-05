@@ -167,7 +167,7 @@ Las 16 secciones ya se pueden usar en la web para el trabajo diario. Estas tarea
 - **Producción:** calendario, tabla con CSV, nueva impresión de pedido (las de prototipo sí están), editar trabajo, reimprimir y corregir costo.
 - **Productos:** editar recetas, duplicar variantes, fotos, crear lámparas y colores de Origen, nuevas compras a proveedor y mínimos de reposición.
 - **Comercial:** facturas (CFDI), corrección de partidas, flujo comercial con condiciones, imágenes y rangos de volumen.
-- **Finanzas:** presupuesto mensual, gastos recurrentes, confirmar saldos, correcciones conciliadas y compras pagadas por socio.
+- **Finanzas:** presupuesto mensual, gastos recurrentes, confirmar saldos, correcciones conciliadas, compras pagadas por socio y eliminar un gasto (v0.67).
 - **Rentabilidad:** editar perfiles de costo y asignar costos a una venta.
 
 Mientras ambas apps existan, solo una debe ser la principal: la local sobre SQLite hasta el corte, o la web sobre Neon después. Si se escribe en las dos, los datos se separan.

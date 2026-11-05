@@ -9,6 +9,7 @@ from unittest.mock import patch
 
 from streamlit.testing.v1 import AppTest
 import db
+from tests.backends import sqlite_only
 from services import expenses as e
 from services import sales as s, quotations as q
 from services.queries import load_snapshot
@@ -196,9 +197,92 @@ class ExpenseTest(unittest.TestCase):
             self.assertFalse(c.execute('PRAGMA foreign_key_check').fetchall())
             self.assertEqual(c.execute('PRAGMA user_version').fetchone()[0],db.SCHEMA_VERSION)
 
+    @sqlite_only
+    def test_migration_from_33_replaces_the_keep_triggers_with_a_backup(self):
+        old=Path(self.tmp.name)/'v33.db'
+        db.init_db(old)
+        with db.connect(old,write=True) as c:
+            eid=c.execute("""INSERT INTO expenses(code,expense_on,concept,category,cost_type,unit,account,tax_mode,
+                total_cents,receipt_type,request_key,request_payload,created_at,updated_at)
+                VALUES('GAS-OLD','2026-01-01','Viejo','Materiales','Variable','NIMUS','Efectivo / caja','Sin desglose',
+                1000,'Pendiente','old','{}','a','a')""").lastrowid
+            c.execute('DROP TRIGGER expense_keep')
+            c.execute("""CREATE TRIGGER expense_keep BEFORE DELETE ON expenses BEGIN
+                SELECT RAISE(ABORT,'Cancela el gasto para conservar su historial.'); END""")
+            c.execute('DROP TRIGGER expense_payment_keep')
+            c.execute("""CREATE TRIGGER expense_payment_keep BEFORE DELETE ON expense_payments BEGIN
+                SELECT RAISE(ABORT,'Anula el pago para conservar el historial.'); END""")
+            c.execute('DROP TABLE expense_delete_unlock')
+            c.execute('PRAGMA user_version=33')
+            with self.assertRaises(sqlite3.IntegrityError):c.execute('DELETE FROM expenses WHERE id=?',(eid,))
+        db.init_db(old)
+        with db.connect(old) as c:
+            self.assertEqual(c.execute('PRAGMA user_version').fetchone()[0],db.SCHEMA_VERSION)
+            self.assertEqual(c.execute('SELECT concept FROM expenses WHERE id=?',(eid,)).fetchone()[0],'Viejo')
+            self.assertFalse(c.execute('PRAGMA foreign_key_check').fetchall())
+        self.assertTrue(list((old.parent/'backups').glob('*pre-eliminar-gastos-v34*')))
+        with patch.dict(os.environ,{'NIMUS_DB_PATH':str(old)}):
+            e.delete(eid,'Ya migrado, ahora sí se puede',expected_revision=e.get_expense(eid)['revision'])
+            self.assertEqual(e.list_expenses(),[])
+
     def app(self):
         app=AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'),default_timeout=25)
         return app.run().switch_page('views/expenses.py').run()
+
+    def test_delete_removes_the_expense_its_payments_and_its_events(self):
+        eid=self.create()
+        self.pay(eid,100)
+        with db.connect() as c:
+            self.assertEqual(c.execute('SELECT COUNT(*) FROM expense_payments WHERE expense_id=?',(eid,)).fetchone()[0],1)
+            self.assertGreater(c.execute('SELECT COUNT(*) FROM expense_events WHERE expense_id=?',(eid,)).fetchone()[0],0)
+        e.delete(eid,'Captura duplicada',expected_revision=e.get_expense(eid)['revision'])
+        self.assertEqual(e.list_expenses(),[])
+        with db.connect() as c:
+            self.assertEqual(c.execute('SELECT COUNT(*) FROM expenses WHERE id=?',(eid,)).fetchone()[0],0)
+            self.assertEqual(c.execute('SELECT COUNT(*) FROM expense_payments WHERE expense_id=?',(eid,)).fetchone()[0],0)
+            self.assertEqual(c.execute('SELECT COUNT(*) FROM expense_events WHERE expense_id=?',(eid,)).fetchone()[0],0)
+            self.assertFalse(c.execute('PRAGMA foreign_key_check').fetchall())
+
+    def test_delete_requires_a_reason_and_the_current_revision(self):
+        eid=self.create()
+        with self.assertRaises(ValueError):e.delete(eid,'',expected_revision=0)
+        with self.assertRaises(ValueError):e.delete(eid,'Prueba',expected_revision=99)
+        self.assertEqual(len(e.list_expenses()),1)
+
+    def test_delete_is_blocked_when_a_partner_covered_it(self):
+        eid=self.create()
+        with db.connect(write=True) as c:
+            row=c.execute('SELECT total_cents FROM expenses WHERE id=?',(eid,)).fetchone()
+            c.execute('INSERT INTO partner_expense_settlements VALUES(?,?,?,?,?,?)',
+                (eid,'Luis',row['total_cents'],self.today.isoformat(),'test-origin',now().isoformat()))
+        with self.assertRaises(ValueError) as ctx:e.delete(eid,'Prueba',expected_revision=e.get_expense(eid)['revision'])
+        self.assertIn('socio',str(ctx.exception))
+        self.assertEqual(len(e.list_expenses()),1)
+        # Covered by a partner, it is locked even against cancelling (partner_expense_cancel trigger).
+        with self.assertRaises(sqlite3.IntegrityError):e.cancel(eid,'Prueba',expected_revision=e.get_expense(eid)['revision'])
+
+    def test_delete_is_blocked_when_linked_to_an_orders_extra_cost(self):
+        from services import production as p,order_costs
+        oid=p.create_order('Pedido test','Cliente')
+        eid=e.create(dict(self.data,order_id=oid),request_key='linked')
+        order_costs.add(oid,'Flete','Envío',expense_id=eid,request_key='extra1',expected_expense_revision=e.get_expense(eid)['revision'])
+        with self.assertRaises(ValueError) as ctx:e.delete(eid,'Prueba',expected_revision=e.get_expense(eid)['revision'])
+        self.assertIn('costo adicional',str(ctx.exception))
+        self.assertEqual(len(e.list_expenses()),1)
+
+    def test_ui_delete_from_detail_returns_to_the_list(self):
+        eid=self.create()
+        app=self.app()
+        app.button(key='expense_open').click().run()
+        self.assertEqual(app.session_state['open_expense_id'],eid)
+        app.button(key='expense_delete').click().run()
+        self.assertFalse(app.exception,[v.message for v in app.exception])
+        self.assertEqual(app.session_state['active_dialog'][0],'expense_delete_form')
+        next(w for w in app.text_input if w.label=='Motivo *').set_value('Prueba duplicada')
+        next(b for b in app.button if b.label=='Eliminar definitivamente').click().run()
+        self.assertFalse(app.exception,[v.message for v in app.exception])
+        self.assertIsNone(app.session_state.get('open_expense_id'))
+        self.assertEqual(e.list_expenses(),[])
 
     def test_ui_capture_preview_and_paid_creation(self):
         app=self.app()

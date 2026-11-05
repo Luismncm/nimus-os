@@ -139,6 +139,19 @@ def expense_cancel_form(row):
                 lambda reason: perform(e.cancel,row['id'],reason,expected_revision=row['revision'],message='Gasto cancelado.'))
 
 
+def _back_to_expenses(_=None):
+    st.session_state.pop('open_expense_id',None)
+
+
+@managed_dialog('Eliminar gasto',width='small')
+def expense_delete_form(row):
+    reason_form('expense_delete', f"**{row['code']} · {row['concept']} · {e.money(row['total_cents'])} MXN**",
+                'Se borra por completo, con sus pagos y su historial; a diferencia de Cancelar, no queda registro ni se puede recuperar.',
+                'Eliminar definitivamente',
+                lambda reason: perform(e.delete,row['id'],reason,expected_revision=row['revision'],after=_back_to_expenses,
+                    navigate='views/expenses.py',message='Gasto eliminado.'))
+
+
 @managed_dialog('Costo recurrente / previsto',width='large')
 def expense_template_form(row=None):
     prefix='expense_template_'+st.session_state['dialog_request_key']

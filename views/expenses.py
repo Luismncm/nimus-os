@@ -10,7 +10,7 @@ from utils.dates import now
 from views.common import table
 from views.navigation import select_order
 from views.expense_forms import (select_expense,expense_form,expense_payment_form,expense_void_form,
-    expense_cancel_form,expense_template_form,expense_generate_form)
+    expense_cancel_form,expense_delete_form,expense_template_form,expense_generate_form)
 from views.finance_workspace import money_header
 from views.treasury_components import financial_table,opens
 from views.catalog_workspace import workspace_tabs
@@ -163,6 +163,8 @@ with st.container(horizontal=True):
         st.switch_page('views/orders.py')
     with st.popover('Más opciones',icon=':material/more_horiz:'):
         if st.button('Cancelar gasto',key='expense_cancel',disabled=row['status']!='Activo' or row['paid_cents']>0): expense_cancel_form(row)
+        st.caption('Eliminar lo borra por completo, sin dejar registro; úsalo para duplicados o capturas erróneas.')
+        if st.button('Eliminar gasto',key='expense_delete',icon=':material/delete_forever:'): expense_delete_form(row)
 detail,payments,history,invoice_tab=icon_tabs(['Detalle','Pagos','Historial','Factura y PDF'],key=f'expense_detail_{selected}',on_change='rerun')
 with invoice_tab:
     invoice_panel('expense',selected)

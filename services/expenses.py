@@ -188,6 +188,34 @@ def void_payment(pid,reason):
         _audit(conn,row['expense_id'],f"Pago anulado {row['code']} · {reason}")
 
 
+def delete(eid,reason,*,expected_revision):
+    """Remove a gasto entirely — payments, audit trail and all — unlike cancelar, which keeps it as history.
+
+    Blocked only where the database would be left with a dangling reference: a partner covered it,
+    it is linked to a purchase order or to an order's extra cost, or it came from the historical import.
+    """
+    reason=_text(reason,'Motivo',True)
+    with connect(write=True) as conn:
+        row=_get(conn,eid)
+        _revision(row,expected_revision)
+        if conn.execute('SELECT 1 FROM partner_expense_settlements WHERE expense_id=?',(eid,)).fetchone():
+            raise ValueError('Un socio cubrió este gasto: se conserva, sin poder cancelarse ni eliminarse, como historial de su aportación.')
+        if conn.execute('SELECT 1 FROM inventory_inbound_expenses WHERE expense_id=?',(eid,)).fetchone():
+            raise ValueError('Está vinculado a una compra de inventario; corrígelo desde su detalle. Puedes cancelarlo.')
+        if conn.execute('SELECT 1 FROM order_extra_costs WHERE expense_id=?',(eid,)).fetchone():
+            raise ValueError('Está vinculado a un costo adicional de un pedido; anula ese vínculo primero. Puedes cancelarlo.')
+        if conn.execute('SELECT 1 FROM consumable_orders WHERE expense_id=?',(eid,)).fetchone():
+            raise ValueError('Está vinculado a un pedido de filamento o consumibles; revísalo primero. Puedes cancelarlo.')
+        if conn.execute('SELECT 1 FROM sheet_import_rows WHERE expense_id=?',(eid,)).fetchone() or \
+           conn.execute('SELECT 1 FROM capital_movements WHERE linked_expense_id=?',(eid,)).fetchone():
+            raise ValueError('Viene de la migración histórica de NIMUS · Control; se conserva como respaldo de esa importación. Puedes cancelarlo.')
+        conn.execute('INSERT INTO expense_delete_unlock(id) VALUES(1)')
+        conn.execute('DELETE FROM expense_payments WHERE expense_id=?',(eid,))
+        conn.execute('DELETE FROM expense_events WHERE expense_id=?',(eid,))
+        conn.execute('DELETE FROM expenses WHERE id=?',(eid,))
+        conn.execute('DELETE FROM expense_delete_unlock')
+
+
 def cancel(eid,reason,*,expected_revision,_conn=None):
     reason=_text(reason,'Motivo',True)
     with (nullcontext(_conn) if _conn is not None else connect(write=True)) as conn:

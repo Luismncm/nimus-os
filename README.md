@@ -1,3 +1,7 @@
+# v0.67 · Eliminar gastos efectuados (app local)
+
+Los gastos ya solo se podían cancelar (quedan como histórico). Ahora, desde Más opciones en su detalle, también se pueden eliminar por completo — sin dejar registro, a diferencia de cancelar. Se bloquea solo cuando queda una referencia externa sin destino: un socio que lo cubrió, una compra de inventario, el costo adicional de un pedido o un gasto de la migración histórica. Funciona igual en SQLite y Postgres; por ahora, disponible solo en la app local. [Detalle](docs/ELIMINAR_GASTOS_V067.md).
+
 # v0.57 · Negocio más orgánico: cuentas con historial, Gastos y Ventas más ligeros
 
 Cada cuenta (en Resumen y previsión y en Tesorería) tiene ahora un botón «Ver historial» que lleva directo a sus movimientos filtrados. Las tres páginas de Negocio se leen como una sola barra conectada, con la actual resaltada. Las cifras principales de Ventas, Gastos y Control de gastos pasan de una fila plana de números a tarjetas con borde de color según si hay algo pendiente. El bloque de correspondencia con la hoja de control migrada se redujo a un solo enlace. [Detalle](docs/NEGOCIO_V057.md).
