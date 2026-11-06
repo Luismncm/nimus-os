@@ -1,3 +1,7 @@
+# v0.72 · Prototipos: bitácora, reportes técnicos y archivos por proyecto
+
+Cada proyecto de Desarrollo y prototipos tiene ahora un panel amplio («Abrir panel») con su bitácora de notas, sus reportes técnicos (qué se probó, resultado Aprobado / Ajustar / Rechazado y la impresión probada) y sus archivos y enlaces. Las rutas de modelos, perfiles o carpetas se abren con un clic en este equipo, y los enlaces fijados quedan como accesos rápidos en la tarjeta del proyecto. Nunca se ejecutan programas desde un enlace. [Detalle](docs/PROTOTIPOS_V072.md).
+
 # v0.71 · Costo de receta desde G-code y recetas TAP BAR NFC
 
 «Editar costo de pieza» acepta ahora un G-code: lee gramos y tiempo del slicer y deja la fuente como «G-code: archivo». El diálogo usa los mismos campos que una impresión real (Filamento · MXN/kg y Máquina · MXN/h) y arranca con el mismo precio del carrete (o 380 MXN/kg), así el costo de referencia y el real parten del mismo número. En el catálogo quedaron TAP BAR NFC 2, 3 y 4 con 2, 3 y 4 CHIPS NFC respectivamente. [Detalle](docs/COSTO_RECETAS_V071.md).
