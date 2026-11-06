@@ -46,13 +46,13 @@ class PrintCostUITest(unittest.TestCase):
         return AppTest.from_file(str(Path(__file__).resolve().parents[1]/'app.py'),default_timeout=30).run().switch_page('views/costs.py').run()
     def clean(self,a):self.assertFalse(a.exception,[x.message for x in a.exception])
     def values(self,a,**kw):
-        labels={'grams':'Gramos por pieza','price':'Precio por gramo · MXN/g','hours':'Tiempo · horas','mins':'Tiempo · minutos','rate':'Tarifa de tiempo · MXN/h'}
+        labels={'grams':'Gramos por pieza','price':'Filamento · MXN/kg','hours':'Tiempo · horas','mins':'Tiempo · minutos','rate':'Máquina · MXN/h'}
         for key,value in kw.items():next(x for x in a.number_input if x.label==labels[key]).set_value(value)
 
     def test_default_print_editor_preview_save_recipe_and_frozen_sale(self):
         self.extras();a=self.app();a.button(key='cost_recipe_edit').click().run();self.clean(a)
         self.assertEqual(next(s for s in a.selectbox if s.label=='Cálculo').value,c.PRINT_MODE)
-        self.values(a,grams=100.,price=.44,hours=2,mins=30.,rate=20.)
+        self.values(a,grams=100.,price=440.,hours=2,mins=30.,rate=20.)
         next(b for b in a.button if b.label=='Calcular costo').click().run();self.clean(a)
         self.assertEqual(next(m for m in a.metric if m.label=='Costo por pieza').value,'$94.00')
         self.assertIsNone(c.component_profile(self.cid))
@@ -69,7 +69,7 @@ class PrintCostUITest(unittest.TestCase):
         c.save_component(self.cid,old,source='Anterior',expected_id=None)
         a=self.app();a.button(key='cost_recipe_edit').click().run()
         next(s for s in a.selectbox if s.label=='Cálculo').set_value(c.PRINT_MODE).run();self.clean(a)
-        self.assertEqual(next(x for x in a.number_input if x.label=='Precio por gramo · MXN/g').value,.44)
+        self.assertEqual(next(x for x in a.number_input if x.label=='Filamento · MXN/kg').value,440.)
         self.assertEqual(next(x for x in a.number_input if x.label=='Gramos del lote').value,400.)
         next(b for b in a.button if b.label=='Calcular costo').click().run();self.clean(a)
         self.assertEqual(next(m for m in a.metric if m.label=='Costo por pieza').value,'$59.00')
@@ -84,14 +84,37 @@ class PrintCostUITest(unittest.TestCase):
         else:
             a=self.app().switch_page('views/collection.py').run();key='inventory_component_cost'
         a.button(key=key).click().run();self.clean(a)
-        self.values(a,grams=10.,price=.075,hours=0,mins=30.,rate=10.)
+        self.values(a,grams=10.,price=75.,hours=0,mins=30.,rate=10.)
         next(b for b in a.button if b.label=='Guardar costo de pieza').click().run();self.clean(a)
         self.assertEqual(c.component_amount(c.component_profile(self.cid)['data'])['total_cents'],575)
         self.assertEqual(inventory.load_inventory(),before)
 
+    def test_gcode_fills_the_piece_cost_and_price_defaults_to_the_spool(self):
+        a=self.app();a.button(key='cost_recipe_edit').click().run();self.clean(a)
+        # No saved rate: the same filament price a print would use (380 MXN/kg when the spool is not registered).
+        self.assertEqual(next(x for x in a.number_input if x.label=='Filamento · MXN/kg').value,380.)
+        prefix='component_cost_'+a.session_state['dialog_request_key']
+        text='; total filament weight [g] : 50\n; total estimated time: 1h 30m 0s\n'
+        a.file_uploader(key=prefix+'_gcode').set_value(('base.gcode',text.encode('utf-8'),'text/plain')).run();self.clean(a)
+        self.assertEqual([next(x for x in a.number_input if x.label==l).value for l in ('Gramos por pieza','Tiempo · horas','Tiempo · minutos')],[50.,1,30.])
+        self.assertTrue(any('base.gcode' in s.value for s in a.success))
+        self.assertEqual(next(t for t in a.text_input if t.label=='Fuente o motivo *').value,'G-code: base.gcode')
+        self.values(a,rate=20.)
+        next(b for b in a.button if b.label=='Guardar costo de pieza').click().run();self.clean(a)
+        # 50 g × $380/kg = $19 + 1.5 h × $20/h = $30.
+        profile=c.component_profile(self.cid)
+        self.assertEqual((c.component_amount(profile['data'])['total_cents'],profile['source']),(4900,'G-code: base.gcode'))
+
+    def test_unreadable_gcode_warns_and_leaves_fields(self):
+        a=self.app();a.button(key='cost_recipe_edit').click().run()
+        prefix='component_cost_'+a.session_state['dialog_request_key']
+        a.file_uploader(key=prefix+'_gcode').set_value(('vacio.gcode',b'G1 X10 Y10\n','text/plain')).run();self.clean(a)
+        self.assertTrue(a.warning)
+        self.assertIsNone(next(x for x in a.number_input if x.label=='Gramos por pieza').value)
+
     def test_excessive_time_shows_validation_without_writing_or_crashing(self):
         a=self.app();a.button(key='cost_recipe_edit').click().run()
-        self.values(a,grams=100.,price=.44,hours=16666,mins=59.,rate=20.)
+        self.values(a,grams=100.,price=440.,hours=16666,mins=59.,rate=20.)
         next(b for b in a.button if b.label=='Guardar costo de pieza').click().run();self.clean(a)
         self.assertTrue(a.error)
         self.assertIsNone(c.component_profile(self.cid))

@@ -1,3 +1,7 @@
+# v0.71 · Costo de receta desde G-code y recetas TAP BAR NFC
+
+«Editar costo de pieza» acepta ahora un G-code: lee gramos y tiempo del slicer y deja la fuente como «G-code: archivo». El diálogo usa los mismos campos que una impresión real (Filamento · MXN/kg y Máquina · MXN/h) y arranca con el mismo precio del carrete (o 380 MXN/kg), así el costo de referencia y el real parten del mismo número. En el catálogo quedaron TAP BAR NFC 2, 3 y 4 con 2, 3 y 4 CHIPS NFC respectivamente. [Detalle](docs/COSTO_RECETAS_V071.md).
+
 # v0.69 · Insumos y consumibles: una sola pantalla (1 de 2)
 
 Insumos (cable, foco, empaque) y consumibles (filamento, resina, pintura, tornillería) vivían en dos pantallas separadas, cada una con su tabla y su editor de mínimos. Ahora comparten una sola pantalla en Inventario → Insumos y consumibles: una tabla combinada con filtro por tipo y buscador, un panel de detalle con las mismas acciones de siempre, y dos desplegables con las columnas más finas para quien las necesite. Falta la parte 2: integrar el inventario de Colección Origen al Inventario general. [Detalle](docs/INVENTARIO_V069.md).

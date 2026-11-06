@@ -11,36 +11,77 @@ def amount_field(container,label,value,key):
     return cents(result) if result is not None else None
 
 
-def printing_fields(d,prefix,scope):
+def gcode_fill(prefix,keys,source_key=None):
+    """Read time and filament weight from a slicer's .gcode and put them in this form's fields.
+
+    Sits outside the form (a form only reruns on submit) and before its fields, which read these
+    values from session state. A new file fills once; a later manual correction is never overwritten.
+    """
+    from services import gcode
+    file=st.file_uploader('Subir G-code · opcional',type=['gcode','gco','g'],key=prefix+'_gcode',
+        help='Lee el tiempo y el peso de filamento que el slicer ya calculó (Bambu Studio, OrcaSlicer, PrusaSlicer, Cura).')
+    if not file:
+        st.session_state.pop(prefix+'_gcode_sig',None);st.session_state.pop(prefix+'_gcode_read',None)
+        return
+    signature=f'{file.name}:{file.size}'
+    if st.session_state.get(prefix+'_gcode_sig')!=signature:
+        st.session_state[prefix+'_gcode_sig']=signature
+        result=gcode.parse_file(file)
+        st.session_state[prefix+'_gcode_read']=dict(result,name=file.name)
+        if result['found']:
+            minutes=result['minutes']
+            if minutes is not None:
+                st.session_state[keys['hours']]=minutes//60;st.session_state[keys['mins']]=float(minutes%60)
+            if result['grams'] is not None:st.session_state[keys['grams']]=float(result['grams'])
+            if source_key:st.session_state[source_key]=f'G-code: {file.name}'
+    read=st.session_state[prefix+'_gcode_read']
+    if read['found']:
+        bits=([f"{read['minutes']//60} h {read['minutes']%60} min"] if read['minutes'] is not None else [])+([f"{read['grams']:g} g"] if read['grams'] is not None else [])
+        st.success(f"Leído de {read['name']}: "+' · '.join(bits),icon=':material/auto_awesome:')
+    else:
+        st.warning('No se reconocieron el tiempo ni el peso en este archivo. Captúralos a mano.',icon=':material/warning:')
+
+
+def _seed(key,value):
+    """value= only on first use: once a G-code (or the person) set the field, its session value wins."""
+    return {} if key in st.session_state else dict(value=value)
+
+
+def printing_fields(d,prefix,scope,material=''):
     per_lot=scope=='Por lote'
-    st.caption('Usa gramos y tiempo del lote completo.' if per_lot else 'Usa gramos y tiempo de una sola pieza.')
+    st.caption('Usa gramos y tiempo del lote completo (la placa del G-code).' if per_lot else 'Usa gramos y tiempo de una sola pieza.')
     a,b=st.columns(2)
     weight=d['grams']*d['lot_units'] if per_lot and d['grams'] is not None else d['grams']
     grams=a.number_input('Gramos del lote' if per_lot else 'Gramos por pieza',min_value=0.,max_value=1000000.,
-        value=float(weight) if weight is not None else None,step=1.,key=prefix+'_grams_'+scope,placeholder='Del slicer')
-    price=b.number_input('Precio por gramo · MXN/g',min_value=0.,max_value=10000.,
-        value=d['material_rate_cents']/100000 if d['material_rate_cents'] is not None else None,step=.001,format='%.5f',key=prefix+'_gram_price',placeholder='Ej. 0.44')
+        **_seed(prefix+'_grams_'+scope,float(weight) if weight is not None else None),step=1.,key=prefix+'_grams_'+scope,placeholder='Del slicer')
+    # Same unit and default as a print in the queue: the spool's MXN/kg, or the 380 average when it is not registered.
+    from services.capture import material_rate
+    rate=d['material_rate_cents'] if d['material_rate_cents'] is not None else material_rate(material)
+    kg=b.number_input('Filamento · MXN/kg',min_value=0.,max_value=10000000.,value=rate/100,step=10.,format='%.2f',key=prefix+'_kg_price',
+        help='Precio del carrete: el de Insumos y consumibles si está registrado, si no el promedio de 380. Es el mismo que usa una impresión al asignarla.')
+    price=kg/1000 if kg is not None else None
     duration=d['lot_minutes'] if per_lot or d['lot_minutes'] is None else d['lot_minutes']/d['lot_units']
     a,b,c=st.columns(3)
-    hours=a.number_input('Tiempo · horas',min_value=0,max_value=16666,value=int(duration//60) if duration is not None else None,
+    hours=a.number_input('Tiempo · horas',min_value=0,max_value=16666,**_seed(prefix+'_hours_'+scope,int(duration//60) if duration is not None else None),
         step=1,key=prefix+'_hours_'+scope,placeholder='Ej. 2')
-    mins=b.number_input('Tiempo · minutos',min_value=0.,max_value=59.999999,value=float(duration%60) if duration is not None else None,
+    mins=b.number_input('Tiempo · minutos',min_value=0.,max_value=59.999999,**_seed(prefix+'_mins_'+scope,float(duration%60) if duration is not None else None),
         step=1.,format='%.2f',key=prefix+'_mins_'+scope,placeholder='Ej. 30')
-    hourly=c.number_input('Tarifa de tiempo · MXN/h',min_value=0.,max_value=10000000.,
-        value=d['machine_rate_cents']/100 if d['machine_rate_cents'] is not None else None,step=1.,key=prefix+'_hour_price',placeholder='Ej. 15')
+    hourly=c.number_input('Máquina · MXN/h',min_value=0.,max_value=10000000.,
+        value=d['machine_rate_cents']/100 if d['machine_rate_cents'] is not None else None,step=1.,key=prefix+'_hour_price',placeholder='Ej. 15',
+        help='Energía y desgaste por hora, como la tarifa de una impresora en Máquinas.')
     units=st.number_input('Piezas producidas en el lote',min_value=1,max_value=1000000,value=d['lot_units'],step=1,key=prefix+'_print_units') if per_lot else 1
     with st.expander('Costos adicionales y referencia',expanded=bool(d.get('fixed_cents'))):
         fixed=amount_field(st,'Adicional por pieza · MXN',d.get('fixed_cents') or 0,prefix+'_print_fixed')
         st.caption('Opcional. Incluye energía o desgaste en la tarifa por hora; evita sumarlos otra vez aquí.')
         notes=st.text_area('Notas de costeo',value=d['notes'],key=prefix+'_print_notes')
-        source=st.text_input('Fuente o motivo *',value='Parámetros de impresión',key=prefix+'_print_source')
+        source=st.text_input('Fuente o motivo *',**_seed(prefix+'_print_source','Parámetros de impresión'),key=prefix+'_print_source')
     minutes=(hours or 0)*60+(mins or 0) if hours is not None or mins is not None else None
     try:
         data=costing.printing_inputs(grams=grams,price_per_gram=price,minutes=minutes,hourly_rate=hourly,
             units=units,per_lot=per_lot,fixed_cents=fixed,notes=notes)
     except ValueError as exc:
         st.error(str(exc));data=None
-    st.caption('Costo = gramos × MXN/g + (horas + minutos ÷ 60) × MXN/h.'+
+    st.caption('Costo = gramos × MXN/kg ÷ 1,000 + (horas + minutos ÷ 60) × MXN/h.'+
         (' El material y el tiempo se dividen entre las piezas del lote.' if per_lot else ' Resultado por pieza.'))
     return data,source
 
@@ -73,9 +114,10 @@ def component_cost_form(component,profile,*,printing=False):
     scope='Por pieza'
     if mode==costing.PRINT_MODE:
         scope=st.segmented_control('Datos del cálculo',('Por pieza','Por lote'),default='Por lote' if d['lot_units']>1 else 'Por pieza',key=prefix+'_scope', format_func=tag) or 'Por pieza'
+        gcode_fill(prefix,dict(grams=prefix+'_grams_'+scope,hours=prefix+'_hours_'+scope,mins=prefix+'_mins_'+scope),prefix+'_print_source')
     with st.form(prefix,border=mode!=costing.PRINT_MODE):
         if mode==costing.PRINT_MODE:
-            with st.container(gap='xsmall'):data,source=printing_fields(d,prefix,scope)
+            with st.container(gap='xsmall'):data,source=printing_fields(d,prefix,scope,component.get('material',''))
         elif purchased:
             mode='Costo unitario';grams=rate=minutes=machine=fixed=None;units=1
             direct=amount_field(st,'Costo de compra por unidad · MXN',d['direct_cents'],prefix+'_direct')
